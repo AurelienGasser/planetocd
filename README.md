@@ -9,3 +9,9 @@ About
 ----------
 
 Work in progress, come back soon!
+
+
+Contributing
+----------
+
+Work in progress, come back soon!
