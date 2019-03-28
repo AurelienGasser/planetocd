@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "application#index"
+
+  scope ":locale", locale: /fr/ do
+    root to: "application#index"
+    resources :articles
+  end
+
+  get '/:locale' => 'application#index'
+  get '' => 'application#detect_language'
 end
