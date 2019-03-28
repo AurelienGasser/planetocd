@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if Rails.env.production? %>
+      <%= render "gtag.html.erb" %>
+    <% end %>
     <title>coming soon...</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
