@@ -1,0 +1,20 @@
+.layout-width {
+    margin: 0 auto;
+    max-width: 1605px;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 1em 0;
+}
+
+.footer {
+    background: lightgray;
+}
+
+.footer-content {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 1em 0;
+}
