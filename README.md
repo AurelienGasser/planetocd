@@ -16,6 +16,6 @@ Work in progress, come back soon!
 Contributing
 ----------
 
-See the [contribution guide]('./CONTRIBUTING.md')
+See the [contribution guide](./CONTRIBUTING.md)
 
 Work in progress, come back soon!
