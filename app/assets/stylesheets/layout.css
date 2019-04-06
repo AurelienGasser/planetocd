@@ -3,17 +3,23 @@
     max-width: 1605px;
 }
 
-.content {
-    margin: 0 auto;
-    max-width: 1024px;
-    padding: 1em 0;
+.site-header {
+    background: white;
+    border-bottom: 1px solid #ccc;
 }
 
-.footer {
+.site-content {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 1em;
+}
+
+.site-footer {
+    border-top: 1px solid #ccc;
     background: lightgray;
 }
 
-.footer-content {
+.site-footer-content {
     margin: 0 auto;
     max-width: 1024px;
     padding: 1em 0;
