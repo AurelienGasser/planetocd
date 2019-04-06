@@ -1,8 +1,6 @@
 # Lexicon
 
-Some OCD-related terms have no "official" translation in foreign languages.
-
-We use the following lexicons in our articles to ensure a consistent experience.
+Some OCD-related terms have no "official" translation in foreign languages. Planet OCD uses the following lexicon to ensure a consistent experience.
 
 
 | English       | Français |
