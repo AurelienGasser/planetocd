@@ -16,9 +16,16 @@
                 <div class="uk-navbar-item uk-visible@s">
                     <a href="<%= Constants::GITHUB %>" class="uk-icon" uk-icon="github"></a>
                 </div>
-                <a uk-navbar-toggle-icon="" href="#offcanvas" uk-toggle="" class="uk-navbar-toggle uk-hidden@s uk-navbar-toggle-icon uk-icon">
-                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg>
-                </a>
+                <div class="uk-button">
+                    <span class="uk-margin-small-right">Menu</span>
+                    <span uk-navbar-toggle-icon></span> 
+                </div>
+                <div uk-dropdown>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li class="uk-active"><%= link_to(t('Home'), :controller => 'articles', :action => 'index') %></li>
+                        <li><%= link_to(t('About'), :controller => 'static_pages', :action => 'about') %></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </div>
