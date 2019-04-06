@@ -64,3 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "less-rails", "~> 4.0"
 
 gem "therubyracer", "~> 0.12.3"
+
+gem "active_link_to", "~> 1.0"

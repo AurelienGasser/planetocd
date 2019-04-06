@@ -8,8 +8,8 @@
             </div>
             <div class="uk-navbar-center">
                 <ul class="uk-navbar-nav uk-visible@s">
-                    <li class="uk-active"><%= link_to(t('Home'), :controller => 'articles', :action => 'index') %></li>
-                    <li><%= link_to(t('About'), :controller => 'static_pages', :action => 'about') %></li>
+                    <%= active_link_to t('Home'), articles_url, wrap_tag: :li, class_active: 'uk-active' %>
+                    <%= active_link_to t('About'), about_url, wrap_tag: :li, class_active: 'uk-active' %>
                 </ul>
             </div>
             <div class="uk-navbar-right">
@@ -22,8 +22,8 @@
                 </div>
                 <div uk-dropdown>
                     <ul class="uk-nav uk-dropdown-nav">
-                        <li class="uk-active"><%= link_to(t('Home'), :controller => 'articles', :action => 'index') %></li>
-                        <li><%= link_to(t('About'), :controller => 'static_pages', :action => 'about') %></li>
+                        <li class="uk-active"><%= link_to t('Home'), articles_url %></li>
+                        <li class="uk-active"><%= link_to t('About'), about_url %></li>
                     </ul>
                 </div>
             </div>
