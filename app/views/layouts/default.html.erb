@@ -2,7 +2,7 @@
 <html lang="<%= I18n.locale %>">
   <head>
     <% if Rails.env.production? %>
-      <%= render "gtag.html.erb" %>
+      <%= render "partials/gtag.html.erb" %>
     <% end %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,10 +21,10 @@
   </head>
 
   <body>
-    <%= render "header.erb" %>
+    <%= render "partials/header.erb" %>
     <div class="site-content">
       <%= yield %>
     </div>
-    <%= render "footer.erb" %>
+    <%= render "partials/footer.erb" %>
   </body>
 </html>
