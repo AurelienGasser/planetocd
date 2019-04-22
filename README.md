@@ -13,7 +13,7 @@ About
 Work in progress, come back soon!
 
 
-Contributing
+Contribute
 ----------
 
 See the [contribution guide](./CONTRIBUTING.md)
