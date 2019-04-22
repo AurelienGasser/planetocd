@@ -6,6 +6,6 @@ Contributing
 
 ## Translate
 
-**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
+Are you bilingual in English and a foreign language? You can help by translating new articles!
 
-To ensure a consistent translation, your can refer to our word [lexicon](./lexicon.md)
+Please see the [Translation Guide](./translation_guide.md) for more information on how to help by translating new content.
