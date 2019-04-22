@@ -6,6 +6,6 @@ Contributing
 
 ## Translate
 
-Are you bilingual in English and a foreign language? You can help by translating new articles!
+Are you bilingual in English and a foreign language? You can help by translating new articles.
 
-Please see the [Translation Guide](./translation_guide.md) for more information on how to help by translating new content.
+See the [Translation Guide](./translation_guide.md) for more information.

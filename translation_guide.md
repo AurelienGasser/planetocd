@@ -3,7 +3,7 @@ Translation Guide
 
 **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
 
-To ensure a consistent translation, your can refer to our word [lexicon](./lexicon.md)
+To ensure a consistent translation, your can refer to our [lexicon](./lexicon.md)
 
 Also please try to to respect the following guidelines:
 
