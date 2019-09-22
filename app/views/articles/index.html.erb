@@ -1,7 +1,7 @@
 <h1><%= t :Articles%></h2>
 
 <section>
-    <% Rails.application.articles['fr'].each do |key, article| %>
+    <% Rails.application.articles[params[:locale]].each do |key, article| %>
         <article class="article-excerpt">
             <h2><%# article.title %></h2>
             <div><%# article.html_content_short %></div>
