@@ -21,7 +21,6 @@ module Planetocd
           @articles[article.language] = Hash.new
         end
         @articles[article.language][article.title] = article
-        print article
       end
     end
 
