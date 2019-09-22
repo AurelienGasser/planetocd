@@ -16,9 +16,12 @@ module Planetocd
       @articles = Hash.new
       to_convert = Dir.glob("#{path}/*.mdocd")
       to_convert.each do |article_path|
-        mdocd_content = IO.read(article_path)
-        article = Article.new(mdocd_content)
-        @articles[article.title] = article
+        article = Article.new(article_path)
+        if @articles[article.language] == nil
+          @articles[article.language] = Hash.new
+        end
+        @articles[article.language][article.title] = article
+        print article
       end
     end
 
