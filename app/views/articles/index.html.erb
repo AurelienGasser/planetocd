@@ -2,9 +2,9 @@
 
 <section>
     <% Rails.application.articles.each do |key, article| %>
-        <article>
+        <article class="article-excerpt">
             <h2><%# article.title %></h2>
-            <div><%# article.html_content %></div>
+            <div><%# article.html_content_short %></div>
         </article>
     <% end %>
 </section>
