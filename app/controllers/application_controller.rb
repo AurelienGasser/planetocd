@@ -1,6 +1,7 @@
 class ApplicationController < BaseController
     def index
-        render 'articles/index'
+        redirect_to(articles_url)
+        #render 'articles/index'
     end
 
     def about        
