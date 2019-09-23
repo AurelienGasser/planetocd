@@ -3,8 +3,10 @@
 <section>
     <% Rails.application.articles[params[:locale]].each do |key, article| %>
         <article class="article-excerpt">
-            <h2><%# article.title %></h2>
-            <div><%# article.html_content_short %></div>
+            <a href="<%= article_url(article.id) %>">
+                <h2><%= article.title %></h2>
+            </a>
+            <div><%= article.html_content_short %></div>
         </article>
     <% end %>
 </section>
