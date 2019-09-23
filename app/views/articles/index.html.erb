@@ -1,19 +1,17 @@
 <h1><%= t :Articles%></h2>
 
-<section>
+    <section>
     <% Rails.application.articles[params[:locale]].each do |key, article| %>
         <article class="article-excerpt">
             <a href="<%= article_url(article.id) %>">
                 <h2><%= article.title %></h2>
             </a>
-            <div><%= article.html_content_short %></div>
+            <div><%= article.content_html_short %></div>
         </article>
     <% end %>
 </section>
 
-<%= t :coming_soon %>
-
 <br/>
 <br/>
 
-<a href="" uk-totop><%= t :Back_to_top %></a>
+<a href="" uk-totop><%= t :Back_to_top %>&nbsp;</a>

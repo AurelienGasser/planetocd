@@ -1,4 +1,24 @@
 <% article = params[:article] %>
 
-<h2><%= article.title %></h2>
-<div><%= article.html_content %></div>
+<a href="<%=articles_url%>">&lt;&lt; <%= t :Back_to_all_articles %></a>
+
+<section class="article-metadata">
+    <label>Original article: </label>
+    <a href="<%=article.source%>" class="external-link" target="_blank"><%=article.original_title%></a>
+    by <em><%=article.author%></em>
+</section>
+
+<article class="article">
+    <h2><%= article.title %></h2>
+    <div><%= article.content_html %></div>
+</article>
+
+<a href="" uk-totop><%= t :Back_to_top %>&nbsp;</a>
+<a href="<%=articles_url%>"><%= t :All_articles %></a>
+
+<% if article.public_notes_html %>
+    <div class="public-notes">
+        <label>Notes: </label>
+        <%=article.public_notes_html%>
+    </div>
+<% end %>
