@@ -1,6 +1,6 @@
-<h1><%= t :Articles%></h2>
+<h1><%= t :Recent_articles%></h2>
 
-    <section>
+<section class="articles-list">
     <% Rails.application.articles[params[:locale]].each do |key, article| %>
         <article class="article-excerpt">
             <a href="<%= article_url(article.id) %>">
@@ -10,8 +10,3 @@
         </article>
     <% end %>
 </section>
-
-<br/>
-<br/>
-
-<a href="" uk-totop><%= t :Back_to_top %>&nbsp;</a>
