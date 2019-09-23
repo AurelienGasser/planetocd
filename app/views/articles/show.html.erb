@@ -6,7 +6,7 @@
     <h1 class="uk-article-title"><%= article.title %></h1>
 
     <p class="uk-article-meta">
-        <label>Original article: </label>
+        <label><%= t :Original article%>: </label>
         <a href="<%=article.original_url%>" class="external-link" target="_blank"><%=article.original_title%></a>
         by <em><%=article.original_author%></em>
         on <a href="<%=article.original_URL_scheme_and_host%>" target="_blank"><%=article.original_URL_host%></a>
