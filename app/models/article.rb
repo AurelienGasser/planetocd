@@ -2,12 +2,12 @@ require 'redcarpet'
 require_relative '../helpers/custom_render'
 
 class Article
-    attr_accessor :title, :html_content, :html_content_short, :language
+    attr_accessor :id, :language, :title, :html_content, :html_content_short
     
     @@markdown = Redcarpet::Markdown.new(CustomRender, fenced_code_blocks: true)
-    @source = ''
     @id = ''
     @language = ''
+    @source = ''
     @original_title = ''
     @title = ''
     @author = ''

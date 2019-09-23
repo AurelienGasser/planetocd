@@ -20,7 +20,7 @@ module Planetocd
         if @articles[article.language] == nil
           @articles[article.language] = Hash.new
         end
-        @articles[article.language][article.title] = article
+        @articles[article.language][article.id] = article
       end
     end
 
