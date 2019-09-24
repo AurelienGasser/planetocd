@@ -2,9 +2,10 @@ require 'redcarpet'
 require_relative '../helpers/custom_render'
 
 class Article
-    attr_accessor :id, :language, :original_url, :original_url_domain, :original_title, :original_author,
-                    :original_URL_host, :original_URL_scheme_and_host,
-                    :title, :public_notes_html, :content_html, :content_html_short
+    attr_accessor :id, :language, 
+                    :original_url, :original_url_domain, :original_title, :original_author,
+                    :original_url_host, :original_url_scheme_and_host,
+                    :title, :slug, :public_notes_html, :content_html, :content_html_short
     
     @@markdown = Redcarpet::Markdown.new(CustomRender, fenced_code_blocks: true)
 
@@ -37,8 +38,9 @@ class Article
         end
 
         uri = URI.parse(@original_url)
-        @original_URL_host = uri.host
-        @original_URL_scheme_and_host = "#{uri.scheme}://#{uri.host}"
+        @original_url_host = uri.host
+        @original_url_scheme_and_host = "#{uri.scheme}://#{uri.host}"
+        @slug = @title.parameterize
     end
 
     def convert_to_html
@@ -65,9 +67,14 @@ class Article
         "Original Title: #{@original_title}\n"\
         "Original Author: #{@original_author}\n"\
         "Title: #{@title}\n"\
+        "Slug: #{@slug}\n"\
         "Translator Notes: #{@public_notes_md}\n"\
         "Raw MD: #{@content_md.length} characters\n"\
         "HTML: #{@content_html.length} characters\n"\
         "HTML (short): #{@content_html_short.length} characters\n"
+    end
+
+    def to_param
+        [@id, @slug].join("-")
     end
 end

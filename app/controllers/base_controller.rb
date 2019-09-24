@@ -9,4 +9,8 @@ class BaseController < ActionController::Base
     def set_locale
         I18n.locale = params[:locale] || I18n.default_locale
     end
+
+    def not_found
+        raise ActionController::RoutingError.new('Not Found')
+    end
 end
