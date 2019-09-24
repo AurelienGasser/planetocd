@@ -42,7 +42,15 @@ class Article
     end
 
     def convert_to_html
-        content_md_short = @content_md.split("\n\n")[0..4].join("\n\n")
+        char_idx = 500
+        while char_idx + 1 < @content_md.length
+            if @content_md[char_idx..char_idx+1] == "\n\n"
+                break
+            end
+            char_idx += 1
+        end
+        char_idx += 1
+        content_md_short = @content_md[0..char_idx]
         @content_html = @@markdown.render(@content_md).html_safe
         @content_html_short = @@markdown.render(content_md_short).html_safe
         if (@public_notes_md)

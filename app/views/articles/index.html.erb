@@ -2,11 +2,16 @@
 
 <section class="articles-list">
     <% Rails.application.articles[params[:locale]].each do |key, article| %>
-        <article class="uk-card uk-card-body uk-card-default article-excerpt">
-            <a href="<%= article_url(article.id) %>">
-                <h2 class="uk-card-title"><%= article.title %></h2>
-            </a>
-            <div class=""><%= article.content_html_short %></div>
+        <article class="uk-card uk-card-default">
+            <div class="uk-card-body">
+                <a class="uk-link-heading" href="<%= article_url(article.id) %>">
+                    <h3 class="uk-card-title"><%= article.title %></h3>
+                </a>
+                <%= article.content_html_short %>
+            </div>
+            <div class="uk-card-footer">
+                <a href="<%= article_url(article.id) %>" class="uk-button uk-button-text">Read more</a>
+            </div>
         </article>
     <% end %>
 </section>
