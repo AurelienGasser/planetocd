@@ -2,11 +2,11 @@
 
 <section class="articles-list">
     <% Rails.application.articles[params[:locale]].each do |key, article| %>
-        <article class="article-excerpt">
+        <article class="uk-card uk-card-body uk-card-default article-excerpt">
             <a href="<%= article_url(article.id) %>">
-                <h2><%= article.title %></h2>
+                <h2 class="uk-card-title"><%= article.title %></h2>
             </a>
-            <div><%= article.content_html_short %></div>
+            <div class=""><%= article.content_html_short %></div>
         </article>
     <% end %>
 </section>
