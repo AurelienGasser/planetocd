@@ -16,8 +16,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <title>Planet OCD</title>
+    <title><%= yield :title %><% if controller_name != 'articles' || action_name != 'index' %> - Planet OCD<% end %></title>
   </head>
 
   <body>

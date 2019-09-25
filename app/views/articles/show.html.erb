@@ -1,4 +1,5 @@
 <% article = params[:article] %>
+<% content_for :title, article.title %>
 
 <a class="uk-button uk-button-text" href="<%=articles_url%>">&#171; <%= t :All_articles %></a>
 
