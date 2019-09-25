@@ -1,5 +1,7 @@
 class ArticlesController < BaseController
     def index
+        redirect_to(root_url)
+        #render 'articles/index'
     end
 
     def show

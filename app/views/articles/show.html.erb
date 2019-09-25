@@ -1,7 +1,8 @@
 <% article = params[:article] %>
+<% back_url = root_url %>
 <% content_for :title, article.title %>
 
-<a class="uk-button uk-button-text" href="<%=articles_url%>">&#171; <%= t :All_articles %></a>
+<a class="uk-button uk-button-text" href="<%=back_url%>">&#171; <%= t :All_articles %></a>
 
 <article class="uk-article article">
     <h1 class="uk-article-title"><%= article.title %></h1>
@@ -24,7 +25,7 @@
 
     <section class="uk-grid-small uk-child-width-auto">
         <a href="#header" class="uk-button uk-button-text">&#8963;<%= t :Back_to_top %></a>
-        <a class="uk-button uk-button-text uk-align-right" href="<%=articles_url%>">&#171; <%= t :All_articles %></a>
+        <a class="uk-button uk-button-text uk-align-right" href="<%=back_url%>">&#171; <%= t :All_articles %></a>
     </section>
 
 </article>
