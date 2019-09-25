@@ -7,7 +7,7 @@ class Article
                     :original_url_host, :original_url_scheme_and_host,
                     :title, :slug, :public_notes_html, :content_html, :content_html_short
     
-    @@markdown = Redcarpet::Markdown.new(CustomRender, fenced_code_blocks: true)
+    @@markdown_html = Redcarpet::Markdown.new(CustomRender)
 
     def initialize(article_path)
         mdocd_content = IO.read(article_path)
@@ -53,10 +53,10 @@ class Article
         end
         char_idx += 1
         content_md_short = @content_md[0..char_idx]
-        @content_html = @@markdown.render(@content_md).html_safe
-        @content_html_short = @@markdown.render(content_md_short).html_safe
+        @content_html = @@markdown_html.render(@content_md).html_safe
+        @content_html_short = @@markdown_html.render(content_md_short).html_safe
         if (@public_notes_md)
-            @public_notes_html = @@markdown.render(@public_notes_md).html_safe
+            @public_notes_html = @@markdown_html.render(@public_notes_md).html_safe
         end
     end
 
