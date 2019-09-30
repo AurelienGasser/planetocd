@@ -20,7 +20,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <title><%= yield :title %><% if controller_name != 'articles' || action_name != 'index' %> - Planet OCD<% end %></title>
+    <title><%= yield :title %><% if controller_name != 'application' || action_name != 'index' %> - <%= Constants::SITE_NAME %><% end %></title>
   </head>
 
   <body>
