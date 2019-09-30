@@ -1,3 +1,38 @@
 <% content_for :title, (t :About) %>
 
-<%=t :coming_soon%>
+<h1><%= t :About%></h2>
+
+<% if params[:locale] == 'fr' %>
+
+<p>
+    <b>Planet OCD</b> propose des articles sur les Troubles Obsessionnels Compulsifs (TOC) en français. Ces articles sont traduits depuis l'anglais et sont choisis en fonction de leur pertinence et de leur popularité.
+</p>
+<p>
+    Les articles à propos des TOC sur le web francophone sont rares, peu fournis et le plus souvent complètement obsolètes. A contrario, le web anglophone regorge de ressources de qualité sur les TOC. La traduction automatique n'est que rarement suffisante: les articles auto-générés sont souvent incompréhensibles et n'apportent que peu de clarté à un public qui, lui aussi, désire un contenu de qualité.
+</p>
+<p>
+    Planet OCD a pour mission de contribuer à rendre ce contenu accessible en fournissant aux internautes francophones des articles populaires, récents, et de qualité.
+</p>
+
+<% end %>
+
+<h2><%= t :Contribute %></h2>
+
+<% if params[:locale] == 'fr' %>
+
+<p>
+    Planet OCD est une organisation à but non lucratif, destinée à partager les connaissances sur les TOC. Votre aide peut directement impacter la qualité du site.
+</p>
+<p>
+    Il y a plusieurs façons dont vous pouvez contribuer à Planet OCD :
+    <ul>
+        <li><b>Faire une donation</b>. Votre donation sera utilisée pour faire réaliser des traductions d'articles sur les TOC par des traducteurs professionnels et étoffer le site. <a href="<%= Constants::DONATE_URL %>">Cliquez ici pour faire une donation</a></li>
+        <li><b>Traduire de nouveaux articles</b>. Vous êtes bilingue français/anglais ? Traduisez des articles sur les TOC et nous les publieront sur Planet OCD.</li>
+        <li><b>Suggérer des améliorations</b> de contenu, ou de formulation, ou suggérer de nouveaux articles à traduire.</li>
+    </ul>
+</p>
+<p>
+    Vous pouvez proposer de nouvelles traductions, des idées de nouveaux articles à traduire, ou des améliorations de contenu directement <a href="<%= Constants::GITHUB %>">sur GitHub</a> ou <a href="mailto:<%= Constants::EMAIL%>">par email</a>.
+</p>
+
+<% end %>
