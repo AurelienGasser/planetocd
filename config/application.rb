@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 
 module Planetocd
   class Application < Rails::Application
+
     attr_accessor :articles
     @articles
 
@@ -28,6 +29,7 @@ module Planetocd
     config.load_defaults 5.2
 
     config.exceptions_app = self.routes
+    config.middleware.use Rack::Deflater
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
