@@ -1,7 +1,11 @@
 Translation Guide
 =======
 
-**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
+Thanks for reaching this page!
+
+TL;DR: Please use pull requests to create/update [existing articles](app/assets/articles).
+
+> **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
 
 To ensure a consistent translation, your can refer to our [lexicon](./lexicon.md).
 
