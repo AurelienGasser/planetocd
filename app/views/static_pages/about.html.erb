@@ -2,7 +2,7 @@
 
 <h1><%= t :About%></h2>
 
-<% if params[:locale] == 'fr' %>
+<% if I18n.locale.to_s == 'fr' %>
 
 <p>
     <b><%= Constants::SITE_NAME %></b> propose des articles sur les Troubles Obsessionnels Compulsifs (TOC) en français. Ces articles sont traduits depuis l'anglais et sont choisis en fonction de leur pertinence et de leur popularité.
@@ -18,7 +18,7 @@
 
 <h2><%= t :Contribute %></h2>
 
-<% if params[:locale] == 'fr' %>
+<% if I18n.locale.to_s == 'fr' %>
 
 <p>
     <%= Constants::SITE_NAME %> est une organisation à but non lucratif, destinée à partager les connaissances sur les TOC. Votre aide peut directement impacter la qualité du site.

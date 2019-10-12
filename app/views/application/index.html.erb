@@ -4,7 +4,7 @@
 <h1><%= t :Recent_articles%></h2>
 
 <section class="articles-list">
-    <% Rails.application.articles[params[:locale]].each do |key, article| %>
+    <% Rails.application.articles[I18n.locale.to_s].each do |key, article| %>
         <article class="uk-card uk-card-default">
             <div class="uk-card-body">
                 <a class="uk-link-heading" href="<%= article_url(article) %>">

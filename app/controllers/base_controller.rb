@@ -7,7 +7,11 @@ class BaseController < ActionController::Base
     end
 
     def set_locale
-        I18n.locale = params[:locale] || I18n.default_locale
+        begin
+            I18n.locale = params[:locale] || I18n.default_locale
+        rescue
+            return not_found
+        end
     end
 
     def not_found

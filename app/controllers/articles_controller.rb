@@ -10,7 +10,7 @@ class ArticlesController < BaseController
         
         split = param.split('-')
         id = split[0]
-        article = Rails.application.articles[params[:locale]][id]
+        article = Rails.application.articles[I18n.locale.to_s][id]
         
         article or not_found
         
