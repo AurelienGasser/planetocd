@@ -10,12 +10,9 @@ Articles about Obsessive-Compulsive Disorder (OCD) in foreign languages
 About
 ----------
 
-Work in progress, come back soon!
-
+Articles about OCD, translated from their original English version to other languages (currently only French).
 
 Contribute
 ----------
 
 See the [contribution guide](./CONTRIBUTING.md)
-
-Work in progress, come back soon!
