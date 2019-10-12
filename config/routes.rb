@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     get 'about', to: 'static_pages#about', as: :about 
   end
 
+  get '/404', to: "errors#not_found"
+  get '/500', to: "errors#internal_error"
+  
   get '/:locale' => 'application#index'
   get '' => 'application#detect_language'
+
 end
