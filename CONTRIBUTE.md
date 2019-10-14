@@ -7,7 +7,7 @@ Contribute
 
 ## Suggest new articles
 
-You can suggest new articles that you would like to see on Planet OCD by [sumitting a new Issue](https://github.com/AurelienGasser/planetocd/issues).
+You can suggest new articles that you would like to see on Planet OCD by sumitting a [new Issue](https://github.com/AurelienGasser/planetocd/issues).
 
 ## Correct an existing article
 
