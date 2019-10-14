@@ -5,7 +5,7 @@
 
 <section class="articles-list">
     <% Rails.application.articles[I18n.locale.to_s].each do |key, article| %>
-        <article class="uk-card uk-card-default">
+        <article class="uk-card uk-card-default uk-margin-bottom">
             <div class="uk-card-body">
                 <a class="uk-link-heading" href="<%= article_url(article) %>">
                     <h3 class="uk-card-title"><%= article.title %></h3>

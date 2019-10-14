@@ -3,6 +3,16 @@ Contribute
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
+> **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
+
+## Suggest new articles
+
+You can suggest new articles that you would like to see on Planet OCD by [sumitting a new Issue](https://github.com/AurelienGasser/planetocd/issues).
+
+## Correct an existing article
+
+You can make corrections to existing articles by opening a Pull Request.
+
 ## Translate
 
 Are you bilingual in English and a foreign language? You can help by translating new articles.

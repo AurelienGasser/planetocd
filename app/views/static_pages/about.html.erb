@@ -8,10 +8,10 @@
     <b><%= Constants::SITE_NAME %></b> propose des articles sur les Troubles Obsessionnels Compulsifs (TOC) en français. Ces articles sont traduits depuis l'anglais et sont choisis en fonction de leur pertinence et de leur popularité.
 </p>
 <p>
-    Les articles à propos des TOC sur le web francophone sont rares, peu fournis et le plus souvent complètement obsolètes. A contrario, le web anglophone regorge de ressources de qualité sur les TOC. La traduction automatique n'est que rarement suffisante: les articles auto-générés sont souvent incompréhensibles et n'apportent que peu de clarté à un public qui, lui aussi, désire un contenu de qualité.
+    Les articles sur les TOC sur le web francophone sont rares, peu fournis et le plus souvent complètement obsolètes. A contrario, le web anglophone regorge de ressources de qualité. La traduction automatique n'est que rarement suffisante: les articles auto-générés comportent le plus souvent de nombreuses phrases incompréhensibles, et n'apportent au final que peu de clarté à un public qui a besoin de contenu de qualité.
 </p>
 <p>
-    <%= Constants::SITE_NAME %> a pour mission de contribuer à rendre ce contenu accessible en fournissant aux internautes francophones des articles populaires, récents, et de qualité.
+    <%= Constants::SITE_NAME %> a pour mission de contribuer à rendre ce contenu accessible aux internautes francophones, en proposant des articles populaires, récents, et de qualité en français.
 </p>
 
 <% end %>
@@ -21,18 +21,20 @@
 <% if I18n.locale.to_s == 'fr' %>
 
 <p>
-    <%= Constants::SITE_NAME %> est une organisation à but non lucratif, destinée à partager les connaissances sur les TOC. Votre aide peut directement impacter la qualité du site.
+    <%= Constants::SITE_NAME %> est une organisation à but non lucratif, destinée à partager les connaissances sur les TOC. 
 </p>
 <p>
-    Il y a plusieurs façons dont vous pouvez contribuer à <%= Constants::SITE_NAME %> :
+        <b>Votre aide peut directement impacter la qualité du site.</b>
+</p>
+<p>Il y a plusieurs façons dont vous pouvez contribuer à <%= Constants::SITE_NAME %> :
     <ul>
-        <li><b>Faire une donation</b>. Votre donation sera utilisée pour faire réaliser des traductions d'articles sur les TOC par des traducteurs professionnels et étoffer le site. <a href="<%= Constants::DONATE_URL %>">Cliquez ici pour faire une donation</a></li>
-        <li><b>Traduire de nouveaux articles</b>. Vous êtes bilingue français/anglais ? Traduisez des articles sur les TOC et nous les publieront sur <%= Constants::SITE_NAME %>.</li>
-        <li><b>Suggérer des améliorations</b> de contenu, ou de formulation, ou suggérer de nouveaux articles à traduire.</li>
+        <li><b>Faire une donation:</b> Votre donation sera utilisée pour faire réaliser des traductions d'articles sur les TOC par des traducteurs professionnels et étoffer le site. <a href="<%= Constants::DONATE_URL %>">Cliquez ici pour faire une donation</a></li>
+        <li><b>Traduire de nouveaux articles:</b> Vous êtes bilingue français/anglais ? Traduisez des articles sur les TOC et nous les publieront sur <%= Constants::SITE_NAME %>.</li>
+        <li><b>Suggérer des améliorations:</b> de contenu, ou de formulation, ou suggérer de nouveaux articles à traduire.</li>
     </ul>
 </p>
 <p>
-    Vous pouvez proposer de nouvelles traductions, des idées de nouveaux articles à traduire, ou des améliorations de contenu directement <a href="<%= Constants::GITHUB %>">sur GitHub</a> ou <a href="mailto:<%= Constants::EMAIL%>">par email</a>.
+    Vous pouvez envoyer vos contributions (traductions, suggestions de nouveaux articles, améliorations de contenu) via <a href="<%= Constants::GITHUB_CONTRIBUTE %>">le projet Planet OCD sur GitHub</a> ou <a href="mailto:<%= Constants::EMAIL%>">directement par email</a>.
 </p>
 
 <% end %>

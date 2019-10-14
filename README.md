@@ -15,4 +15,4 @@ Articles about OCD, translated from their original English version to other lang
 Contribute
 ----------
 
-See the [contribution guide](./CONTRIBUTING.md)
+See the [contribution guide](./CONTRIBUTE.md)
