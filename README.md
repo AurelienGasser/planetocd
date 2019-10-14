@@ -15,4 +15,6 @@ Articles about OCD, translated from their original English version to other lang
 Contribute
 ----------
 
-Your contributions are essential! See the [Contribution Guide](./CONTRIBUTE.md) for more information.
+Your contributions are essential! 
+
+See the [Contribution Guide](./CONTRIBUTE.md) for more info.
