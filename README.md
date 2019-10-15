@@ -14,7 +14,7 @@ About
 
 The articles come from external sources and are translated from their original English version into foreign languages. The objective of Planet OCD is to spread quality and up-to-date information to non-English speakers, for free. 
 
-Currently, only articles translated to _French_ are available. But other languages can be introduced (maybe by you? see the [Contribution Guide](./CONTRIBUTE.md).
+Currently, only articles translated into _French_ are available. But other languages can be introduced (maybe by you? see the [Contribution Guide](./CONTRIBUTE.md).
 
 Contribute
 ----------
