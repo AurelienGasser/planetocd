@@ -10,7 +10,9 @@ Articles about Obsessive-Compulsive Disorder (OCD) in foreign languages
 About
 ----------
 
-Articles about OCD, translated from their original English version to other languages (currently only French).
+**Planet OCD** is a website featuring articles about Obsessive Compulsive Disorder (OCD) in foreign languages. The articles are translated from their original English version into other languages, with the goal to spread quality and up-to-date information to non-English speakers. 
+
+Currently, only articles translated to _French_ are available. But other languages can be introduced (see the [Contribution Guide](./CONTRIBUTE.md).
 
 Contribute
 ----------
