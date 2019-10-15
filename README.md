@@ -14,6 +14,4 @@ The articles come from external sources and are translated from their original E
 Contribute
 ----------
 
-Your contributions are essential! 
-
-See the [Contribution Guide](./CONTRIBUTE.md) for more info.
+Your contributions are essential! See the [Contribution Guide](./CONTRIBUTE.md) for more information.
