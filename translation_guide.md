@@ -3,11 +3,9 @@ Translation Guide
 
 Thanks for reaching this page!
 
-Please use pull requests to create/update [existing articles](app/assets/articles).
+Please use pull requests to create/update [existing articles](app/assets/articles). 
 
-To ensure a consistent translation, your can refer to our [lexicon](./lexicon.md).
-
-Also please try and respect the following guidelines:
+To ensure a consistent translation, your can refer to our [lexicon](./lexicon.md). Also please try and respect the following guidelines:
 
 - Honor hypertext links. Each link should point to the same URL as in the original text. 
   - For example, if the original text has "See [this page](https://example.com) for more info" the translated test should be (in French in the example) "Voir [cette page](https://example.com) pour plus d'informations"
