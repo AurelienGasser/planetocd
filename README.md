@@ -14,15 +14,15 @@ The articles come from external sources and are translated from their original E
 Contribute
 ----------
 
-Your contributions are essential. See the sections below to see how you can help:
+> **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
+
+Your contributions are essential. See the sections below to see how you can help.
 
 ### Suggest new articles
 
 You can suggest new articles that you would like to see on Planet OCD by sumitting a [new Issue](https://github.com/AurelienGasser/planetocd/issues).
 
 ### Correct an existing article
-
-> **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
 
 You can make corrections to existing articles by opening a Pull Request.
 
