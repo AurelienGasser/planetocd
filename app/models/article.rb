@@ -21,7 +21,7 @@ class Article
         lines = parts[0].split("\n")
         lines.each do |line|
             if line.start_with?('Id: ')
-                @id = line[4..-1]
+                @id = line[4..-1].to_i
             elsif line.start_with?('Language: ')
                 @language = line[10..-1]
             elsif line.start_with?('Original URL: ')
