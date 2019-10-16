@@ -16,7 +16,7 @@
 
     <section><%= article.content_html %></section>
 
-    <% if article.public_notes_html %>
+    <% if article.public_notes_html.strip() != '' %>
     <section class="article-translator-notes uk-article-meta">
         <b><%= t :Translator_notes %>:</b>
         <%=article.public_notes_html%>
