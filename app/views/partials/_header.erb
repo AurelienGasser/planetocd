@@ -14,6 +14,8 @@
             </div>
             <div class="uk-navbar-right">
                 <div class="uk-navbar-item uk-visible@s">
+                    <a href="<%= Constants::FACEBOOK %>" class="uk-icon uk-margin-small-right" uk-icon="facebook"></a>
+                    <a href="<%= Constants::TWITTER %>" class="uk-icon uk-margin-small-right" uk-icon="twitter"></a>
                     <a href="<%= Constants::GITHUB %>" class="uk-icon" uk-icon="github"></a>
                 </div>
                 <div class="uk-button uk-hidden@s">
@@ -24,6 +26,11 @@
                     <ul class="uk-nav uk-dropdown-nav">
                         <li class="uk-active"><%= link_to t('Home'), root_path %></li>
                         <li class="uk-active"><%= link_to t('About'), about_url %></li>
+                        <li class="uk-active uk-margin-top uk-child-width-expand uk-text-center" uk-grid>
+                            <div><a href="<%= Constants::FACEBOOK %>" class="uk-icon" uk-icon="facebook"></a></div>
+                            <div><a href="<%= Constants::TWITTER %>" class="uk-icon" uk-icon="twitter"></a></div>
+                            <div><a href="<%= Constants::GITHUB %>" class="uk-icon" uk-icon="github"></a></div>
+                        </li>
                     </ul>
                 </div>
             </div>
