@@ -6,7 +6,6 @@
 
 <article class="uk-article article">
     <h1 class="uk-article-title"><%= article.title %></h1>
-
     <p class="uk-article-meta">
         <label><%= t :Original_article %>: </label>
         <a href="<%=article.original_url%>" target="_blank"><%=article.original_title%></a>
@@ -23,7 +22,24 @@
     </section>
     <% end %>
 
-    <section class="uk-grid-small uk-child-width-auto">
+    <section style="text-align: right">
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=<%=url_encode(article_url(article).sub("localhost", "planetocd.org"))%>&layout=button&size=large&width=73&height=28" 
+                width="73" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
+        </iframe>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
+           class="twitter-share-button" 
+           data-size="large"
+           data-text="<%=h article.title%>" 
+           data-url="<%=h article_url(article)%>" 
+           data-via="<%=h Constants::TWITTER_HANDLE%>" 
+           data-lang="fr" 
+           data-dnt="true"
+           data-show-count="false">
+         </a>
+         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </section>
+
+    <section class="uk-margin-top uk-grid-small uk-child-width-auto">
         <a href="#header" class="uk-button uk-button-text">&#8963;<%= t :Back_to_top %></a>
         <a class="uk-button uk-button-text uk-align-right" href="<%=back_url%>">&#171; <%= t :All_articles %></a>
     </section>

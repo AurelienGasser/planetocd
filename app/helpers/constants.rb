@@ -1,8 +1,9 @@
 module Constants
-    GITHUB = "https://github.com/momow/planetocd"
-    GITHUB_CONTRIBUTE = GITHUB + "/blob/master/README.md#contribute"
-    FACEBOOK = "http://facebook.com/PlanetOCD.francais"
-    TWITTER = "https://twitter.com/PlanetOCD_fr"
+    GITHUB_URL = "https://github.com/momow/planetocd"
+    GITHUB_CONTRIBUTE_URL = GITHUB_URL + "/blob/master/README.md#contribute"
+    FACEBOOK_URL = "http://facebook.com/PlanetOCD.francais"
+    TWITTER_HANDLE = "PlanetOCD_fr"
+    TWITTER_URL = "https://twitter.com/" + TWITTER_HANDLE
     SITE_NAME = "Planet OCD"
     EMAIL = "aurelien.ocd@gmail.com"
     DONATE_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=23LG7JTZSCA54"
