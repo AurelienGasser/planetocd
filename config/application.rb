@@ -29,7 +29,8 @@ module Planetocd
     config.load_defaults 5.2
 
     config.exceptions_app = self.routes
-    config.middleware.use Rack::Deflater
+    config.middleware.insert_before(Rack::Sendfile, Rack::Deflater)
+    config.assets.compress = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
