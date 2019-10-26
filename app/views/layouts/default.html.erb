@@ -1,27 +1,58 @@
+<% meta_description = yield :meta_description %>
+<% title = yield :title %>
+<% image = yield :image %>
+<% if image == '' %>
+  <% image = "/images/cloud4.png"%>
+<% end %>
+<%= canonical_url = url_for(:only_path => false, :protocol => 'https') %>
 <!DOCTYPE html>
 <html lang="<%= I18n.locale.to_s %>">
   <head>
     <% if Rails.env.production? %>
       <%= render "partials/gtag.html.erb" %>
     <% end %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <% meta_description = yield :meta_description %>
-    <% if meta_description != '' %>
-    <meta name="description" content="<%=meta_description %>">
-    <%end%>
+
+    <title><%= title %><% if controller_name != 'application' || action_name != 'index' %> - <%= Constants::SITE_NAME %><% end %></title>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="canonical" href="<%= canonical_url %>" />
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="shortcut icon" href="/favicon.ico">
-    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <% if meta_description != '' %>
+    <meta name="description" content="<%=meta_description %>">
+    <% end %>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@PlanetOCD_fr" />
+    <meta name="twitter:creator" content="@PlanetOCD_fr" />
+    <% if title != '' %>
+    <meta name="twitter:title" content="<%=title%>" />
+    <% end %>
+    <% if meta_description != '' %>
+    <meta name="twitter:description" content="<%=meta_description%>" />
+    <% end %>
+    <meta name="twitter:image" content="<%= image %>" />
+
+    <meta property="og:url" content="<%= canonical_url %>" />
+    <meta property="og:type" content="article" />
+    <% if title != '' %>
+    <meta property="og:title" content="<%=title%>" />
+    <% end %>
+    <% if meta_description != '' %>
+    <meta property="og:description" content="<%=meta_description%>" />
+    <% end %>
+    <meta property="og:image" content="<%= image %>" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/js/uikit-icons.min.js"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%# <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'  %>
-    <title><%= yield :title %><% if controller_name != 'application' || action_name != 'index' %> - <%= Constants::SITE_NAME %><% end %></title>
   </head>
 
   <body>
