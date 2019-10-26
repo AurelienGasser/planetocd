@@ -1,11 +1,16 @@
 <% meta_description = yield :meta_description %>
 <% title = yield :title %>
 <% image = yield :image %>
+<% image_sq = yield :image_sq %>
 <% if image == '' %>
   <% image = "/images/cloud4.png"%>
 <% end %>
+<% if image_sq == '' %>
+  <% image_sq = image %>
+<% end %>
 <% image = request.base_url + image %>
-<%= canonical_url = url_for(:only_path => false, :protocol => 'https') %>
+<% image_sq = request.base_url + image_sq %>
+<% canonical_url = url_for(:only_path => false, :protocol => 'https') %>
 <!DOCTYPE html>
 <html lang="<%= I18n.locale.to_s %>">
   <head>
@@ -36,7 +41,7 @@
     <% if meta_description != '' %>
     <meta name="twitter:description" content="<%=meta_description%>" />
     <% end %>
-    <meta name="twitter:image" content="<%= image %>" />
+    <meta name="twitter:image" content="<%= image_sq %>" />
 
     <meta property="og:url" content="<%= canonical_url %>" />
     <meta property="og:type" content="article" />
