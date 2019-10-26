@@ -4,6 +4,7 @@
 <% if image == '' %>
   <% image = "/images/cloud4.png"%>
 <% end %>
+<% image = request.base_url + image %>
 <%= canonical_url = url_for(:only_path => false, :protocol => 'https') %>
 <!DOCTYPE html>
 <html lang="<%= I18n.locale.to_s %>">
