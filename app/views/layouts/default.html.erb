@@ -1,15 +1,10 @@
 <% meta_description = yield :meta_description %>
 <% title = yield :title %>
 <% image = yield :image %>
-<% image_sq = yield :image_sq %>
 <% if image == '' %>
-  <% image = "/images/cloud4.png"%>
-<% end %>
-<% if image_sq == '' %>
-  <% image_sq = image %>
+  <% image = "/images/logo_social.png"%>
 <% end %>
 <% image = request.base_url + image %>
-<% image_sq = request.base_url + image_sq %>
 <% canonical_url = url_for(:only_path => false, :protocol => 'https') %>
 <!DOCTYPE html>
 <html lang="<%= I18n.locale.to_s %>">
@@ -33,15 +28,15 @@
     <% end %>
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@PlanetOCD_fr" />
-    <meta name="twitter:creator" content="@PlanetOCD_fr" />
+    <meta name="twitter:site" content="@<%= Constants::TWITTER_HANDLE %>" />
+    <meta name="twitter:creator" content="@<%= Constants::TWITTER_HANDLE %>" />
     <% if title != '' %>
     <meta name="twitter:title" content="<%=title%>" />
     <% end %>
     <% if meta_description != '' %>
     <meta name="twitter:description" content="<%=meta_description%>" />
     <% end %>
-    <meta name="twitter:image" content="<%= image_sq %>" />
+    <meta name="twitter:image" content="<%= image %>" />
 
     <meta property="og:url" content="<%= canonical_url %>" />
     <meta property="og:type" content="article" />
