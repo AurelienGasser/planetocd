@@ -42,6 +42,10 @@
 
     <section class="uk-margin-top uk-grid-small uk-child-width-auto">
         <a href="#header" class="uk-button uk-button-text">&#8963;<%= t :Back_to_top %></a>
+        <%= link_to(likes_path(article_id: article.id), class: 'uk-button uk-button-text', method: :post, remote: true) do %>
+          <%= article_likes_count(article.likes_count) %>
+          <%= t(:this_article_helped_me) %>
+        <% end %>
         <a class="uk-button uk-button-text uk-align-right" href="<%=back_url%>">&#171; <%= t :All_articles %></a>
     </section>
 

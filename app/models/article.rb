@@ -2,7 +2,7 @@ require 'redcarpet'
 require_relative '../helpers/custom_render'
 
 class Article
-    attr_accessor :id, :language, 
+    attr_accessor :id, :language, :likes_count,
                     :original_url, :original_url_domain, :original_title, :original_author,
                     :original_url_host, :original_url_scheme_and_host,
                     :title, :slug, :public_notes_html, :content_html, :content_html_short
@@ -13,6 +13,10 @@ class Article
         mdocd_content = IO.read(article_path)
         populate_from_mocd(mdocd_content)
         convert_to_html()
+    end
+
+    def likes_count
+      Like.where(article_id: id).size
     end
 
     def populate_from_mocd(mdocd_content)
