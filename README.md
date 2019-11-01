@@ -38,3 +38,33 @@ You can submit Pull Requests with new translations. See the [Translation Guide](
 ### Donate
 
 Your donation will help finance the costs related to the hosting server. I can also be used to hire professional translation services, and enrich Planet OCD with brand new articles. [Click here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=23LG7JTZSCA54&source=url) to donate now!
+
+Run locally
+-----------
+
+Thanks for contributing to Planet OCD!
+
+To run the ruby-on-rails application locally, please follow these steps:
+
+- https://github.com/rbenv/rbenv#installation
+
+docker run -it ubuntu /bin/bash
+
+apt-get install -y postgresql
+
+adduser postgres
+mkdir /usr/local/pgsql/data
+chown postgres /usr/local/pgsql/data
+su - postgres
+# or pg_ctlcluster 11 main start
+
+su - postgres
+/usr/lib/postgresql/10/bin/pg_ctl -D /etc/postgresql/10/main -l logfile start
+create user planetocd with encrypted password 'planetocd';
+ALTER USER planetocd CREATEDB
+exit
+
+export PLANETOCD_DATABASE_PASSWORD='planetocd'
+rake db:create
+
+bundle exec rails server
