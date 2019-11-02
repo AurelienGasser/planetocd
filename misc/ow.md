@@ -10,6 +10,10 @@
   - ash curry
   - Bertoni
   - Phillipson
+  - Ethan IOCD: ethocd@gmail.com
+  - twitter post x2
+  - facebook post
+  - blog post
 
 - Features
  - Banner news
