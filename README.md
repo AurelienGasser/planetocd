@@ -8,7 +8,7 @@ Planet OCD
 About
 ----------
 
-[**Planet OCD**](https://www.planetocd.org/) is a website featuring articles about Obsessive Compulsive Disorder (OCD) in foreign languages. 
+[**Planet OCD**](https://planeteTOC.org/) is a website featuring articles about Obsessive Compulsive Disorder (OCD) in foreign languages. 
 
 The goal of Planet OCD is to spread quality and up-to-date information to non-English speakers, for free. 
 
