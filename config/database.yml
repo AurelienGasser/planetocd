@@ -20,10 +20,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV.fetch("DATABASE_URL") { "postgres://planetocd:planetocd@localhost/planetocd" } %>
 
 development:
   <<: *default
-  url: <%= ENV.fetch("DATABASE_URL") { "postgres://planetocd:planetocd@localhost/planetocd" } %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +80,3 @@ test:
 #
 production:
   <<: *default
-  database: planetocd
-  username: planetocd
-  password: <%= ENV['PLANETOCD_DATABASE_PASSWORD'] %>
