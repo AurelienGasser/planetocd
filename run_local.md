@@ -1,6 +1,8 @@
 Run Planet OCD on your machine
 ------------------------------
 
+Thanks for contributing to Planet OCD!
+
 In order to run Planet OCD locally, you'll need:
 
 - ruby version 2.6.5

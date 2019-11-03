@@ -42,6 +42,4 @@ Your donation will help finance the costs related to the hosting server. I can a
 Run locally
 -----------
 
-Thanks for contributing to Planet OCD!
-
 Please see [the instructions](./run_local.md) to run Planet OCD locally.

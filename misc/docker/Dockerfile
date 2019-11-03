@@ -7,9 +7,6 @@ RUN apt-get install -y git gcc curl build-essential libssl-dev libreadline-dev z
 # ubuntu only
 RUN apt-get install -y libpq-dev
 
-# fetch the repo
-RUN git clone https://github.com/AurelienGasser/planetocd.git
-
 # install rbenv/ruby
 RUN curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash; exit 0
 ENV PATH="/root/.rbenv/bin/:${PATH}"
@@ -23,6 +20,6 @@ RUN dpkg-reconfigure --frontend noninteractive tzdata
 RUN mkdir -p /usr/local/pgsql/data
 RUN chown postgres /usr/local/pgsql/data
 
-WORKDIR /planetocd
+WORKDIR /
 
 COPY ./bootstrap.sh ./
