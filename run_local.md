@@ -67,4 +67,4 @@ And then start the server:
 $ bundle exec rails server
 ```
 
-Your local instance of Planet OCD should now be running on http://localhost:4242/
+Your local instance of Planet OCD should now be running on http://localhost:4242
