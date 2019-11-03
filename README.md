@@ -38,3 +38,10 @@ You can submit Pull Requests with new translations. See the [Translation Guide](
 ### Donate
 
 Your donation will help finance the costs related to the hosting server. I can also be used to hire professional translation services, and enrich Planet OCD with brand new articles. [Click here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=23LG7JTZSCA54&source=url) to donate now!
+
+Run locally
+-----------
+
+Thanks for contributing to Planet OCD!
+
+Please see [the instructions](./run_local.md) to run Planet OCD locally.
