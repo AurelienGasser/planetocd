@@ -7,5 +7,5 @@ module Constants
     SITE_NAME = "Planète TOC"
     EMAIL = "aurelien.ocd@gmail.com"
     DONATE_URL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=23LG7JTZSCA54"
-    DOMAIN = "planeteTOC.org"
+    DOMAIN = "planetetoc.org"
 end
