@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  url: <%= ENV.fetch("DATABASE_URL") { "postgres://planetodcd:planetocd@localhost/planetocd" } %>
+  url: <%= ENV.fetch("DATABASE_URL") { "postgres://planetocd:planetocd@localhost/planetocd" } %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
