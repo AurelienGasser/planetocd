@@ -2,7 +2,7 @@
 <% title = yield :title %>
 <% image = yield :image %>
 <% if image == '' %>
-  <% image = "/images/logo_social.png"%>
+  <% image = localize_file("/images/logo_social.png")%>
 <% end %>
 <% image = request.base_url + image %>
 <% canonical_url = url_for(:only_path => false, :protocol => 'https') %>
