@@ -1,7 +1,7 @@
 module Constants
     GITHUB_URL = "https://github.com/momow/planetocd"
     GITHUB_CONTRIBUTE_URL = GITHUB_URL + "/blob/master/README.md#contribute"
-    FACEBOOK_URL = "http://facebook.com/PlanetOCD.francais"
+    FACEBOOK_URL = "http://facebook.com/PlaneteTOC"
     TWITTER_HANDLE = "PlaneteTOC"
     TWITTER_URL = "https://twitter.com/" + TWITTER_HANDLE
     SITE_NAME = "Planète TOC"
