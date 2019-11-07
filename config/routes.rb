@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
 
-  scope ":locale", locale: /fr/ do
+  # scope ":locale", locale: /fr/ do
     root to: "application#index"
     resources :articles
     resources :likes, only: :create
     get 'about', to: 'static_pages#about', as: :about 
-  end
+  # end
 
   get '/404', to: "errors#not_found"
   get '/500', to: "errors#internal_error"
-  
-  get '/:locale' => 'application#index'
-  get '' => 'application#detect_language'
-
 end
