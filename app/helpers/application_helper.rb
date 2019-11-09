@@ -1,4 +1,10 @@
 module ApplicationHelper
+    def article_likes_count(likes_count)
+        return '' if likes_count.zero?
+
+        "(#{likes_count})"
+    end
+  
     def localize_file(filename)
         idx = filename.rindex('.')
         if idx.nil?
