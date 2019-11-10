@@ -7,6 +7,9 @@ Planet OCD
 
 [**Planet OCD**](https://planeteTOC.org/) is a website featuring articles about Obsessive Compulsive Disorder (OCD) in foreign languages. 
 
+About
+-----
+
 The goal of Planet OCD is to spread quality and up-to-date information to non-English speakers, for free. 
 
 The articles come from external sources and are translated from their original English version. Currently, only articles translated into _French_ are available. But other languages can be introduced (maybe by you? see the [Contribution Guide](#contribute)).
