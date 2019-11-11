@@ -16,7 +16,7 @@ class Article
     end
 
     def likes_count
-      0 # Like.where(article_id: id).size
+      Like.where(article_id: id).size
     end
 
     def populate_from_mocd(mdocd_content)
