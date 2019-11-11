@@ -1,4 +1,11 @@
 class LikesController < BaseController
+    def index
+      if params[:password] != ENV['PLANETOCD_ADMIN_PASSWORD']
+        return not_found
+      end
+      @likes = Like.all().order(created_at: :desc)
+    end
+
     def create
       Like.create(like_params)
       @likes_count = article.likes_count
