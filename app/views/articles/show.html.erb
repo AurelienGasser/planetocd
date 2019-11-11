@@ -42,7 +42,7 @@
 
     <section class="uk-margin-top uk-grid-small uk-child-width-auto">
         <a href="#header" class="uk-button uk-button-text">&#8963;<%= t :Back_to_top %></a>
-        <%= link_to(likes_path(article_id: article.id), class: 'uk-button uk-button-text', method: :post, remote: true) do %>
+        <%= link_to(likes_path(article_id: article.id, language: I18n.locale.to_s), class: 'uk-button uk-button-text', method: :post, remote: true) do %>
           <span id="likes-counter"><%= article_likes_count(article.likes_count) %></span>
           <%= t(:this_article_helped_me) %>
         <% end %>

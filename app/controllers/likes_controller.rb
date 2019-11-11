@@ -8,7 +8,7 @@ class LikesController < BaseController
 
     def like_params
       params
-        .permit(:article_id)
+        .permit(:article_id, :language)
         .merge(user_agent: request.user_agent,
                ip_address: request.remote_ip)
     end
