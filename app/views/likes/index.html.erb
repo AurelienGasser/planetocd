@@ -16,7 +16,7 @@
                         <%=like_ip%>
                     </a>
                     <span>
-                        <%= like[:created_at] %>
+                        <%= like[:created_at].to_formatted_s(:long_ordinal) %>
                     </span>
                 </div>
             </div>
