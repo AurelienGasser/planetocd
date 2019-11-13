@@ -2,9 +2,13 @@
 <% content_for :meta_description, (t :Home_meta) %>
 
 <h1><%= t :Recent_articles%></h2>
-
+<%
+    articles = Rails.application.articles[I18n.locale.to_s].values
+        .reject{ |a| !a.published }
+        .sort_by{ |a| -a.id }
+%>
 <section class="articles-list">
-    <% Rails.application.articles[I18n.locale.to_s].values.sort_by{|art| -art.id}.each do |article| %>
+    <% articles.each do |article| %>
         <article class="uk-card uk-card-default uk-margin-bottom">
             <div class="uk-card-body">
                 <a class="uk-link-heading" href="<%= article_url(article) %>">

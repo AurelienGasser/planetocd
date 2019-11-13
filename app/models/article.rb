@@ -5,7 +5,8 @@ class Article
     attr_accessor :id, :language, :likes_count,
                     :original_url, :original_url_domain, :original_title, :original_author,
                     :original_url_host, :original_url_scheme_and_host,
-                    :title, :slug, :public_notes_html, :content_html, :content_html_short
+                    :title, :slug, :public_notes_html, :content_html, :content_html_short,
+                    :published
     
     @@markdown_html = Redcarpet::Markdown.new(CustomRender)
 
@@ -20,12 +21,15 @@ class Article
     end
 
     def populate_from_mocd(mdocd_content)
+        @published = true
         parts = mdocd_content.split('===')
         @content_md = parts[1]
         lines = parts[0].split("\n")
         lines.each do |line|
             if line.start_with?('Id: ')
                 @id = line[4..-1].to_i
+            elsif line.start_with?('Published: ')
+                @published = line[11..-1].strip.downcase != "false"
             elsif line.start_with?('Language: ')
                 @language = line[10..-1]
             elsif line.start_with?('Original URL: ')
@@ -67,6 +71,7 @@ class Article
     def to_s
         "Id: #{@id}\n"\
         "Language: #{@language}\n"\
+        "Published: #{@published}\n"\
         "Original Url: #{@original_url}\n"\
         "Original Title: #{@original_title}\n"\
         "Original Author: #{@original_author}\n"\
