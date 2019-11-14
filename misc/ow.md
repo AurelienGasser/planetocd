@@ -2,6 +2,8 @@
   - IOCDF
   - Stuart Ralph
   - Mark Freeman
+  - beyond OCD
+  - fred machin
   - that youtube woman
   - AFTCC
   - http://forum.doctissimo.fr/psychologie/toc/liste_sujet-1.htm
