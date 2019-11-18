@@ -14,7 +14,10 @@ class BaseController < ActionController::Base
     def redirect_domain
         status = @@redirects[request.host]
         if !status.nil?
-            redirect_to "#{request.protocol}#{Constants::DOMAIN}#{request.fullpath}", :status => status
+            path = request.fullpath
+            if path[0..2] == '/fr':
+                path = path[3..-1]
+            redirect_to "#{request.protocol}#{Constants::DOMAIN}#{path}", :status => status
         end
     end
 
