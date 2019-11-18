@@ -23,6 +23,7 @@ class BaseController < ActionController::Base
     end
 
     def not_found
+        head 404
         render 'errors/not_found'
     end
 end
