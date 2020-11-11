@@ -1,10 +1,10 @@
-class BaseController < ActionController::Base  
+class BaseController < ActionController::Base
     layout 'default'
     before_action :redirect_domain
     before_action :set_locale
 
     @@redirects = {
-        "planetocd.org" => 302,
+        "planetetoc.org" => 302,
         "planetetoc.fr" => 302,
         "www.planetocd.org" => 302,
         "www.planetetoc.fr" => 302,
