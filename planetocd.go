@@ -44,22 +44,16 @@ func main() {
 
 func startServer() {
 	isLocal := isLocalEnvironment()
-	var scheme string
-	var host string
 	var port int
 
 	if isLocal {
-		scheme = "http"
-		host = fmt.Sprintf("localhost:%v", server.DefaultPort)
 		port = server.DefaultPort
 	} else {
-		scheme = server.ListenScheme
-		host = server.ListenDomain
 		port = getPort()
 	}
 
-	fmt.Printf("Starting server on host %v with port %v and scheme %v\n", host, port, scheme)
-	server.Listen(scheme, host, port, isLocal)
+	fmt.Printf("Starting server on port %v\n", port)
+	server.Listen(port, isLocal)
 }
 
 func convert() {

@@ -14,8 +14,15 @@ var router *mux.Router
 var isLocalEnvironment bool
 
 // Listen ...
-func Listen(scheme string, host string, port int, isLocal bool) {
+func Listen(port int, isLocal bool) {
 	isLocalEnvironment = isLocal
+
+	host := Host
+	scheme := "http"
+	if isLocal {
+		host = fmt.Sprintf("localhost:%v", port)
+		scheme = "http"
+	}
 
 	router = mux.NewRouter().
 		Schemes(scheme).
