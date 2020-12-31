@@ -1,0 +1,24 @@
+{{define "body"}}
+
+<!-- <% content_for :title, Constants::SITE_NAME + " - " + (t :Articles_about_Obsessive_Compusive_Disorder) %>
+<% content_for :meta_description, (t :Home_meta) %> -->
+
+<h1>{{ .T "Recent_articles" }}</h1>
+<section class="articles-list">
+    {{ range .Body }}
+        <article class="uk-card uk-card-default uk-margin-bottom">
+            <div class="uk-card-body">
+                <a class="uk-link-heading" href="{{ .URL }}">
+                    <h3 class="uk-card-title">{{ .Title }}</h3>
+                </a>
+                {{ .HTMLShort }}
+            </div>
+            <div class="uk-card-footer">
+                <a href="{{ .URL }}" class="uk-button uk-button-text">{{ $.T "Read_more" }}</a>
+            </div>
+        </article>
+    {{ end }}
+</section>
+
+{{end}}
+
