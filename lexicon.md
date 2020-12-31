@@ -1,7 +1,9 @@
 Lexicon
 =======
 
-Some OCD-related terms have no "official" translation in foreign languages. Planet OCD uses the following lexicon to ensure a consistent experience. This lexicon is not set in stone and any suggestion for improvement or correction can be submitted [via a pull request](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github). 
+Some OCD-related terms have no "official" translation in foreign languages. Planet OCD uses the following lexicon of preferred terms.
+
+This lexicon is not set in stone: please feel free to suggest improvements or corrections by submitting a pull request.
 
 
 | English       | Français |

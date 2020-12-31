@@ -5,41 +5,31 @@ Planet OCD
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Donate](https://img.shields.io/badge/Paypal-Donate-green.svg?logo=paypal&style=flat)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=23LG7JTZSCA54&source=url)
 
-[**Planet OCD**](https://planeteTOC.org/) is a website featuring articles about Obsessive Compulsive Disorder (OCD) in foreign languages. 
+[**Planet OCD**](https://planeteTOC.org/) is a knowledge base about Obsessive Compulsive Disorder (OCD) targeted at non-English speakers.
 
 About
 -----
 
-The goal of Planet OCD is to spread quality and up-to-date information to non-English speakers, for free. 
+The goal of Planet OCD is to spread quality and up-to-date information to non-English speakers, for free.
 
-The articles come from external sources and are translated from their original English version. Currently, only articles translated into _French_ are available. But other languages can be introduced (maybe by you? see the [Contribution Guide](#contribute)).
+The articles come from external sources and are translated from their original English version. Currently, articles are available in French, Spanish and Chinese (traditional).
 
 Contribute
 ----------
 
-> **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
-
-Your contributions are essential. See the sections below to see how you can help.
-
 #### Suggest new articles
 
-You can suggest new articles that you would like to see on Planet OCD by sumitting a [new Issue](https://github.com/AurelienGasser/planetocd/issues).
+You can suggest new articles that you would like to see on Planet OCD by sumitting a [new Issue](https://github.com/AurelienGasser/planetocd/issues) ([How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github))
 
-#### Correct an existing article
+#### Make corrections to existing artiles
 
 You can make corrections to existing articles by opening a Pull Request.
 
-#### Translate
-
-Are you bilingual in English and a foreign language? You can help by translating new articles.
-
-You can submit Pull Requests with new translations. See the [Translation Guide](./translation_guide.md) for more information.
-
 #### Donate
 
-Your donation will help finance the costs related to the hosting server. I can also be used to hire professional translation services, and enrich Planet OCD with brand new articles. [Click here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=23LG7JTZSCA54&source=url) to donate now!
+Planet OCD is a non-profit website without advertisements. It hasn't received any funding yet and relies on donations. [Click here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=23LG7JTZSCA54&source=url) to donate now.
 
 Run locally
 -----------
 
-Please see [the instructions](./run_local.md) to run Planet OCD locally.
+Please see [the instructions](./run-local.md) to run Planet OCD locally.

@@ -1,0 +1,55 @@
+{{define "body"}}
+
+<h1>{{ .T "About" }}</h1>
+
+<p>
+    {{ if eq .Meta.Lang "fr" }}
+    Planet OCD est une base de connaissances sur les Troubles Obsessionnels Compulsifs (TOC).
+    {{ else if eq .Meta.Lang "es" }}
+    Planeta OCD es una base de conocimiento sobre los Trastornos Obsesivos Compulsivos (TOC).
+    {{ else if eq .Meta.Lang "zh" }}
+    Planet OCD是一个关于强迫症的知识库。
+    {{ end }}
+</p>
+
+{{ if eq .Meta.Lang "fr" }}
+<h2>Pourquoi Planet OCD ?</h2>
+{{ else if eq .Meta.Lang "es" }}
+<h2>¿Por qué Planeta TOC?</h2>
+{{ else if eq .Meta.Lang "zh" }}
+<h2>为什么是Planet OCD？</h2>
+{{ end }}
+
+<p>
+    {{ if eq .Meta.Lang "fr" }}
+    Le web anglophone regorge de resources sur les TOC, mais le web francophone peine à suivre. Les articles en français sont malheureusement peu nombreux, et il est difficile pour les personnes souffrant de TOC d'avoir accès aux bonnes informations. Planet OCD a pour but d'aider à résoudre cette disparité entre le web anglophone et francophone.
+    {{ else if eq .Meta.Lang "es" }}
+    La web inglesa está llena de recursos sobre el TOC, pero la web francesa está luchando por mantenerse al día. Desafortunadamente, hay pocos artículos en francés, y es difícil para las personas con TOC acceder a la información correcta. El Planeta TOC tiene como objetivo ayudar a resolver esta disparidad entre la web inglesa y la francesa.
+    {{ else if eq .Meta.Lang "zh" }}
+    英文网站上有很多关于强迫症的资源，但法文网站却很难跟上。遗憾的是，法语的文章很少，强迫症患者很难获得正确的信息。Planet OCD旨在帮助解决英语和法语网络之间的这种差距。
+    {{ end }}
+</p>
+
+<p>
+    {{ if eq .Meta.Lang "fr" }}
+    Les articles sur Planet OCD sont traduits depuis l'anglais et sont choisis en fonction de leur pertinence et de leur popularité.
+    {{ else if eq .Meta.Lang "es" }}
+    Los artículos sobre el Planeta TOC se traducen del inglés y se eligen según su relevancia y popularidad.
+    {{ else if eq .Meta.Lang "zh" }}
+    关于Planet OCD的文章都是从英文翻译过来的，根据其相关性和受欢迎程度来选择。
+    {{ end }}
+</p>
+
+<h2>{{ .T "Donate" }}</h2>
+
+<p>
+    {{ if eq .Meta.Lang "fr" }}
+    Planet OCD est une organisation à but non-lucratif. Vous pouvez contribuer à Planet OCD en faisant un don. <a href="{{ .Constants.DonateURL }}">Cliquez ici pour faire un don</a>
+    {{ else if eq .Meta.Lang "es" }}
+    Planeta TOC es una organización sin ánimo de lucro. Puedes contribuir al Planeta OCD haciendo una donación. <a href="{{ .Constants.DonateURL }}">Haz clic aquí</a> para hacer una donación.
+    {{ else if eq .Meta.Lang "zh" }}
+    Planet OCD是一个非营利组织。您可以通过捐款的方式为Planet OCD做贡献：<a href="{{ .Constants.DonateURL }}">点击这里</a>进行捐款。
+    {{ end }}
+</p>
+
+{{end}}
