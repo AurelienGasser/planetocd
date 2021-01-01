@@ -15,7 +15,7 @@ type pageMeta struct {
 	SocialURL             string
 	Title                 string
 	RootURL               string
-	SocialImage           string
+	SocialImageURL        string
 	EnableGoogleAnalytics bool
 	DisableHeaderLinks    bool
 }

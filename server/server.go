@@ -53,7 +53,7 @@ func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
 
 	title := SiteName + " - Knowledge base about Obsessive Compulsive Disorder (OCD)"
 
-	p := getPage(w, r, canonicalURL, title, "")
+	p := getPage(w, r, canonicalURL, title, "", nil)
 	p.Meta.DisableHeaderLinks = true
 	RenderTemplate(w, "index_en", p)
 }
@@ -65,7 +65,7 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	title := SiteName + " - " + Translate(lang, "Articles_about_Obsessive_Compusive_Disorder")
 	description := Translate(lang, "Articles_about_Obsessive_Compusive_Disorder")
 
-	p := getPage(w, r, canonicalURL, title, description)
+	p := getPage(w, r, canonicalURL, title, description, nil)
 	all, err := getArticles(lang)
 	if err != nil {
 		http.NotFound(w, r)
@@ -101,7 +101,7 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 	}
 	title := article.Title + " - " + SiteName
 	description := ""
-	p := getPage(w, r, canonicalURL, title, description)
+	p := getPage(w, r, canonicalURL, title, description, article.ImageURL)
 	p.Body = article
 	RenderTemplate(w, "article", p)
 }
@@ -111,16 +111,19 @@ func handleAbout(w http.ResponseWriter, r *http.Request) {
 	canonicalURL := mustGetURL("about", lang)
 	title := Translate(lang, "About") + " - " + SiteName
 
-	p := getPage(w, r, canonicalURL, title, "")
+	p := getPage(w, r, canonicalURL, title, "", nil)
 	RenderTemplate(w, "about", p)
 }
 
-func getPage(w http.ResponseWriter, r *http.Request, canonicalURL *url.URL, title string, description string) *page {
-	lang := getLang(r)
-	imageURL, err := router.Get("static").URL()
-	if err != nil {
-		panic(err)
+func getPage(w http.ResponseWriter, r *http.Request, canonicalURL *url.URL, title string, description string, socialImageURL *url.URL) *page {
+	if socialImageURL == nil {
+		socialImageURL, err := router.Get("static").URL()
+		if err != nil {
+			panic(err)
+		}
+		socialImageURL.Path += "images/logo_social.png"
 	}
+	lang := getLang(r)
 
 	socialURL := *canonicalURL
 	if socialURL.Host[:9] == "localhost" {
@@ -136,7 +139,7 @@ func getPage(w http.ResponseWriter, r *http.Request, canonicalURL *url.URL, titl
 			CanonicalURL:          canonicalURL.String(),
 			SocialURL:             socialURL.String(),
 			RootURL:               getRootURL(lang).String(),
-			SocialImage:           imageURL.String() + "images/logo_social.png", // TODO: article image
+			SocialImageURL:        socialImageURL.String(),
 			EnableGoogleAnalytics: !isLocalEnvironment,
 		},
 	}

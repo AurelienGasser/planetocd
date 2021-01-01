@@ -38,7 +38,12 @@ func newArticle(a *articles.Article) *article {
 
 	res.URL = mustGetArticleURL(res)
 	if a.Image != "" {
-		res.ImageURL = &url.URL{Path: fmt.Sprintf("/static/images/illustrations/%v", a.Image)}
+		staticURL, err := router.Get("static").URL()
+		if err != nil {
+			panic(err)
+		}
+		staticURL.Path += fmt.Sprintf("/images/illustrations/%v", a.Image)
+		res.ImageURL = staticURL
 	}
 	return res
 }
