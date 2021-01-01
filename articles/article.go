@@ -9,6 +9,7 @@ type Article struct {
 	OriginalURL    string
 	OriginalAuthor string
 	OriginalTitle  string
+	Image          string
 }
 
 // ArticleMetadata ...
@@ -17,6 +18,7 @@ type ArticleMetadata struct {
 	OriginalTitle  string                             `json:"originalTitle"`
 	OriginalAuthor string                             `json:"originalAuthor"`
 	Languages      map[string]ArticleLanguageMetadata `json:"languages"`
+	Image          string                             `json:"image"`
 }
 
 // ArticleLanguageMetadata ...

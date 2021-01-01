@@ -7,7 +7,13 @@
 {{ with $article}}
 
 <article class="uk-article article">
+    {{ if .ImageURL }}
+    <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-inline" uk-img="" data-src="{{ .ImageURL }}">
+        <h1 class="uk-article-title uk-overlay uk-overlay-default uk-position-bottom uk-margin-remove-bottom">{{ .Title }}</h1>
+    </div>
+    {{ else }}
     <h1 class="uk-article-title">{{ .Title }}</h1>
+    {{ end }}
     <p class="uk-article-meta">
         <label>{{ $.T "Original article" }}: </label>
         <a href="{{ .OriginalURL }}" target="_blank" class="external">{{ .OriginalTitle }}</a>

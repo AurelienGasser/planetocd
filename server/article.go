@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"html/template"
 	"net/url"
 
@@ -15,6 +16,7 @@ type article struct {
 	HTMLShort template.HTML
 	Slug      string
 	URL       *url.URL
+	ImageURL  *url.URL
 }
 
 func newArticle(a *articles.Article) *article {
@@ -35,6 +37,9 @@ func newArticle(a *articles.Article) *article {
 	}
 
 	res.URL = mustGetArticleURL(res)
+	if a.Image != "" {
+		res.ImageURL = &url.URL{Path: fmt.Sprintf("/static/images/illustrations/%v", a.Image)}
+	}
 	return res
 }
 
