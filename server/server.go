@@ -117,7 +117,8 @@ func handleAbout(w http.ResponseWriter, r *http.Request) {
 
 func getPage(w http.ResponseWriter, r *http.Request, canonicalURL *url.URL, title string, description string, socialImageURL *url.URL) *page {
 	if socialImageURL == nil {
-		socialImageURL, err := router.Get("static").URL()
+		var err error
+		socialImageURL, err = router.Get("static").URL()
 		if err != nil {
 			panic(err)
 		}
