@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"sort"
 	"strconv"
 
 	"github.com/gorilla/mux"
@@ -71,9 +72,17 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	summaries := make([]articleSummary, len(all))
+
+	sorted := make([]*article, len(all))
 	i := 0
 	for _, article := range all {
+		sorted[i] = article
+		i++
+	}
+	sort.Slice(sorted, func(i, j int) bool { return sorted[i].Article.PublishedDate.After(sorted[j].Article.PublishedDate) })
+
+	summaries := make([]articleSummary, len(all))
+	for i, article := range sorted {
 		summaries[i] = articleSummary{
 			Title:     article.Title,
 			HTMLShort: article.HTMLShort,
@@ -81,6 +90,7 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 		}
 		i++
 	}
+
 	p.Body = summaries
 	RenderTemplate(w, "articles", p)
 }

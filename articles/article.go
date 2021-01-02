@@ -1,5 +1,7 @@
 package articles
 
+import "time"
+
 // Article ...
 type Article struct {
 	ID             int
@@ -10,6 +12,7 @@ type Article struct {
 	OriginalAuthor string
 	OriginalTitle  string
 	Image          string
+	PublishedDate  time.Time
 }
 
 // ArticleMetadata ...
@@ -19,6 +22,7 @@ type ArticleMetadata struct {
 	OriginalAuthor string                             `json:"originalAuthor"`
 	Languages      map[string]ArticleLanguageMetadata `json:"languages"`
 	Image          string                             `json:"image"`
+	PublishedDate  time.Time                          `json:"published_date"`
 }
 
 // ArticleLanguageMetadata ...
