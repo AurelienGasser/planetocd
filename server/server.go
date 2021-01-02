@@ -18,14 +18,11 @@ func Listen(port int, isLocal bool) {
 	isLocalEnvironment = isLocal
 
 	host := Host
-	scheme := "http"
 	if isLocal {
 		host = fmt.Sprintf("localhost:%v", port)
-		scheme = "http"
 	}
 
 	router = mux.NewRouter().
-		Schemes(scheme).
 		Host(host).
 		Subrouter()
 
