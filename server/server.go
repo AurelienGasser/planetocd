@@ -16,15 +16,19 @@ var isLocalEnvironment bool
 // Listen ...
 func Listen(port int, isLocal bool) {
 	isLocalEnvironment = isLocal
+	router = mux.NewRouter()
 
-	host := Host
 	if isLocal {
-		host = fmt.Sprintf("localhost:%v", port)
+		router = router.
+			Schemes("http").
+			Host(fmt.Sprintf("localhost:%v", port)).
+			Subrouter()
+	} else {
+		router = router.
+			Schemes("https", "http").
+			Host(Host).
+			Subrouter()
 	}
-
-	router = mux.NewRouter().
-		Host(host).
-		Subrouter()
 
 	router.Path("/").HandlerFunc(handleEnglishIndex).Name("index_en")
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static")))).Name("static")
@@ -35,8 +39,9 @@ func Listen(port int, isLocal bool) {
 	s.HandleFunc("/", handleArticles).Name("articles")
 	s.HandleFunc("/articles/{id:[0-9]+}/{slug}", handleArticle).Name("article")
 
+	a, _ := router.Get("articles").URL("language", "fr")
+	fmt.Println(a.Scheme)
 	// http.Error(w, "An internal error occurred", http.StatusInternalServerError)
-
 	log.Fatal(http.ListenAndServe(fmt.Sprint(":", port), router))
 }
 
