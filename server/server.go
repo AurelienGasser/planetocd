@@ -39,8 +39,6 @@ func Listen(port int, isLocal bool) {
 	s.HandleFunc("/", handleArticles).Name("articles")
 	s.HandleFunc("/articles/{id:[0-9]+}/{slug}", handleArticle).Name("article")
 
-	a, _ := router.Get("articles").URL("language", "fr")
-	fmt.Println(a.Scheme)
 	// http.Error(w, "An internal error occurred", http.StatusInternalServerError)
 	log.Fatal(http.ListenAndServe(fmt.Sprint(":", port), router))
 }
