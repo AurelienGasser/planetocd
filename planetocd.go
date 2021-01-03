@@ -62,10 +62,10 @@ func convert() {
 
 func doTranslate() {
 	translate.CreateTranslatedArticle(
-		"0003",
-		"https://www.madeofmillions.com/articles/12-signs-that-you-might-have-sexual-orientation-ocd",
-		"Dr. Jan Weiner",
-		"12 Signs That You Might Have Sexual Orientation OCD")
+		"0005",
+		"http://ocdla.com/cognitivebehavioraltherapy",
+		"",
+		"OCD Treatment: Cognitive-Behavioral Therapy")
 }
 
 func isLocalEnvironment() bool {
