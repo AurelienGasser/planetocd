@@ -64,7 +64,7 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	canonicalURL := mustGetURL("articles", lang)
 
 	title := SiteName + " - " + Translate(lang, "Articles_about_Obsessive_Compusive_Disorder")
-	description := Translate(lang, "Articles_about_Obsessive_Compusive_Disorder")
+	description := ""
 
 	p := getPage(w, r, canonicalURL, title, description, nil)
 	all, err := getArticles(lang)
