@@ -13,7 +13,9 @@ const DonateURL = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_bu
 const Email = "aurelien.ocd@gmail.com"
 
 // FacebookURL ...
-const FacebookURL = "https://www.facebook.com/PlanetOCDfr"
+var FacebookURL = map[string]string{"fr": "https://www.facebook.com/PlanetOCDfr",
+	"es": "https://www.facebook.com/Planet-OCD-Trastorno-Obsesivo-Compulsivo-TOC-106315328115819",
+	"zh": "https://www.facebook.com/Planet-OCD-%E5%85%B3%E4%BA%8E%E5%BC%BA%E8%BF%AB%E7%97%87%E7%9A%84%E6%96%87%E7%AB%A0-103706645049739"}
 
 // GithubURL ...
 const GithubURL = "https://github.com/momow/planetocd"
@@ -28,10 +30,9 @@ const GoogleAnalyticsID = "UA-137169000-1"
 const SiteName = "Planet OCD"
 
 // TwitterHandle ...
-const TwitterHandle = "PlanetOCD_fr"
-
-// TwitterURL ...
-const TwitterURL = "https://twitter.com/" + TwitterHandle
+var TwitterHandle = map[string]string{"fr": "PlanetOCD_fr",
+	"es": "PlanetOCD_es",
+	"zh": "PlanetOCD_zh"}
 
 // Constants ...
 var Constants = map[string]interface{}{
@@ -45,5 +46,4 @@ var Constants = map[string]interface{}{
 	"GoogleAnalyticsID":   GoogleAnalyticsID,
 	"SiteName":            SiteName,
 	"TwitterHandle":       TwitterHandle,
-	"TwitterURL":          TwitterURL,
 }
