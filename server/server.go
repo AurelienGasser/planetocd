@@ -98,17 +98,21 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 func handleArticle(w http.ResponseWriter, r *http.Request) {
 	lang := getLang(r)
 	vars := mux.Vars(r)
-	id, err := strconv.Atoi(vars["id"])
+	idStr := vars["id"]
+	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.NotFound(w, r)
 		return
 	}
-	canonicalURL := mustGetURL("articles", lang)
+
 	article, err := getArticle(lang, id)
 	if err != nil {
 		http.NotFound(w, r)
 		return
 	}
+
+	canonicalURL, _ := router.Get("article").URL("language", lang, "id", idStr, "slug", article.Slug)
+
 	title := article.Title + " - " + SiteName
 	description := ""
 	p := getPage(w, r, canonicalURL, title, description, article.ImageURL)
