@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 
 	translate "cloud.google.com/go/translate/apiv3"
 	md "github.com/JohannesKaufmann/html-to-markdown"
@@ -51,7 +52,7 @@ func CreateTranslatedArticle(id string, originalURL string, originalAuthor strin
 			log.Fatal(err)
 		}
 		metadata.Languages[lang] = articles.ArticleLanguageMetadata{
-			Title: translatedTitle,
+			Title: strings.Trim(translatedTitle, "\n"),
 		}
 	}
 
