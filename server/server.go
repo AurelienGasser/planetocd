@@ -41,7 +41,9 @@ func Listen(port int, isLocal bool) {
 	s.HandleFunc("/articles/{id:[0-9]+}/{slug}", handleArticle).Name("article")
 
 	// http.Error(w, "An internal error occurred", http.StatusInternalServerError)
+	log.Println("Starting server")
 	log.Fatal(http.ListenAndServe(fmt.Sprint(":", port), router))
+	log.Println("Server started")
 }
 
 func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
