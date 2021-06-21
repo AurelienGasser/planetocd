@@ -34,6 +34,9 @@ var TwitterHandle = map[string]string{"fr": "PlanetOCD_fr",
 	"es": "PlanetOCD_es",
 	"zh": "PlanetOCD_zh"}
 
+// TwitterHost ...
+var TwitterHost = "https://twitter.com/"
+
 // Constants ...
 var Constants = map[string]interface{}{
 	"DefaultPort":         DefaultPort,
@@ -46,4 +49,5 @@ var Constants = map[string]interface{}{
 	"GoogleAnalyticsID":   GoogleAnalyticsID,
 	"SiteName":            SiteName,
 	"TwitterHandle":       TwitterHandle,
+	"TwitterHost":         TwitterHost,
 }

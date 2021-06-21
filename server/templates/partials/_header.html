@@ -22,7 +22,7 @@
             <div class="uk-navbar-right">
                 <div class="uk-navbar-item uk-visible@s">
                     <a href="{{ index .Constants.FacebookURL .Meta.Lang }}" class="uk-icon uk-margin-small-right" uk-icon="facebook"></a>
-                    <a href="https://twitter.com/{{ index .Constants.TwitterHandle .Meta.Lang }}" class="uk-icon uk-margin-small-right" uk-icon="twitter"></a>
+                    <a href="{{ .Constants.TwitterHost }}{{ index .Constants.TwitterHandle .Meta.Lang }}" class="uk-icon uk-margin-small-right" uk-icon="twitter"></a>
                     <a href="{{ .Constants.GithubURL }}" class="uk-icon" uk-icon="github"></a>
                 </div>
                 <div class="uk-button uk-hidden@s">
@@ -35,7 +35,7 @@
                         <li><a href="{{ .MustGetURL "about" }}">{{ .T "About" }}</a></li>
                         <li class="uk-active uk-margin-top uk-child-width-expand uk-text-center" uk-grid>
                             <div><a href="{{ index .Constants.FacebookURL .Meta.Lang }}" class="uk-icon" uk-icon="facebook"></a></div>
-                            <div><a href="https://twitter.com/{{ index .Constants.TwitterHandle .Meta.Lang }}" class="uk-icon" uk-icon="twitter"></a></div>
+                            <div><a href="{{ .Constants.TwitterHost }}{{ index .Constants.TwitterHandle .Meta.Lang }}" class="uk-icon" uk-icon="twitter"></a></div>
                             <div><a href="{{ .Constants.GithubURL }}" class="uk-icon" uk-icon="github"></a></div>
                         </li>
                     </ul>
