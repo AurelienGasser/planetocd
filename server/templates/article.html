@@ -24,7 +24,7 @@
     </p>
 
     <section>{{ .HTML }}</section>
-
+    <!-- <%=
     <section style="text-align: right">
         <iframe src="https://www.facebook.com/plugins/share_button.php?href={{ $.Meta.SocialURL }}&layout=button&size=large&width=112&height=28"
                 width="112" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
@@ -41,6 +41,7 @@
          </a>
          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </section>
+    %> -->
     <section class="uk-background-muted uk-padding-small uk-text-center">
         <div><i>{{ $.ReplaceURLTemplate ($.ReplaceURL ($.T "Follow_us") "Facebook" (index $.Constants.FacebookURL .Lang)) "Twitter" (print $.Constants.TwitterHost (index $.Constants.TwitterHandle .Lang)) }}</i></div>
         <div><i>{{ $.ReplaceEmail ($.T "Need_help_prompt") }}</i></div>
