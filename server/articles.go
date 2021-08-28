@@ -32,7 +32,7 @@ func getArticle(lang string, id int) (*article, error) {
 	}
 	article, ok := byLang[id]
 	if !ok {
-		return nil, fmt.Errorf("Unknown article id %v for lang %v", id, lang)
+		return nil, fmt.Errorf("unknown article id %v for lang %v", id, lang)
 	}
 	return article, nil
 }

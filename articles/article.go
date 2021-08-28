@@ -7,7 +7,7 @@ type Article struct {
 	ID             int
 	Lang           string
 	Title          string
-	Markdown       string
+	MarkdownPages  []string
 	OriginalURL    string
 	OriginalAuthor string
 	OriginalTitle  string
@@ -27,5 +27,6 @@ type ArticleMetadata struct {
 
 // ArticleLanguageMetadata ...
 type ArticleLanguageMetadata struct {
-	Title string `json:"title"`
+	Title string   `json:"title"`
+	Pages []string `json:"pages"`
 }

@@ -4,13 +4,22 @@
     "originalAuthor": "Dr. Jan Weiner",
     "languages": {
         "es": {
-            "title": "12 señales de que puede tener TOC de orientación sexual"
+            "title": "12 señales de que puede tener TOC de orientación sexual",
+            "pages": [
+                "0003_es_01.md"
+            ]
         },
         "fr": {
-            "title": "12 signes que vous pourriez avoir un TOC d'orientation sexuelle"
+            "title": "12 signes que vous pourriez avoir un TOC d'orientation sexuelle",
+            "pages": [
+                "0003_fr_01.md"
+            ]
         },
         "zh": {
-            "title": "您可能有性取向的12个迹象"
+            "title": "您可能有性取向的12个迹象",
+            "pages": [
+                "0003_zh_01.md"
+            ]
         }
     },
     "image": "002_identity_md.jpg",

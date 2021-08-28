@@ -69,9 +69,11 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	description := ""
 
 	p := getPage(w, r, canonicalURL, title, description, nil)
+
 	all, err := getArticles(lang)
 	if err != nil {
 		http.NotFound(w, r)
+		fmt.Println(err)
 		return
 	}
 

@@ -4,13 +4,22 @@
     "originalAuthor": "",
     "languages": {
         "es": {
-            "title": "Trastorno dismórfico corporal (TDC): síntomas y tratamiento"
+            "title": "Trastorno dismórfico corporal (TDC): síntomas y tratamiento",
+            "pages": [
+                "0004_es_01.md"
+            ]
         },
         "fr": {
-            "title": "Trouble dysmorphique corporel (BDD) - Symptômes et traitement"
+            "title": "Trouble dysmorphique corporel (BDD) - Symptômes et traitement",
+            "pages": [
+                "0004_fr_01.md"
+            ]
         },
         "zh": {
-            "title": "身体变形障碍（BDD）–症状和治疗"
+            "title": "身体变形障碍（BDD）–症状和治疗",
+            "pages": [
+                "0004_zh_01.md"
+            ]
         }
     },
     "image": "001_apple_md.jpg",

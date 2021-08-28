@@ -4,13 +4,22 @@
     "originalAuthor": "Fred Penzel, Ph.D.",
     "languages": {
         "es": {
-            "title": "Diez cosas que necesita saber para superar el TOC"
+            "title": "Diez cosas que necesita saber para superar el TOC",
+            "pages": [
+                "0002_es_01.md"
+            ]
         },
         "fr": {
-            "title": "Dix choses que vous devez savoir pour vaincre le TOC"
+            "title": "Dix choses que vous devez savoir pour vaincre le TOC",
+            "pages": [
+                "0002_fr_01.md"
+            ]
         },
         "zh": {
-            "title": "克服强迫症需要知道的十件事"
+            "title": "克服强迫症需要知道的十件事",
+            "pages": [
+                "0002_zh_01.md"
+            ]
         }
     },
     "image": "007_puzzle_md.jpg",

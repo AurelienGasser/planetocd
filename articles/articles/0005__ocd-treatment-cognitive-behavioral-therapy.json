@@ -4,13 +4,22 @@
     "originalAuthor": "",
     "languages": {
         "es": {
-            "title": "Tratamiento del TOC: terapia cognitivo-conductual"
+            "title": "Tratamiento del TOC: terapia cognitivo-conductual",
+            "pages": [
+                "0005_es_01.md"
+            ]
         },
         "fr": {
-            "title": "Traitement des TOC: thérapie cognitivo-comportementale"
+            "title": "Traitement des TOC: thérapie cognitivo-comportementale",
+            "pages": [
+                "0005_fr_01.md"
+            ]
         },
         "zh": {
-            "title": "强迫症治疗：认知行为疗法"
+            "title": "强迫症治疗：认知行为疗法",
+            "pages": [
+                "0005_zh_01.md"
+            ]
         }
     },
     "image": "003_sunset_md.jpg",

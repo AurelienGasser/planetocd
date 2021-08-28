@@ -25,6 +25,7 @@ func ensureLoaded() {
 	if len(articles) != 0 {
 		return
 	}
+
 	articles, _ := filepath.Glob(articlesRootPath + "*__*.json")
 	for _, metadataFile := range articles {
 		loadArticle(metadataFile)
@@ -55,15 +56,9 @@ func loadArticle(metadataFile string) {
 	}
 
 	// Load each language
-	files, _ := filepath.Glob(articlesRootPath + id + "_*.md")
-	for _, langFile := range files {
-		matches := regexTranslationFile.FindStringSubmatch(langFile)
-		if len(matches) == 0 {
-			continue // xxx__original.md
-		}
-		lang := matches[1]
+	for lang := range metadata.Languages {
 		if len(lang) != 2 {
-			log.Panic("Error parsing file name " + langFile)
+			log.Panic("Invalid lang: " + lang)
 		}
 		article, err := loadArticleInLang(id, idN, lang, metadata)
 		if err != nil {
@@ -80,16 +75,20 @@ func loadArticle(metadataFile string) {
 
 func loadArticleInLang(id string, idN int, lang string, metadata ArticleMetadata) (*Article, error) {
 	langMetadata := metadata.Languages[lang]
-	filePath := articlesRootPath + id + "_" + lang + ".md"
-	mdBytes, err := ioutil.ReadFile(filePath)
-	if err != nil {
-		return nil, fmt.Errorf("Cannot read file %v: %v", filePath, err)
-	}
+	mdPages := []string{}
 
+	for _, fileName := range langMetadata.Pages {
+		filePath := articlesRootPath + fileName
+		mdBytes, err := ioutil.ReadFile(filePath)
+		if err != nil {
+			return nil, fmt.Errorf("cannot read file %v: %v", filePath, err)
+		}
+		mdPages = append(mdPages, string(mdBytes))
+	}
 	return &Article{
 		ID:             idN,
 		Lang:           lang,
-		Markdown:       string(mdBytes),
+		MarkdownPages:  mdPages,
 		Title:          langMetadata.Title,
 		OriginalURL:    metadata.OriginalURL,
 		OriginalTitle:  metadata.OriginalTitle,

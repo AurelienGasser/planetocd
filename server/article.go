@@ -25,7 +25,7 @@ func newArticle(a *articles.Article) *article {
 	opts := html.RendererOptions{Flags: htmlFlags}
 	renderer := html.NewRenderer(opts)
 
-	HTMLBytes := markdown.ToHTML([]byte(a.Markdown), nil, renderer)
+	HTMLBytes := markdown.ToHTML([]byte(a.MarkdownPages[0]), nil, renderer)
 	HTML := string(HTMLBytes)
 	HTMLShort := getHTMLShort(HTML)
 

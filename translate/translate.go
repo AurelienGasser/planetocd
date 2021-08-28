@@ -78,7 +78,7 @@ func translateAndWrite(lang string, html string, id string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	ioutil.WriteFile("./articles/articles/"+id+"_"+lang+".md", []byte(markdown), 0644)
+	ioutil.WriteFile("./articles/articles/"+id+"_"+lang+"_01.md", []byte(markdown), 0644)
 }
 
 func copyFile(src string, dest string) {
