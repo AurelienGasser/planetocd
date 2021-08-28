@@ -45,7 +45,9 @@
       <div class="site-content">
         {{template "body" .}}
       </div>
+      {{- if ne .Meta.TemplateName "index_en" }}
       {{template "footer" .}}
+      {{- end }}
   </body>
 </html>
 {{end}}

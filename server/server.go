@@ -56,9 +56,9 @@ func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
 
 	title := SiteName + " - Knowledge base about Obsessive Compulsive Disorder (OCD)"
 
-	p := getPage(w, r, canonicalURL, title, "", nil)
+	p := getPage("index_en", r, canonicalURL, title, "", nil)
 	p.Meta.DisableHeaderLinks = true
-	RenderTemplate(w, "index_en", p)
+	RenderTemplate(w, p)
 }
 
 func handleArticles(w http.ResponseWriter, r *http.Request) {
@@ -68,7 +68,7 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	title := SiteName + " - " + Translate(lang, "Articles_about_Obsessive_Compusive_Disorder")
 	description := ""
 
-	p := getPage(w, r, canonicalURL, title, description, nil)
+	p := getPage("articles", r, canonicalURL, title, description, nil)
 
 	all, err := getArticles(lang)
 	if err != nil {
@@ -96,7 +96,7 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	}
 
 	p.Body = summaries
-	RenderTemplate(w, "articles", p)
+	RenderTemplate(w, p)
 }
 
 func handleArticle(w http.ResponseWriter, r *http.Request) {
@@ -119,9 +119,9 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 
 	title := article.Title + " - " + SiteName
 	description := ""
-	p := getPage(w, r, canonicalURL, title, description, article.ImageURL)
+	p := getPage("article", r, canonicalURL, title, description, article.ImageURL)
 	p.Body = article
-	RenderTemplate(w, "article", p)
+	RenderTemplate(w, p)
 }
 
 func handleAbout(w http.ResponseWriter, r *http.Request) {
@@ -129,11 +129,11 @@ func handleAbout(w http.ResponseWriter, r *http.Request) {
 	canonicalURL := mustGetURL("about", lang)
 	title := Translate(lang, "About") + " - " + SiteName
 
-	p := getPage(w, r, canonicalURL, title, "", nil)
-	RenderTemplate(w, "about", p)
+	p := getPage("about", r, canonicalURL, title, "", nil)
+	RenderTemplate(w, p)
 }
 
-func getPage(w http.ResponseWriter, r *http.Request, canonicalURL *url.URL, title string, description string, socialImageURL *url.URL) *page {
+func getPage(tmpl string, r *http.Request, canonicalURL *url.URL, title string, description string, socialImageURL *url.URL) *page {
 	if socialImageURL == nil {
 		var err error
 		socialImageURL, err = router.Get("static").URL()
@@ -152,6 +152,7 @@ func getPage(w http.ResponseWriter, r *http.Request, canonicalURL *url.URL, titl
 	return &page{
 		Constants: Constants,
 		Meta: &pageMeta{
+			TemplateName:          tmpl,
 			Lang:                  lang,
 			Title:                 title,
 			Description:           description,

@@ -1,30 +1,22 @@
 {{define "body"}}
-<div>
-    <h4>Planet OCD is a knowledge base on Obsessive Compulsive Disorder (OCD)</h4>
-    <div>
-        <h5>Please choose your language:</h5>
-        <ul class="uk-subnav index-languages">
+<div class="index_en uk-flex uk-flex-center">
+    <div class="uk-margin-large-top">
+        <div class="uk-text-lead uk-margin-bottom uk-text-center">Welcome to the knowledge base on Obsessive Compulsive Disorder (OCD)</div>
+        <div class="uk-flex uk-flex-left uk-flex-center@s uk-flex-wrap">
             <!-- https://github.com/hjnilsson/country-flags/blob/master/svg/fr.svg -->
-            <li>
-                <a href="/fr/">
-                    <div>Français</div>
-                    <img src="/static/images/flags/fr.svg"/>
-                </a>
-            </li>
-            <li>
-                <a href="/es/">
-                    <div>Español</div>
-                    <img src="/static/images/flags/es.svg"/>
-                </a>
-            </li>
-            <li>
-                <a href="/zh/">
-                    <div>中文</div>
-                    <img src="/static/images/flags/cn.svg"/>
-                </a>
-            </li>
-        </ul>
+            <a class="uk-margin-top uk-margin-right uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-card uk-card-body uk-card-default uk-link-toggle" href="/fr/">
+                <div><img class="flag" src="/static/images/flags/fr.svg"/></div>
+                <div class="uk-link-heading uk-margin-small-top">Français</div>
+            </a>
+            <a class="uk-margin-top uk-margin-right uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-card uk-card-body uk-card-default uk-link-toggle" href="/es/">
+                <div><img class="flag" src="/static/images/flags/es.svg"/></div>
+                <div class="uk-link-heading uk-margin-small-top">Español</div>
+            </a>
+            <a class="uk-margin-top uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-card uk-card-body uk-card-default uk-link-toggle" href="/zh/">
+                <div><img class="flag" src="/static/images/flags/cn.svg"/></div>
+                <div class="uk-link-heading uk-margin-small-top">中文</div>
+            </a>
+        </div>
     </div>
 </div>
 {{end}}
-

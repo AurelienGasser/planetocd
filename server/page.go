@@ -14,6 +14,7 @@ type page struct {
 }
 
 type pageMeta struct {
+	TemplateName          string
 	Lang                  string
 	Description           string
 	CanonicalURL          string
