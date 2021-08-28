@@ -42,9 +42,12 @@
          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </section>
     %> -->
+    <section class="uk-margin-top uk-padding-small">
+        <div><i>{{ $.ReplaceEmail ($.T "Need_help_prompt") }}</i></div>
+    </section>
+
     <section class="uk-background-muted uk-padding-small uk-text-center">
         <div><i>{{ $.ReplaceURLTemplate ($.ReplaceURL ($.T "Follow_us") "Facebook" (index $.Constants.FacebookURL .Lang)) "Twitter" (print $.Constants.TwitterHost (index $.Constants.TwitterHandle .Lang)) }}</i></div>
-        <div><i>{{ $.ReplaceEmail ($.T "Need_help_prompt") }}</i></div>
     </section>
 
     <section class="uk-margin-top uk-grid-small uk-child-width-auto">
