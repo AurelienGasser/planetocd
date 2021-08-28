@@ -47,7 +47,7 @@
     </section>
 
     <section class="uk-background-muted uk-padding-small uk-text-center">
-        <div><i>{{ $.ReplaceURLTemplate ($.ReplaceURL ($.T "Follow_us") "Facebook" (index $.Constants.FacebookURL .Lang)) "Twitter" (print $.Constants.TwitterHost (index $.Constants.TwitterHandle .Lang)) }}</i></div>
+        <div><i>{{ $.ReplaceURLPatternTemplate ($.ReplaceURLPattern ($.T "Follow_us") "facebook" (index $.Constants.FacebookURL .Lang)) "twitter" (print $.Constants.TwitterHost (index $.Constants.TwitterHandle .Lang)) }}</i></div>
     </section>
 
     <section class="uk-margin-top uk-grid-small uk-child-width-auto">

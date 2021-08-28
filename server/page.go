@@ -4,7 +4,6 @@ import (
 	"html/template"
 	"net/url"
 	"regexp"
-	"strings"
 )
 
 type page struct {
@@ -41,20 +40,16 @@ func (p *page) MustGetURL(name string) *url.URL {
 	return mustGetURL(name, p.Meta.Lang)
 }
 
-func (p *page) ReplaceURL(s, old, url string) template.HTML {
-	return template.HTML(strings.Replace(s, old, "<a href=\""+template.HTMLEscapeString(url)+"\">"+old+"</a>", 1))
-}
-
-func (p *page) ReplaceURLTemplate(s template.HTML, old, url string) template.HTML {
-	return p.ReplaceURL(string(s), old, url)
-}
-
 func (p *page) ReplaceEmail(s string) template.HTML {
 	re := regexp.MustCompile(`(.*)\[(.*)\]\(#email#\)(.*)`)
 	return template.HTML(re.ReplaceAll([]byte(s), []byte("$1<a href=\"mailto:"+template.HTMLEscapeString(Email)+"\">$2</a>$3")))
 }
 
 func (p *page) ReplaceURLPattern(s string, needle string, url string) template.HTML {
-	re := regexp.MustCompile(`(.*)\[(.*)\]\(#` + needle + `#\)(.*)`)
+	re := regexp.MustCompile(`(.*)\[([^\]]*)\]\(#` + needle + `#\)(.*)`)
 	return template.HTML(re.ReplaceAll([]byte(s), []byte("$1<a href=\""+template.HTMLEscapeString(url)+"\">$2</a>$3")))
+}
+
+func (p *page) ReplaceURLPatternTemplate(s template.HTML, needle string, url string) template.HTML {
+	return p.ReplaceURLPattern(string(s), needle, url)
 }
