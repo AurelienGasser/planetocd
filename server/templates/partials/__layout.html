@@ -42,6 +42,11 @@
   </head>
   <body>
       {{template "header" .}}
+      {{- if ne .Meta.TemplateName "index_en" }}
+      <div class="uk-alert uk-alert-primary banner">
+        {{ $.ReplaceURLPattern ($.T "Sign_petition_prompt") "petition_url" $.Constants.PetitionURL }}
+      </div>
+      {{- end }}
       <div class="site-content">
         {{template "body" .}}
       </div>

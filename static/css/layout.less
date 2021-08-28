@@ -1,3 +1,5 @@
+@site-width: 1024px;
+
 .layout-width {
     margin: 0 auto;
     max-width: 1605px;
@@ -10,7 +12,7 @@
 
 .site-content {
     margin: 0 auto;
-    max-width: 1024px;
+    max-width: @site-width;
     padding: 1em;
 }
 
@@ -20,11 +22,17 @@
 
     .site-footer-content {
         margin: 0 auto;
-        max-width: 1024px;
+        max-width: @site-width;
         padding: 1em;
 
         a {
             color: #999;
         }
     }
+}
+
+.banner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: @site-width;
 }

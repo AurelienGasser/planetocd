@@ -53,3 +53,8 @@ func (p *page) ReplaceEmail(s string) template.HTML {
 	re := regexp.MustCompile(`(.*)\[(.*)\]\(#email#\)(.*)`)
 	return template.HTML(re.ReplaceAll([]byte(s), []byte("$1<a href=\"mailto:"+template.HTMLEscapeString(Email)+"\">$2</a>$3")))
 }
+
+func (p *page) ReplaceURLPattern(s string, needle string, url string) template.HTML {
+	re := regexp.MustCompile(`(.*)\[(.*)\]\(#` + needle + `#\)(.*)`)
+	return template.HTML(re.ReplaceAll([]byte(s), []byte("$1<a href=\""+template.HTMLEscapeString(url)+"\">$2</a>$3")))
+}
