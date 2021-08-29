@@ -32,4 +32,10 @@ Planet OCD is a non-profit website without advertisements. It hasn't received an
 Run locally
 -----------
 
-Please see [the instructions](./run-local.md) to run Planet OCD locally.
+You'll need go 1.15.
+
+```bash
+make
+```
+
+This will start the server on port 4242.
