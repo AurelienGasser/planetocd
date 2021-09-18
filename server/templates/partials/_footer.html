@@ -2,11 +2,11 @@
 
 <footer class="uk-background-muted site-footer">
     <div class="site-footer-content uk-flex uk-flex-center">
-        <a href="{{ index .Constants.FacebookURL .Meta.Lang }}" class="uk-icon uk-margin-small-right" uk-icon="facebook"></a>
-        <a href="{{ .Constants.TwitterHost }}{{ index .Constants.TwitterHandle .Meta.Lang }}" class="uk-icon uk-margin-small-right" uk-icon="twitter"></a>
-        &#xb7;&nbsp;
+        <a href="{{ index .Constants.FacebookURL .Meta.Lang }}" class="uk-hidden@s uk-icon uk-margin-small-right" uk-icon="facebook"></a>
+        <a href="{{ .Constants.TwitterHost }}{{ index .Constants.TwitterHandle .Meta.Lang }}" class="uk-hidden@s uk-icon uk-margin-small-right" uk-icon="twitter"></a>
+        <span class="uk-hidden@s">&#xb7;&nbsp;</span>
         <a href="{{ .MustGetURL "articles" }}">{{ .T "Articles" }}</a>
-        &#xb7;&nbsp;
+        &nbsp;&#xb7;&nbsp;
         <a href="mailto:{{ .Constants.Email }}">{{ .T "Contact" }}</a>
     </div>
 </footer>
