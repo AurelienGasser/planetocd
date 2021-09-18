@@ -42,22 +42,16 @@
          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </section>
     %> -->
-    <section class="uk-margin-top uk-padding-small">
+
+    <section class="uk-background-muted uk-padding-small uk-text-center">
         <div><i>{{ $.ReplaceEmail ($.T "Need_help_prompt") }}</i></div>
     </section>
 
-    <section class="uk-background-muted uk-padding-small uk-text-center">
-        <div><i>{{ $.ReplaceURLPatternTemplate ($.ReplaceURLPattern ($.T "Follow_us") "facebook" (index $.Constants.FacebookURL .Lang)) "twitter" (print $.Constants.TwitterHost (index $.Constants.TwitterHandle .Lang)) }}</i></div>
-    </section>
-
+    <!--
     <section class="uk-margin-top uk-grid-small uk-child-width-auto">
-        <a href="#" onclick="window.scrollTo(0, 0)" class="uk-button uk-button-text">&#8963;{{ $.T "Back_to_top" }}</a>
-        <!-- <%= link_to(likes_path(article_id: article.id, language: I18n.locale.to_s), class: 'uk-button uk-button-text', method: :post, remote: true) do %>
-          <span id="likes-counter"><%= article_likes_count(article.likes_count) %></span>
-          <%= t(:this_article_helped_me) %>
-        <% end %> -->
-        <a class="uk-button uk-button-text uk-align-right" href="{{ $.MustGetURL "articles" }}">&#171; {{ $.T "All_articles" }}</a>
+        <a class="uk-button uk-button-text" href="{{ $.MustGetURL "articles" }}">&#171; {{ $.T "All_articles" }}</a>
     </section>
+    -->
 
 </article>
 
