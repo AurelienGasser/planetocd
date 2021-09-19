@@ -43,6 +43,7 @@ func CreateTranslatedArticle(id string, originalURL string, originalAuthor strin
 		OriginalTitle:  originalTitle,
 		OriginalAuthor: originalAuthor,
 		Languages:      make(map[string]articles.ArticleLanguageMetadata),
+		PublishedDate:  time.Now(),
 	}
 
 	for _, lang := range server.SupportedLanguages {
