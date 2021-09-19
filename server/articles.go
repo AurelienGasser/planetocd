@@ -20,7 +20,7 @@ func getArticles(lang string) (map[int]*article, error) {
 	ensureLoaded()
 	res, ok := allArticles[lang]
 	if !ok {
-		return nil, fmt.Errorf("Unknown lang \"%v\"", lang)
+		return nil, fmt.Errorf("unknown lang \"%v\"", lang)
 	}
 	return res, nil
 }
