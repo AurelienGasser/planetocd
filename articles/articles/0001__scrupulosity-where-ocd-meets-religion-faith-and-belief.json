@@ -1,24 +1,27 @@
 {
     "originalUrl": "https://ocdla.com/scrupulosity-ocd-religion-faith-belief-2107",
     "originalTitle": "Scrupulosity: Where OCD Meets Religion, Faith, and Belief",
-    "originalAuthor": "Kevin Foss, MFT",
+    "originalAuthor": "Kevin Foss; Tom Corboy",
     "languages": {
         "es": {
             "title": "Obsesión religiosa: cuando el TOC se mezcla con la religión y la fe",
             "pages": [
-                "0001_es_01.md"
+                "0001_es_01.md",
+                "0001_es_02.md"
             ]
         },
         "fr": {
             "title": "Obsession Religieuse: Quand les TOC se mêlent à la religion et à la foi",
             "pages": [
-                "0001_fr_01.md"
+                "0001_fr_01.md",
+                "0001_fr_02.md"
             ]
         },
         "zh": {
             "title": "宗教迷恋：强迫症与宗教和信仰纠缠在一起",
             "pages": [
-                "0001_zh_01.md"
+                "0001_zh_01.md",
+                "0001_zh_02.md"
             ]
         }
     },

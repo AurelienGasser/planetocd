@@ -8,7 +8,9 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"strconv"
 	"strings"
+	"time"
 
 	translate "cloud.google.com/go/translate/apiv3"
 	md "github.com/JohannesKaufmann/html-to-markdown"
@@ -31,7 +33,7 @@ func HTMLToMarkdown() {
 }
 
 // CreateTranslatedArticle ....
-func CreateTranslatedArticle(id string, originalURL string, originalAuthor string, originalTitle string) {
+func CreateTranslatedArticle(id string, originalURL string, originalAuthor string, originalTitle string, pageNumber int) {
 	inputFileMD := "./translate/_input.md"
 	inputFileHTML := "./translate/_input.html"
 	inputMD, _ := ioutil.ReadFile(inputFileMD)
@@ -47,7 +49,7 @@ func CreateTranslatedArticle(id string, originalURL string, originalAuthor strin
 	}
 
 	for _, lang := range server.SupportedLanguages {
-		translateAndWrite(lang, string(html), id)
+		translateAndWrite(lang, string(html), id, pageNumber)
 		translatedTitle, err := translateText(os.Stdout, "planetocd", "en", lang, originalTitle, "text/plain", "default")
 		if err != nil {
 			log.Fatal(err)
@@ -68,7 +70,7 @@ func CreateTranslatedArticle(id string, originalURL string, originalAuthor strin
 	copyFile(inputFileHTML, "./articles/articles/"+id+"__original.html")
 }
 
-func translateAndWrite(lang string, html string, id string) {
+func translateAndWrite(lang string, html string, id string, pageNumber int) {
 	translatedHTML, err := translateText(os.Stdout, "planetocd", "en", lang, html, "text/html", "default")
 	if err != nil {
 		log.Fatal(err)
@@ -79,7 +81,7 @@ func translateAndWrite(lang string, html string, id string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	ioutil.WriteFile("./articles/articles/"+id+"_"+lang+"_01.md", []byte(markdown), 0644)
+	ioutil.WriteFile("./articles/articles/"+id+"_"+lang+"_0"+strconv.Itoa(pageNumber)+".md", []byte(markdown), 0644)
 }
 
 func copyFile(src string, dest string) {

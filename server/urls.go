@@ -30,14 +30,22 @@ func mustGetURL(name string, lang string) *url.URL {
 	return res
 }
 
-func mustGetArticleURL(article *article) *url.URL {
+func mustGetArticleURL(lang string, id int, slug string) *url.URL {
 	res, err := router.Get("article").URL(
-		"language", article.Lang,
-		"id", strconv.Itoa(article.ID),
-		"slug", article.Slug)
+		"language", lang,
+		"id", strconv.Itoa(id),
+		"slug", slug)
 	if err != nil {
 		panic(err)
 	}
+	return res
+}
+
+func mustGetArticlePageURL(lang string, id int, slug string, page int) *url.URL {
+	res := mustGetArticleURL(lang, id, slug)
+	q := res.Query()
+	q.Set("page", strconv.Itoa(page))
+	res.RawQuery = q.Encode()
 	return res
 }
 

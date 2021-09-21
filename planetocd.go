@@ -62,10 +62,12 @@ func convert() {
 
 func doTranslate() {
 	translate.CreateTranslatedArticle(
-		"0005",
+		"0012",
 		"http://ocdla.com/cognitivebehavioraltherapy",
 		"",
-		"OCD Treatment: Cognitive-Behavioral Therapy")
+		"OCD Treatment: Cognitive-Behavioral Therapy",
+		2,
+	)
 }
 
 func isLocalEnvironment() bool {

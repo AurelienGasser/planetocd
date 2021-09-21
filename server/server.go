@@ -76,7 +76,6 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		return
 	}
-
 	sorted := make([]*article, len(all))
 	i := 0
 	for _, article := range all {
@@ -89,8 +88,8 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	for i, article := range sorted {
 		summaries[i] = articleSummary{
 			Title:     article.Title,
-			HTMLShort: article.HTMLShort,
-			URL:       mustGetArticleURL(article),
+			HTMLShort: article.Pages[0].HTMLShort,
+			URL:       mustGetArticleURL(article.Lang, article.ID, article.Slug),
 		}
 		i++
 	}
@@ -120,7 +119,20 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 	title := article.Title + " - " + SiteName
 	description := ""
 	p := getPage("article", r, canonicalURL, title, description, article.ImageURL)
-	p.Body = article
+	pageNumber := 1
+	pageNumberStr := r.URL.Query().Get("page")
+	if pageNumberStr != "" {
+		tmp, err := strconv.Atoi(pageNumberStr)
+		if err == nil && tmp >= 1 && tmp <= len(article.Pages) {
+			pageNumber = tmp
+		}
+	}
+	articleVM := articleViewModel{
+		Article:          article,
+		CurrentPageIndex: pageNumber - 1,
+		Pagination:       getPagination(article, pageNumber),
+	}
+	p.Body = articleVM
 	RenderTemplate(w, p)
 }
 

@@ -2,19 +2,11 @@ package server
 
 import (
 	"fmt"
-	"html/template"
-	"net/url"
 
 	"github.com/aureliengasser/planetocd/articles"
 )
 
 var allArticles map[string]map[int]*article
-
-type articleSummary struct {
-	URL       *url.URL
-	Title     string
-	HTMLShort template.HTML
-}
 
 func getArticles(lang string) (map[int]*article, error) {
 	ensureLoaded()

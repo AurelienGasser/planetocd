@@ -12,31 +12,47 @@ import (
 
 type article struct {
 	*articles.Article
-	HTML      template.HTML
-	HTMLShort template.HTML
-	Slug      string
-	URL       *url.URL
-	ImageURL  *url.URL
+	Slug     string
+	URL      *url.URL
+	ImageURL *url.URL
+	Pages    []articlePage
+}
+
+type articlePage struct {
+	PageNumber int
+	HTML       template.HTML
+	HTMLShort  template.HTML
+	URL        *url.URL
 }
 
 func newArticle(a *articles.Article) *article {
+	slug := Slugify(a.Title)
 
 	htmlFlags := html.CommonFlags | html.HrefTargetBlank
 	opts := html.RendererOptions{Flags: htmlFlags}
 	renderer := html.NewRenderer(opts)
+	pages := make([]articlePage, len(a.MarkdownPages))
 
-	HTMLBytes := markdown.ToHTML([]byte(a.MarkdownPages[0]), nil, renderer)
-	HTML := string(HTMLBytes)
-	HTMLShort := getHTMLShort(HTML)
-
-	res := &article{
-		Article:   a,
-		HTML:      template.HTML(HTML),
-		HTMLShort: template.HTML(HTMLShort),
-		Slug:      Slugify(a.Title),
+	for i, p := range a.MarkdownPages {
+		htmlBytes := markdown.ToHTML([]byte(p), nil, renderer)
+		html := string(htmlBytes)
+		htmlShort := getHTMLShort(html)
+		ap := articlePage{
+			PageNumber: i + 1,
+			HTML:       template.HTML(html),
+			HTMLShort:  template.HTML(htmlShort),
+			URL:        mustGetArticlePageURL(a.Lang, a.ID, slug, i+1),
+		}
+		pages[i] = ap
 	}
 
-	res.URL = mustGetArticleURL(res)
+	res := &article{
+		Article: a,
+		Pages:   pages,
+		Slug:    slug,
+		URL:     mustGetArticleURL(a.Lang, a.ID, slug),
+	}
+
 	if a.Image != "" {
 		staticURL, err := router.Get("static").URL()
 		if err != nil {

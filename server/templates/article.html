@@ -1,6 +1,9 @@
 {{define "body"}}
 
-{{ $article := .Body }}
+{{ $viewModel := .Body }}
+{{ $pageIndex := $viewModel.CurrentPageIndex }}
+{{ $article := $viewModel.Article }}
+{{ $page := index $article.Pages $pageIndex }}
 
 <a id="top" class="uk-button uk-button-text" href="{{ .MustGetURL "articles" }}">&#171; {{ .T "All_articles" }}</a>
 
@@ -23,7 +26,9 @@
         <!-- on <a href="{{ .OriginalURL }}" target="_blank">{{ .OriginalURL }}</a> -->
     </p>
 
-    <section>{{ .HTML }}</section>
+    {{ template "article_pagination" $viewModel.Pagination }}
+
+    <section>{{ $page.HTML }}</section>
     <!-- <%=
     <section style="text-align: right">
         <iframe src="https://www.facebook.com/plugins/share_button.php?href={{ $.Meta.SocialURL }}&layout=button&size=large&width=112&height=28"
@@ -42,6 +47,8 @@
          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </section>
     %> -->
+
+    {{ template "article_pagination" $viewModel.Pagination }}
 
     <section class="uk-background-muted uk-padding-small uk-text-center">
         <div><i>{{ $.ReplaceEmail ($.T "Need_help_prompt") }}</i></div>
