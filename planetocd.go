@@ -62,11 +62,11 @@ func convert() {
 
 func doTranslate() {
 	translate.CreateTranslatedArticle(
-		"0012",
+		"0001",
 		"http://ocdla.com/cognitivebehavioraltherapy",
 		"",
 		"OCD Treatment: Cognitive-Behavioral Therapy",
-		2,
+		3,
 	)
 }
 

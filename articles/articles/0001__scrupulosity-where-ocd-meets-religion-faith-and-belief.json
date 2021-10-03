@@ -7,24 +7,27 @@
             "title": "Obsesión religiosa: cuando el TOC se mezcla con la religión y la fe",
             "pages": [
                 "0001_es_01.md",
-                "0001_es_02.md"
+                "0001_es_02.md",
+                "0001_es_03.md"
             ]
         },
         "fr": {
             "title": "Obsession Religieuse: Quand les TOC se mêlent à la religion et à la foi",
             "pages": [
                 "0001_fr_01.md",
-                "0001_fr_02.md"
+                "0001_fr_02.md",
+                "0001_fr_03.md"
             ]
         },
         "zh": {
             "title": "宗教迷恋：强迫症与宗教和信仰纠缠在一起",
             "pages": [
                 "0001_zh_01.md",
-                "0001_zh_02.md"
+                "0001_zh_02.md",
+                "0001_zh_03.md"
             ]
         }
     },
     "image": "008_prayer_md.jpg",
-    "published_date": "2021-01-01T00:00:00.000Z"
+    "published_date": "2021-10-03T00:00:00.000Z"
 }
