@@ -1,1 +1,1 @@
-web: bin/planetocd -action=server
+web: bin/planetocd

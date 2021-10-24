@@ -6,6 +6,6 @@ which nodemon >/dev/null 2>/dev/null || (echo you need to install nodemon with "
 which CompileDaemon >/dev/null 2>/dev/null || (echo you need to install CompileDeamon with "go get github.com/githubnemo/CompileDaemon" && exit 1)
 
 nodemon -w "./static/css" -e "less" --exec "make css" &
-CompileDaemon -directory=. -command="./planetocd -action=server"  -pattern='(.+\.go|.+\.c|.+\.html|.+\.yaml|.+\.css|.+\.json|\.md)$' &
+CompileDaemon -directory=. -command="./planetocd"  -pattern='(.+\.go|.+\.c|.+\.html|.+\.yaml|.+\.css|.+\.json|\.md)$' &
 
 wait
