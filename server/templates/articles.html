@@ -4,6 +4,9 @@
 <% content_for :meta_description, (t :Home_meta) %> -->
 
 <h1>{{ .T "Recent_articles" }}</h1>
+
+{{ template "article_pagination" $viewModel.Pagination }}
+
 <section class="articles-list">
     {{ range .Body }}
         <article class="uk-card uk-card-default uk-margin-bottom">
@@ -19,6 +22,8 @@
         </article>
     {{ end }}
 </section>
+
+{{ template "article_pagination" $viewModel.Pagination }}
 
 {{end}}
 
