@@ -1,0 +1,101 @@
+“So, first of all, let me assert my firm belief that the only thing we
+have to fear is fear itself.”
+
+
+FDR’s famous line from his first inaugural address used to strike me as a
+universal truth. He describes fear as “nameless, unreasoning, unjustified
+terror which paralyzes needed efforts to convert retreat into advance.” I
+have interpreted this line as a call to be brave, to take on life fully,
+make  the best of a difficult situation and count one’s blessings
+while doing so. The encouragement and sense of bravado inherent in FDR’s
+speech still strikes a strong cord in me.
+
+[![Psyched FDR  Ursula](http://www.psychedinsanfrancisco.com/wp-content/uploads/2015/09/Psyched-FDR-Ursula-255x300.jpg)](http://www.psychedinsanfrancisco.com/wp-content/uploads/2015/09/Psyched-FDR-Ursula.jpg)
+
+I have sometimes translated the message for myself into “F\*\*\* fear,” and
+while it has fueled my natural rebelliousness, it also paints fear as
+something that should be eliminated or at least suppressed.
+
+And then I became a therapist and began specializing in treating anxiety
+and especially Obsessive-Compulsive Disorder. I was drawn to OCD work when
+I realized during my training that I had begun to struggle with OCD myself
+as a child but had hidden it from my parents and had never received help.
+So the cycle of obsessive anxiety-provoking thoughts and
+anxiety-relieving, but in their own way distressing, compulsions had
+accompanied me into adulthood. And now FDR’s warning about fear took on a
+different meaning.
+
+
+The fear of fear itself is at the heart of OCD’s vicious workings. For
+most people who live with OCD a rather random, unwanted thought or image
+pops up over and over again and creates anxiety. “My parents could die!”
+“I did not turn off the stove and the house will burn down!” “Maybe I’ll
+push somebody off the BART platform!” “If my hands are not perfectly
+clean, I’ll get sick and die.”
+
+
+OCD thoughts come in these and many other strange, violent, sexual,
+superstitious, moralistic, and random shapes and sizes. Research shows
+that 90% of people have OCD-like thoughts but only 2% of people develop
+diagnosable OCD (which is still a significant number of folks). People
+without OCD are able to acknowledge these thoughts and move on, while
+people with OCD can’t shake them off and experience anxiety, distress and
+yes, fear, due to them. The thoughts become the truth, they predict the
+future, they describe reality. “I have a random thought about strangling
+my baby, so that must mean I will act on it.” It’s not hard to imagine how
+this line of internal reasoning can create terror and make life hell for a
+young parent who suffers from OCD.
+
+
+Compulsions then are efforts to neutralize these thoughts and relieve the
+fears they create. “If I check the stove just one (or ten, twenty, etc.)
+more time, I can be sure the house won’t burn down.” If I stay away from
+my baby, I can keep him safe.” “If I say a quick prayer, my mom won’t
+die.” And so the compulsions take on their own life. They are never
+enough, the obsessions keep popping up, the fear is right back, another
+compulsion has to happen.
+
+From a learning theory perspective, the compulsions function as a
+negative reinforcement for the fear.  That means they momentarily
+take away the anxiety, so the brain gets trained to keep wanting them.
+Fear in its natural function is a feeling that requires an immediate
+response. Fight, flight or freeze in the face of danger. A compulsion in
+OCD teaches the brain that there must have been a danger, otherwise there
+would not have been a need to react with a compulsion. And so the cycle
+keeps going.
+
+In this context the idea that fear is something to fear actually becomes
+problematic. It’s telling us that anxiety is intolerable, it should not be
+there because we can’t handle it. And that is exactly what OCD is all
+about.
+
+
+The most effective treatment approach for OCD (exposure and response
+prevention, ERP) involves exposures to exactly those feelings the
+compulsions are supposed to take away. “Experiential avoidance” is at the
+heart of the OCD cycle. Successful OCD treatment therefore helps a person
+to experience anxiety, uncertainty, discomfort, distress and to learn that
+they can tolerate these feelings and move forward through life without
+engaging in the compulsions. Mindfulness practices help us acknowledge
+obsessive thoughts without interpreting them as a reflection of a real
+danger. A beautiful image used in Acceptance and Commitment Therapy (ACT)
+is that of the self as the sky with thoughts and feelings as events
+happening in the sky such as fireworks, clouds, planes, balloons, kites,
+etc. These events don’t fundamentally change the sky and they also pass
+by.
+
+Mindfulness can also help us learn to refocus when a thought is
+particularly sticky and distressing. We become able to accept and
+experience that a thought is just a thought, it is not a reflection of who
+we are and what will happen in our lives. Then we can develop the
+psychological flexibility to see it as the temporary, often random mental
+event it is. Now we can instead engage with a more helpful thought or
+activity and that, to use FDRs words, can “convert retreat into advance.”
+We can advance toward our goals in accord with our values.
+
+
+Anxiety and fear are natural companions when we courageously take on
+life with our full vitality. We don’t have to be afraid of fear when
+we know we can tolerate it, and ideally even channel the energy these
+feelings provide to propel us forward. So instead of “F\*\*\* fear,” a new
+statement of encouragement can be “Dare to be Scared!”
