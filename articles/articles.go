@@ -88,12 +88,13 @@ func loadArticleInLang(id string, idN int, lang string, metadata ArticleMetadata
 	return &Article{
 		ID:             idN,
 		Lang:           lang,
-		MarkdownPages:  mdPages,
 		Title:          langMetadata.Title,
+		MarkdownPages:  mdPages,
 		OriginalURL:    metadata.OriginalURL,
 		OriginalTitle:  metadata.OriginalTitle,
 		OriginalAuthor: metadata.OriginalAuthor,
 		Image:          metadata.Image,
 		PublishedDate:  metadata.PublishedDate,
+		Translators:    langMetadata.Translators,
 	}, nil
 }

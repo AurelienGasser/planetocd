@@ -12,10 +12,11 @@ import (
 
 type article struct {
 	*articles.Article
-	Slug     string
-	URL      *url.URL
-	ImageURL *url.URL
-	Pages    []articlePage
+	Slug        string
+	URL         *url.URL
+	ImageURL    *url.URL
+	Pages       []articlePage
+	Translators []string
 }
 
 type articlePage struct {
@@ -47,10 +48,11 @@ func newArticle(a *articles.Article) *article {
 	}
 
 	res := &article{
-		Article: a,
-		Pages:   pages,
-		Slug:    slug,
-		URL:     mustGetArticleURL(a.Lang, a.ID, slug),
+		Article:     a,
+		Pages:       pages,
+		Translators: a.Translators,
+		Slug:        slug,
+		URL:         mustGetArticleURL(a.Lang, a.ID, slug),
 	}
 
 	if a.Image != "" {

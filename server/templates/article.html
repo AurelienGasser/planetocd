@@ -23,6 +23,14 @@
         {{- if .OriginalAuthor }}
         by <em>{{ .OriginalAuthor }}</em>
         {{- end }}
+        {{- if .Translators }}
+        <br>
+        {{ $.T "Translated_by" }} </label>
+        {{- range $index, $t := .Translators }}
+            {{ if $index }},{{ end }}
+            {{ $t }}
+        {{- end }}
+        {{- end }}
         <!-- on <a href="{{ .OriginalURL }}" target="_blank">{{ .OriginalURL }}</a> -->
     </p>
 

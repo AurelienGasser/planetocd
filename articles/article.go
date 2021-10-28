@@ -13,6 +13,7 @@ type Article struct {
 	OriginalTitle  string
 	Image          string
 	PublishedDate  time.Time
+	Translators    []string
 }
 
 // ArticleMetadata ...
@@ -27,6 +28,7 @@ type ArticleMetadata struct {
 
 // ArticleLanguageMetadata ...
 type ArticleLanguageMetadata struct {
-	Title string   `json:"title"`
-	Pages []string `json:"pages"`
+	Title       string   `json:"title"`
+	Pages       []string `json:"pages"`
+	Translators []string `json:"translators"`
 }
