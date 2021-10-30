@@ -3,6 +3,12 @@
     "originalTitle": "Obsessive-Compulsive Disorder and “The Fear of Fear Itself.”",
     "originalAuthor": "Ursula Steck",
     "languages": {
+        "es": {
+            "title": "Trastorno obsesivo-compulsivo y \"El miedo al miedo en sí mismo\"",
+            "pages": [
+                "0006_es_01.md"
+            ]
+        },
         "fr": {
             "title": "Trouble obsessionnel-compulsif et « La peur de la peur elle-même »",
             "translators": [
