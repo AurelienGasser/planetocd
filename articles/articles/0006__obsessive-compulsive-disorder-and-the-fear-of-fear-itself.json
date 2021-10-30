@@ -17,6 +17,12 @@
             "pages": [
                 "0006_fr_01.md"
             ]
+        },
+        "zh": {
+            "title": "强迫症和“对恐惧本身的恐惧”",
+            "pages": [
+                "0006_zh_01.md"
+            ]
         }
     },
     "image": "005_anxiety_md.jpg",
