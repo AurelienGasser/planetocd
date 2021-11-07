@@ -1,25 +1,46 @@
 {{define "body"}}
 
-<h1>{{ .T "About" }}</h1>
+<h1>Acerca de Planet OCD</h1>
 
 <p>
-    Planeta OCD es una base de conocimiento sobre los Trastornos Obsesivos Compulsivos (TOC).
+    Planet OCD es una base de conocimientos sobre el Trastorno Obsesivo Compulsivo (TOC).
 </p>
 
-<h2>¿Por qué Planeta TOC?</h2>
+<h2>¿Quiénes somos?</h2>
 
 <p>
-    La web inglesa está llena de recursos sobre el TOC, pero la web francesa está luchando por mantenerse al día. Desafortunadamente, hay pocos artículos en francés, y es difícil para las personas con TOC acceder a la información correcta. El Planeta TOC tiene como objetivo ayudar a resolver esta disparidad entre la web inglesa y la francesa.
+    Me llamo Aurélien, tengo 36 años y sufro de TOC desde los 13 años. Soy francés pero vivo en Estados Unidos desde hace casi 10 años. He visto la gran cantidad de recursos en línea sobre el TOC en la web de habla inglesa, y también conozco la escasez de información en línea sobre el TOC en francés. Tener acceso a una información variada, rica y de calidad es esencial para quienes padecen el TOC o para sus seres queridos. Por eso decidí contribuir a mi manera a la difusión de información creando este sitio.
+</p>
+
+<h2>¿Por qué Planet OCD?</h2>
+
+<p>
+    La web anglosajona está repleta de recursos sobre el TOC, pero la web china tiene dificultades para mantenerse al día. Desgraciadamente, los artículos en chino son escasos y difíciles de encontrar para los enfermos de TOC. Planet OCD pretende ayudar a resolver esta disparidad entre la web inglesa y la china.
 </p>
 
 <p>
-    Los artículos sobre el Planeta TOC se traducen del inglés y se eligen según su relevancia y popularidad.
+    Planet OCD es para todos, desde el público en general hasta los profesionales. Nuestro objetivo es proporcionar acceso a información variada, rica y de calidad sobre el TOC en chino. Los artículos de Planet OCD están traducidos del inglés y se eligen según su relevancia y popularidad.
 </p>
 
-<h2>{{ .T "Donate" }}</h2>
+
+<h2>¿Cómo ayudar?</h2>
 
 <p>
-    Planeta TOC es una organización sin ánimo de lucro. Puedes contribuir al Planeta OCD haciendo una donación. <a href="{{ .Constants.DonateURL }}">Haz clic aquí</a> para hacer una donación.
+    Planet OCD pone en línea gratuitamente, de forma voluntaria, artículos traducidos del inglés al chino y a otros idiomas. Puedes ayudar sugiriendo mejoras en las traducciones: actualmente se realizan principalmente mediante motores de traducción automática (Google Translate o DeepL), por lo que pueden mejorarse con una cuidadosa corrección humana, por parte de quienes dominan el inglés o el americano: ¡tu contribución es bienvenida!
 </p>
+
+<p>
+    También puede ayudar haciendo un donativo (<a href="{{ .Constants.DonateURL }}">pulse aquí para hacer un donativo</a>). Esta donación sólo servirá, lo prometo, para los objetivos del sitio web de Planet OCD porque Planet OCD es una organización sin ánimo de lucro. En particular, las donaciones se utilizarán para mejorar la traducción de los artículos mediante traductores humanos profesionales, así como para cubrir los costes de alojamiento y alquiler del nombre de dominio planetocd.org.
+</p>
+
+<p>
+    Si tienes conocimientos de programación (Go), gráficos (css) o comunicación (redes sociales) y quieres ayudar, ponte en contacto conmigo en <a href="mailto:{{ .Constants.Email }}">{{ .Constants.Email }}</a>, o visita nuestra <a href="{{ .Constants.GithubURL }}">página de GitHub</a>. Cualquier ayuda es bienvenida :)
+</p>
+
+<p>
+    Por último, una buena forma de ayudar es promocionar el sitio compartiendo los artículos en las redes sociales.
+</p>
+
+<img class="uk-margin-auto uk-display-block uk-margin-large" width="20%" src="/static/images/planet.svg" alt="planeta"/>
 
 {{end}}
