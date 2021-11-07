@@ -16,6 +16,7 @@ type article struct {
 	URL         *url.URL
 	ImageURL    *url.URL
 	Pages       []articlePage
+	Tags        []string
 	Translators []string
 }
 
@@ -52,6 +53,7 @@ func newArticle(a *articles.Article) *article {
 		Pages:       pages,
 		Translators: a.Translators,
 		Slug:        slug,
+		Tags:        a.Tags,
 		URL:         mustGetArticleURL(a.Lang, a.ID, slug),
 	}
 

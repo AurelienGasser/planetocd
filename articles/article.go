@@ -2,7 +2,7 @@ package articles
 
 import "time"
 
-// Article ...
+// Article describes an article in a specific language
 type Article struct {
 	ID             int
 	Lang           string
@@ -14,6 +14,7 @@ type Article struct {
 	Image          string
 	PublishedDate  time.Time
 	Translators    []string
+	Tags           []string
 }
 
 // ArticleMetadata ...
@@ -24,6 +25,7 @@ type ArticleMetadata struct {
 	Languages      map[string]ArticleLanguageMetadata `json:"languages"`
 	Image          string                             `json:"image"`
 	PublishedDate  time.Time                          `json:"published_date"`
+	Tags           []string                           `json:"tags"`
 }
 
 // ArticleLanguageMetadata ...

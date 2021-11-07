@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"html/template"
 	"net/url"
 	"regexp"
@@ -52,4 +53,8 @@ func (p *page) ReplaceURLPattern(s string, needle string, url string) template.H
 
 func (p *page) ReplaceURLPatternTemplate(s template.HTML, needle string, url string) template.HTML {
 	return p.ReplaceURLPattern(string(s), needle, url)
+}
+
+func (p *page) Tag(tag string) template.HTML {
+	return template.HTML(fmt.Sprintf("<span class=\"uk-label uk-label-success\">%v</span>", p.T(fmt.Sprintf("tag_%v", tag))))
 }

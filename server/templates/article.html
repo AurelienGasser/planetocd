@@ -31,6 +31,11 @@
             {{ $t }}
         {{- end }}
         {{- end }}
+        <span class="uk-display-block uk-margin-small-top">
+            {{- range $article.Tags }}
+                {{ $.Tag . }}
+            {{- end }}
+        </span>
         <!-- on <a href="{{ .OriginalURL }}" target="_blank">{{ .OriginalURL }}</a> -->
     </p>
 
@@ -58,10 +63,6 @@
 
     {{ template "article_pagination" $viewModel.Pagination }}
 
-    <section class="uk-background-muted uk-padding-small uk-text-center">
-        <div><i>{{ $.ReplaceEmail ($.T "Need_help_prompt") }}</i></div>
-    </section>
-
     <!--
     <section class="uk-margin-top uk-grid-small uk-child-width-auto">
         <a class="uk-button uk-button-text" href="{{ $.MustGetURL "articles" }}">&#171; {{ $.T "All_articles" }}</a>
@@ -69,6 +70,23 @@
     -->
 
 </article>
+
+{{- if $viewModel.Suggestions }}
+<h4 class="uk-heading-divider">You may also like</h4>
+<ul class="uk-thumbnav uk-display-block" uk-margin>
+    {{- range $viewModel.Suggestions }}
+    <li class="uk-active uk-link-reset"><a class="uk-flex uk-flex-middle" href="{{ .URL }}">
+        <img src="{{ .ImageURL }}" width="100" alt="">
+        <span class="uk-margin-left">{{ .Title }}</span>
+    </a></li>
+    {{- end }}
+</ul>
+{{- end }}
+
+
+<section class="uk-background-muted uk-padding-small uk-text-center uk-margin-top">
+    <div><i>{{ $.ReplaceEmail ($.T "Need_help_prompt") }}</i></div>
+</section>
 
 {{end}}
 {{end}}

@@ -141,6 +141,7 @@ func CreateTranslatedArticle(
 		OriginalAuthor: originalAuthor,
 		Languages:      make(map[string]articles.ArticleLanguageMetadata),
 		PublishedDate:  time.Now(),
+		Tags:           []string{},
 	}
 
 	var existingMetadata articles.ArticleMetadata

@@ -127,10 +127,18 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 			pageNumber = tmp
 		}
 	}
+
+	suggestions, err := getArticleSuggestions(article)
+
+	if err != nil {
+		log.Printf("Error getting suggestions for article %v in lang %v: %v\n", article.ID, lang, err)
+	}
+
 	articleVM := articleViewModel{
 		Article:          article,
 		CurrentPageIndex: pageNumber - 1,
 		Pagination:       getPagination(article, pageNumber),
+		Suggestions:      suggestions,
 	}
 	p.Body = articleVM
 	RenderTemplate(w, p)

@@ -4,4 +4,5 @@ type articleViewModel struct {
 	Article          *article
 	CurrentPageIndex int
 	Pagination       *pagination
+	Suggestions      []*article
 }

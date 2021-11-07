@@ -96,5 +96,6 @@ func loadArticleInLang(id string, idN int, lang string, metadata ArticleMetadata
 		Image:          metadata.Image,
 		PublishedDate:  metadata.PublishedDate,
 		Translators:    langMetadata.Translators,
+		Tags:           metadata.Tags,
 	}, nil
 }
