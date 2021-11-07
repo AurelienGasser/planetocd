@@ -22,7 +22,9 @@ func loadTemplates() map[string]*template.Template {
 	templates["index_en"] = loadTemplate("index_en.html")
 	templates["articles"] = loadTemplate("articles.html")
 	templates["article"] = loadTemplate("article.html")
-	templates["about"] = loadTemplate("about.html")
+	templates["about_fr"] = loadTemplate("about_fr.html")
+	templates["about_es"] = loadTemplate("about_es.html")
+	templates["about_zh"] = loadTemplate("about_zh.html")
 	return templates
 }
 

@@ -141,7 +141,7 @@ func handleAbout(w http.ResponseWriter, r *http.Request) {
 	canonicalURL := mustGetURL("about", lang)
 	title := Translate(lang, "About") + " - " + SiteName
 
-	p := getPage("about", r, canonicalURL, title, "", nil)
+	p := getPage(fmt.Sprintf("about_%v", lang), r, canonicalURL, title, "", nil)
 	RenderTemplate(w, p)
 }
 
