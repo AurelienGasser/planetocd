@@ -33,6 +33,13 @@ func getArticleSuggestions(cur *article) ([]*article, error) {
 
 	res := make([]*article, 0)
 
+	if len(list) > 0 && getNumCommonTags(list[0], cur) == 0 {
+		// if no other article has tags in common, prioritize "recovery"
+		sort.Slice(list, func(i, j int) bool {
+			return hasRecoveryTag(list[i]) && !hasRecoveryTag(list[j])
+		})
+	}
+
 	count := 0
 	for _, sugg := range list {
 		print(sugg.URL)
@@ -44,6 +51,24 @@ func getArticleSuggestions(cur *article) ([]*article, error) {
 	}
 
 	return res, nil
+}
+
+func hasRecoveryTag(a *article) bool {
+	if a == nil {
+		return false
+	}
+
+	if a.Tags == nil {
+		return false
+	}
+
+	for _, tag := range a.Tags {
+		if tag == "recovery" {
+			return true
+		}
+	}
+
+	return false
 }
 
 func getNumCommonTags(a *article, b *article) int {
