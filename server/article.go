@@ -6,6 +6,7 @@ import (
 	"net/url"
 
 	"github.com/aureliengasser/planetocd/articles"
+	"github.com/aureliengasser/planetocd/server/viewModel"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
 )
@@ -15,9 +16,17 @@ type article struct {
 	Slug        string
 	URL         *url.URL
 	ImageURL    *url.URL
-	Pages       []articlePage
+	Pages       []*articlePage
 	Tags        []string
 	Translators []string
+}
+
+func (a *article) GetPages() []viewModel.PaginationPage {
+	res := make([]viewModel.PaginationPage, len(a.Pages))
+	for i, v := range a.Pages {
+		res[i] = viewModel.PaginationPage(v)
+	}
+	return res
 }
 
 type articlePage struct {
@@ -27,13 +36,21 @@ type articlePage struct {
 	URL        *url.URL
 }
 
+func (p *articlePage) GetPageNumber() int {
+	return p.PageNumber
+}
+
+func (p *articlePage) GetURL() *url.URL {
+	return p.URL
+}
+
 func newArticle(a *articles.Article) *article {
 	slug := Slugify(a.Title)
 
 	htmlFlags := html.CommonFlags | html.HrefTargetBlank
 	opts := html.RendererOptions{Flags: htmlFlags}
 	renderer := html.NewRenderer(opts)
-	pages := make([]articlePage, len(a.MarkdownPages))
+	pages := make([]*articlePage, len(a.MarkdownPages))
 
 	for i, p := range a.MarkdownPages {
 		htmlBytes := markdown.ToHTML([]byte(p), nil, renderer)
@@ -45,7 +62,7 @@ func newArticle(a *articles.Article) *article {
 			HTMLShort:  template.HTML(htmlShort),
 			URL:        mustGetArticlePageURL(a.Lang, a.ID, slug, i+1),
 		}
-		pages[i] = ap
+		pages[i] = &ap
 	}
 
 	res := &article{

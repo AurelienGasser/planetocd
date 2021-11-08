@@ -8,6 +8,7 @@ import (
 	"sort"
 	"strconv"
 
+	"github.com/aureliengasser/planetocd/server/viewModel"
 	"github.com/gorilla/mux"
 )
 
@@ -56,7 +57,7 @@ func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
 
 	title := SiteName + " - Knowledge base about Obsessive Compulsive Disorder (OCD)"
 
-	p := getPage("index_en", r, canonicalURL, title, "", nil)
+	p := getViewModel("index_en", r, canonicalURL, title, "", nil)
 	p.Meta.DisableHeaderLinks = true
 	RenderTemplate(w, p)
 }
@@ -68,7 +69,7 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	title := SiteName + " - " + Translate(lang, "Articles_about_Obsessive_Compusive_Disorder")
 	description := ""
 
-	p := getPage("articles", r, canonicalURL, title, description, nil)
+	p := getViewModel("articles", r, canonicalURL, title, description, nil)
 
 	all, err := getArticles(lang)
 	if err != nil {
@@ -118,7 +119,7 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 
 	title := article.Title + " - " + SiteName
 	description := ""
-	p := getPage("article", r, canonicalURL, title, description, article.ImageURL)
+	vm := getViewModel("article", r, canonicalURL, title, description, article.ImageURL)
 	pageNumber := 1
 	pageNumberStr := r.URL.Query().Get("page")
 	if pageNumberStr != "" {
@@ -137,11 +138,11 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 	articleVM := articleViewModel{
 		Article:          article,
 		CurrentPageIndex: pageNumber - 1,
-		Pagination:       getPagination(article, pageNumber),
+		Pagination:       viewModel.GetPagination(article, pageNumber),
 		Suggestions:      suggestions,
 	}
-	p.Body = articleVM
-	RenderTemplate(w, p)
+	vm.Body = articleVM
+	RenderTemplate(w, vm)
 }
 
 func handleAbout(w http.ResponseWriter, r *http.Request) {
@@ -149,11 +150,11 @@ func handleAbout(w http.ResponseWriter, r *http.Request) {
 	canonicalURL := mustGetURL("about", lang)
 	title := Translate(lang, "About") + " - " + SiteName
 
-	p := getPage(fmt.Sprintf("about_%v", lang), r, canonicalURL, title, "", nil)
+	p := getViewModel(fmt.Sprintf("about_%v", lang), r, canonicalURL, title, "", nil)
 	RenderTemplate(w, p)
 }
 
-func getPage(tmpl string, r *http.Request, canonicalURL *url.URL, title string, description string, socialImageURL *url.URL) *page {
+func getViewModel(tmpl string, r *http.Request, canonicalURL *url.URL, title string, description string, socialImageURL *url.URL) *ViewModel {
 	if socialImageURL == nil {
 		var err error
 		socialImageURL, err = router.Get("static").URL()
@@ -169,9 +170,9 @@ func getPage(tmpl string, r *http.Request, canonicalURL *url.URL, title string, 
 		socialURL.Host = "planetocd.org"
 	}
 
-	return &page{
+	return &ViewModel{
 		Constants: Constants,
-		Meta: &pageMeta{
+		Meta: &ViewModelMeta{
 			TemplateName:          tmpl,
 			Lang:                  lang,
 			Title:                 title,
