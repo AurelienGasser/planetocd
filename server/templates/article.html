@@ -39,8 +39,6 @@
         <!-- on <a href="{{ .OriginalURL }}" target="_blank">{{ .OriginalURL }}</a> -->
     </p>
 
-    {{ template "article_pagination" $viewModel.Pagination }}
-
     <section>{{ $page.HTML }}</section>
     <!-- <%=
     <section style="text-align: right">
@@ -61,7 +59,7 @@
     </section>
     %> -->
 
-    {{ template "article_pagination" $viewModel.Pagination }}
+    {{ template "pagination" $viewModel.Pagination }}
 
     <!--
     <section class="uk-margin-top uk-grid-small uk-child-width-auto">

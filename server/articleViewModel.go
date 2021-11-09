@@ -1,10 +1,13 @@
 package server
 
-import "github.com/aureliengasser/planetocd/server/viewModel"
+import (
+	"github.com/aureliengasser/planetocd/server/cache"
+	"github.com/aureliengasser/planetocd/server/viewModel"
+)
 
 type articleViewModel struct {
-	Article          *article
+	Article          *cache.Article
 	CurrentPageIndex int
 	Pagination       *viewModel.Pagination
-	Suggestions      []*article
+	Suggestions      []*cache.Article
 }

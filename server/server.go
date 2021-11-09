@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"sort"
 	"strconv"
 
 	"github.com/aureliengasser/planetocd/server/viewModel"
@@ -41,6 +40,9 @@ func Listen(port int, isLocal bool) {
 	s.HandleFunc("/", handleArticles).Name("articles")
 	s.HandleFunc("/articles/{id:[0-9]+}/{slug}", handleArticle).Name("article")
 
+	// Load articles
+	ensureLoaded()
+
 	// http.Error(w, "An internal error occurred", http.StatusInternalServerError)
 	log.Println("Starting server")
 	log.Fatal(http.ListenAndServe(fmt.Sprint(":", port), router))
@@ -64,39 +66,62 @@ func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
 
 func handleArticles(w http.ResponseWriter, r *http.Request) {
 	lang := getLang(r)
-	canonicalURL := mustGetURL("articles", lang)
 
 	title := SiteName + " - " + Translate(lang, "Articles_about_Obsessive_Compusive_Disorder")
 	description := ""
 
-	p := getViewModel("articles", r, canonicalURL, title, description, nil)
+	pages := allArticlesPaginated[lang]
 
-	all, err := getArticles(lang)
-	if err != nil {
-		http.NotFound(w, r)
-		fmt.Println(err)
-		return
+	pageNumber := 1
+	pageNumberStr := r.URL.Query().Get("page")
+	if pageNumberStr != "" {
+		tmp, err := strconv.Atoi(pageNumberStr)
+		if err == nil && tmp >= 1 && tmp <= len(pages.Pages) {
+			pageNumber = tmp
+		} else {
+			http.NotFound(w, r)
+			return
+		}
 	}
-	sorted := make([]*article, len(all))
-	i := 0
-	for _, article := range all {
-		sorted[i] = article
-		i++
-	}
-	sort.Slice(sorted, func(i, j int) bool { return sorted[i].Article.PublishedDate.After(sorted[j].Article.PublishedDate) })
 
-	summaries := make([]articleSummary, len(all))
-	for i, article := range sorted {
-		summaries[i] = articleSummary{
+	baseURL := mustGetURL("articles", lang)
+	p := getViewModel("articles", r, getArticlesCanonicalURL(baseURL, pageNumber), title, description, nil)
+
+	pageIndex := pageNumber - 1
+	page := pages.Pages[pageIndex]
+
+	articles := make([]*viewModel.ArticlesArticle, len(page.Articles))
+	for i, article := range page.Articles {
+		articles[i] = &viewModel.ArticlesArticle{
 			Title:     article.Title,
 			HTMLShort: article.Pages[0].HTMLShort,
 			URL:       mustGetArticleURL(article.Lang, article.ID, article.Slug),
 		}
-		i++
 	}
 
-	p.Body = summaries
+	pageVms := make([]*viewModel.ArticlesPage, len(pages.Pages))
+	for i, _ := range pages.Pages {
+		pageVms[i] = &viewModel.ArticlesPage{
+			PageNumber: i + 1,
+			URL:        getArticlesCanonicalURL(baseURL, i+1),
+		}
+	}
+	vm := viewModel.Articles{
+		CurrentPageIndex: pageIndex,
+		Pages:            pageVms,
+		Articles:         articles,
+	}
+
+	vm.Pagination = viewModel.GetPagination(&vm, pageNumber)
+
+	p.Body = vm
 	RenderTemplate(w, p)
+}
+
+func getArticlesCanonicalURL(baseURL *url.URL, pageNumber int) *url.URL {
+	res := *baseURL
+	res.RawQuery = fmt.Sprintf("page=%v", pageNumber)
+	return &res
 }
 
 func handleArticle(w http.ResponseWriter, r *http.Request) {
@@ -115,11 +140,8 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	canonicalURL, _ := router.Get("article").URL("language", lang, "id", idStr, "slug", article.Slug)
-
 	title := article.Title + " - " + SiteName
 	description := ""
-	vm := getViewModel("article", r, canonicalURL, title, description, article.ImageURL)
 	pageNumber := 1
 	pageNumberStr := r.URL.Query().Get("page")
 	if pageNumberStr != "" {
@@ -129,6 +151,12 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	canonicalURL, _ := router.Get("article").URL("language", lang, "id", idStr, "slug", article.Slug)
+	if pageNumber > 1 {
+		canonicalURL.RawQuery = fmt.Sprintf("page=%v", pageNumber)
+	}
+
+	vm := getViewModel("article", r, canonicalURL, title, description, article.ImageURL)
 	suggestions, err := getArticleSuggestions(article)
 
 	if err != nil {

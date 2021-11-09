@@ -3,9 +3,13 @@
 <!-- <% content_for :title, Constants::SITE_NAME + " - " + (t :Articles_about_Obsessive_Compusive_Disorder) %>
 <% content_for :meta_description, (t :Home_meta) %> -->
 
+{{ $viewModel := .Body }}
+{{ $pageIndex := $viewModel.CurrentPageIndex }}
+{{ $articles := $viewModel.Articles }}
+
 <h1>{{ .T "Recent_articles" }}</h1>
 <section class="articles-list">
-    {{ range .Body }}
+    {{ range $articles }}
         <article class="uk-card uk-card-default uk-margin-bottom">
             <div class="uk-card-body">
                 <a class="uk-link-heading" href="{{ .URL }}">
@@ -18,6 +22,7 @@
             </div>
         </article>
     {{ end }}
+    {{ template "pagination" $viewModel.Pagination }}
 </section>
 
 {{end}}

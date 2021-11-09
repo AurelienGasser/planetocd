@@ -4,16 +4,18 @@ import (
 	"math/rand"
 	"sort"
 	"time"
+
+	"github.com/aureliengasser/planetocd/server/cache"
 )
 
-func getArticleSuggestions(cur *article) ([]*article, error) {
+func getArticleSuggestions(cur *cache.Article) ([]*cache.Article, error) {
 	all, err := getArticles(cur.Lang)
 	if err != nil {
 		return nil, err
 	}
 
 	// create list from dict (remove current article)
-	list := make([]*article, len(all)-1)
+	list := make([]*cache.Article, len(all)-1)
 	idx := 0
 	for _, a := range all {
 		if a != cur {
@@ -31,7 +33,7 @@ func getArticleSuggestions(cur *article) ([]*article, error) {
 		return getNumCommonTags(list[i], cur) > getNumCommonTags(list[j], cur)
 	})
 
-	res := make([]*article, 0)
+	res := make([]*cache.Article, 0)
 
 	if len(list) > 0 && getNumCommonTags(list[0], cur) == 0 {
 		// if no other article has tags in common, prioritize "recovery"
@@ -53,7 +55,7 @@ func getArticleSuggestions(cur *article) ([]*article, error) {
 	return res, nil
 }
 
-func hasRecoveryTag(a *article) bool {
+func hasRecoveryTag(a *cache.Article) bool {
 	if a == nil {
 		return false
 	}
@@ -71,7 +73,7 @@ func hasRecoveryTag(a *article) bool {
 	return false
 }
 
-func getNumCommonTags(a *article, b *article) int {
+func getNumCommonTags(a *cache.Article, b *cache.Article) int {
 	if a == nil || b == nil {
 		return 0
 	}
