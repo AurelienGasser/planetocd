@@ -146,9 +146,8 @@ func CreateTranslatedArticle(
 
 	var existingMetadata articles.ArticleMetadata
 	metadataFilePath := path.Join(outPath, idStr+"__"+slug+".json")
-
 	metadataFile, err := ioutil.ReadFile(metadataFilePath)
-	if err != nil {
+	if err == nil {
 		err := json.Unmarshal(metadataFile, &existingMetadata)
 		if err != nil {
 			log.Fatal(err)
@@ -173,8 +172,8 @@ func CreateTranslatedArticle(
 			if _, ok := existingMetadata.Languages[lang]; !ok {
 				log.Fatal("Couldn't find existing metadata for language: " + lang)
 			}
-			if len(existingMetadata.Languages[lang].Pages) != 0 {
-				log.Fatal("Invalid existing metadata for language: " + lang)
+			if len(existingMetadata.Languages[lang].Pages) != pageNumber-1 {
+				log.Fatalf("Invalid existing metadata for language: %v. Existing metadata has %v pages.", lang, existingMetadata.Languages[lang].Pages)
 			}
 			pages = append(existingMetadata.Languages[lang].Pages, fileName)
 		}
