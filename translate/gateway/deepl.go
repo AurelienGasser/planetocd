@@ -72,6 +72,10 @@ func getDocumentResult(client *http.Client, authKey string, doc *DeeplDocument) 
 		return "", err
 	}
 
+	if resp.StatusCode != 200 {
+		return "", fmt.Errorf("error while uploading the document. Status code: %v, Response: %v", resp.Status, string(content))
+	}
+
 	return string(content), nil
 }
 
@@ -117,6 +121,10 @@ func uploadDocument(
 		return nil, err
 	}
 
+	if resp.StatusCode != 200 {
+		return nil, fmt.Errorf("error while uploading the document. Status code: %v, Response: %v", resp.Status, string(content))
+	}
+
 	doc := DeeplDocument{}
 
 	err = json.Unmarshal(content, &doc)
@@ -144,6 +152,8 @@ func waitForTranslation(client *http.Client, authKey string, doc *DeeplDocument)
 			return nil
 		} else if status.Status == "error" {
 			return fmt.Errorf("a Deepl error occurred while translating the document")
+		} else {
+			return fmt.Errorf("error while translating the document. Message = %v", status.Message)
 		}
 	}
 }
@@ -174,6 +184,10 @@ func getDocumentStatus(client *http.Client, authKey string, doc *DeeplDocument) 
 		return nil, err
 	}
 
+	if resp.StatusCode != 200 {
+		return nil, fmt.Errorf("error while getting document status. Status code: %v, Response: %v", resp.Status, string(content))
+	}
+
 	docStatus := DeeplDocumentStatus{}
 
 	err = json.Unmarshal(content, &docStatus)
@@ -187,6 +201,7 @@ func getDocumentStatus(client *http.Client, authKey string, doc *DeeplDocument) 
 type DeeplDocument struct {
 	DocumentID  string `json:"document_id"`
 	DocumentKey string `json:"document_key"`
+	Message     string `json:"message"`
 }
 
 type DeeplDocumentStatus struct {
@@ -194,4 +209,5 @@ type DeeplDocumentStatus struct {
 	Status           string `json:"status"`
 	SecondsRemaining int    `json:"seconds_remaining"`
 	BilledCharacters int    `json:"billed_characters"`
+	Message          string `json:"message"`
 }
