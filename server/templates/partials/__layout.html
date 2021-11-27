@@ -39,11 +39,21 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.4/js/uikit.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.4/js/uikit-icons.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+      <script>
+      $(function() {
+        $("#petition-banner-close").click(function() {
+          $('#petition-banner').remove();
+          document.cookie = "{{ .Constants.DismissBannerCookieName }}=true; secure=true; path=/";
+        })
+      })
+      </script>
   </head>
   <body>
       {{template "header" .}}
-      {{- if ne .Meta.TemplateName "index_en" }}
-      <div class="uk-alert uk-alert-primary banner">
+      {{- if and (ne .Meta.TemplateName "index_en") .Meta.EnablePetitionBanner }}
+      <div class="uk-alert uk-alert-primary banner" id="petition-banner">
+        <button type="button" uk-close class="uk-float-right" id="petition-banner-close"></button>
         {{ $.ReplaceURLPattern ($.T "Sign_petition_prompt") "petition_url" $.Constants.PetitionURL }}
       </div>
       {{- end }}

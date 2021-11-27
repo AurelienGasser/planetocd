@@ -41,17 +41,21 @@ var TwitterHost = "https://twitter.com/"
 var PetitionURL = "https://www.change.org/p/1er-ministre-jean-castex-et-ministre-de-la-sant%C3%A9-olivier-v%C3%A9ran-toc-am%C3%A9liorer-la-prise-en-charge-par-les-services-de-sant%C3%A9"
 
 // ...
+var DismissBannerCookieName = "dismiss-banner"
+
+// ...
 var Constants = map[string]interface{}{
-	"DefaultPort":         DefaultPort,
-	"Host":                Host,
-	"DonateURL":           DonateURL,
-	"Email":               Email,
-	"FacebookURL":         FacebookURL,
-	"GithubURL":           GithubURL,
-	"GithubContributeURL": GithubContributeURL,
-	"GoogleAnalyticsID":   GoogleAnalyticsID,
-	"SiteName":            SiteName,
-	"TwitterHandle":       TwitterHandle,
-	"TwitterHost":         TwitterHost,
-	"PetitionURL":         PetitionURL,
+	"DefaultPort":             DefaultPort,
+	"Host":                    Host,
+	"DonateURL":               DonateURL,
+	"Email":                   Email,
+	"FacebookURL":             FacebookURL,
+	"GithubURL":               GithubURL,
+	"GithubContributeURL":     GithubContributeURL,
+	"GoogleAnalyticsID":       GoogleAnalyticsID,
+	"SiteName":                SiteName,
+	"TwitterHandle":           TwitterHandle,
+	"TwitterHost":             TwitterHost,
+	"PetitionURL":             PetitionURL,
+	"DismissBannerCookieName": DismissBannerCookieName,
 }

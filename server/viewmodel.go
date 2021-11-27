@@ -24,6 +24,7 @@ type ViewModelMeta struct {
 	SocialImageURL        string
 	EnableGoogleAnalytics bool
 	DisableHeaderLinks    bool
+	EnablePetitionBanner  bool
 }
 
 // T translates an input key using the Page's lang code
