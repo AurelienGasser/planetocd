@@ -8,8 +8,6 @@ import (
 	"mime/multipart"
 	"net/http"
 	"net/url"
-	"os"
-	"path/filepath"
 	"strings"
 	"time"
 )
@@ -23,24 +21,24 @@ const (
 	FORMALITY_LESS      = "less"
 )
 
-func Translate(sourceFilePath string, targetLang string, authKey string, formality string) (string, error) {
+func Translate(inputText string, inputExtension string, targetLang string, authKey string, formality string) (string, error) {
 	client := &http.Client{}
 
-	doc, err := uploadDocument(client, sourceFilePath, targetLang, authKey, formality)
+	doc, err := uploadDocument(client, inputText, inputExtension, targetLang, authKey, formality)
 	if err != nil {
-		return "", fmt.Errorf("error while uploading to Deepl %v in %v: %w", sourceFilePath, targetLang, err)
+		return "", fmt.Errorf("error while uploading to Deepl %v in %v: %w", inputExtension, targetLang, err)
 	}
 
 	err = waitForTranslation(client, authKey, doc)
 
 	if err != nil {
-		return "", fmt.Errorf("error while translating %v in %v (%v): %w", sourceFilePath, targetLang, doc.DocumentID, err)
+		return "", fmt.Errorf("error while translating %v in %v (%v): %w", inputExtension, targetLang, doc.DocumentID, err)
 	}
 
 	translatedText, err := getDocumentResult(client, authKey, doc)
 
 	if err != nil {
-		return "", fmt.Errorf("error while fetching the translation for %v in %v (%v): %w", sourceFilePath, targetLang, doc.DocumentID, err)
+		return "", fmt.Errorf("error while fetching the translation for %v in %v (%v): %w", inputExtension, targetLang, doc.DocumentID, err)
 	}
 
 	return translatedText, nil
@@ -81,28 +79,21 @@ func getDocumentResult(client *http.Client, authKey string, doc *DeeplDocument) 
 
 func uploadDocument(
 	client *http.Client,
-	sourceFilePath string,
+	inputText string,
+	inputExtension string,
 	targetLang string,
 	authKey string,
 	formality string,
 ) (*DeeplDocument, error) {
 	var body bytes.Buffer
 
-	file, err := os.Open(sourceFilePath)
-
-	if err != nil {
-		return nil, err
-	}
-
-	defer file.Close()
-
 	writer := multipart.NewWriter(&body)
 
-	fileWriter, err := writer.CreateFormFile("file", filepath.Base(file.Name()))
+	fileWriter, err := writer.CreateFormFile("file", fmt.Sprintf("input.%v", inputExtension))
 	if err != nil {
 		return nil, err
 	}
-	io.Copy(fileWriter, file)
+	fileWriter.Write([]byte(inputText))
 	writer.WriteField("source_lang", "EN")
 	writer.WriteField("target_lang", targetLang)
 	writer.WriteField("auth_key", authKey)
