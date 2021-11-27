@@ -1,10 +1,8 @@
 package main
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"log"
 	"os"
@@ -13,16 +11,18 @@ import (
 	"strings"
 	"time"
 
-	translate "cloud.google.com/go/translate/apiv3"
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/aureliengasser/planetocd/articles"
 	"github.com/aureliengasser/planetocd/server"
+	"github.com/aureliengasser/planetocd/translate/gateway/google"
 	"github.com/gomarkdown/markdown"
 	"github.com/urfave/cli/v2"
-	translatepb "google.golang.org/genproto/googleapis/cloud/translate/v3"
 )
 
-var DEFAULT_GOOGLE_APPLICATION_CREDENTIALS string = os.Getenv("PLANETOCD_GOOGLE_APPLICATION_CREDENTIALS")
+const (
+	GOOGLE_MODEL_TYPE = "default" // nmt or base
+)
+
 var DEFAULT_INPUT_MD_FILE = "./workdir/in.md"
 var DEFAULT_INPUT_HTML_FILE = "./workdir/in.html"
 var DEFAULT_OUTPUT_DIR = "./articles/articles/"
@@ -38,10 +38,6 @@ func main() {
 	var inputFileMD string
 	var inputFileHTML string
 	var outPath string
-
-	if os.Getenv("GOOGLE_APPLICATION_CREDENTIALS") == "" {
-		os.Setenv("GOOGLE_APPLICATION_CREDENTIALS", DEFAULT_GOOGLE_APPLICATION_CREDENTIALS)
-	}
 
 	app := &cli.App{
 		Usage: "Create an article",
@@ -154,12 +150,14 @@ func CreateArticle(
 		}
 	}
 
+	config := google.NewConfig("", "", GOOGLE_MODEL_TYPE)
+
 	for _, lang := range server.SupportedLanguages {
-		fileName, err := translateAndWrite(outPath, lang, string(html), idStr, pageNumber)
+		fileName, err := translateAndWrite(outPath, lang, string(html), idStr, pageNumber, config)
 		if err != nil {
 			log.Fatal(err)
 		}
-		translatedTitle, err := translateText(os.Stdout, "planetocd", "en", lang, originalTitle, "text/plain", "default")
+		translatedTitle, err := google.Translate(config, "en", lang, originalTitle, "text/plain")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -194,8 +192,8 @@ func CreateArticle(
 	copyFile(inputFileHTML, path.Join(outPath, idStr+"__original.html"))
 }
 
-func translateAndWrite(outPath string, lang string, html string, id string, pageNumber int) (string, error) {
-	translatedHTML, err := translateText(os.Stdout, "planetocd", "en", lang, html, "text/html", "default")
+func translateAndWrite(outPath string, lang string, html string, id string, pageNumber int, config *google.GoogleConfig) (string, error) {
+	translatedHTML, err := google.Translate(config, "en", lang, html, "text/html")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -223,39 +221,4 @@ func copyFile(src string, dest string) {
 		log.Fatal(err)
 		return
 	}
-}
-
-func translateText(w io.Writer, projectID string, sourceLang string, targetLang string, text string, mimeType string, modelType string) (string, error) {
-	ctx := context.Background()
-	client, err := translate.NewTranslationClient(ctx)
-	if err != nil {
-		return "", fmt.Errorf("NewTranslationClient: %v", err)
-	}
-	defer client.Close()
-
-	model := ""
-	if modelType != "default" {
-		model = "projects/planetocd/locations/global/models/general/" + modelType
-	}
-
-	req := &translatepb.TranslateTextRequest{
-		Parent:             fmt.Sprintf("projects/%s/locations/global", projectID),
-		SourceLanguageCode: sourceLang,
-		TargetLanguageCode: targetLang,
-		Model:              model,    // nmt or base
-		MimeType:           mimeType, // Mime types: "text/plain", "text/html"
-		Contents:           []string{text},
-	}
-
-	resp, err := client.TranslateText(ctx, req)
-	if err != nil {
-		return "", fmt.Errorf("TranslateText: %v", err)
-	}
-
-	res := ""
-	for _, translation := range resp.GetTranslations() {
-		res = res + translation.GetTranslatedText() + "\n"
-	}
-
-	return res, nil
 }
