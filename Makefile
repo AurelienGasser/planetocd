@@ -8,8 +8,6 @@ all: build
 
 build: $(GO_FILES)
 	go build -o bin/planetocd .
-	go build -o bin/translate ./translate
-	go build -o bin/convert ./convert
 
 .PHONY: run-local
 run-local:
@@ -23,5 +21,3 @@ $(CSS_FILE): $(LESS_SRC)
 clean:
 	-rm -f $(CSS_FILE)
 	-rm -f bin/planetocd
-	-rm -f bin/translate
-	-rm -f bin/convert

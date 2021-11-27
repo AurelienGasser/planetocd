@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -10,7 +9,6 @@ import (
 	"log"
 	"os"
 	"path"
-	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -19,14 +17,12 @@ import (
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/aureliengasser/planetocd/articles"
 	"github.com/aureliengasser/planetocd/server"
-	"github.com/aureliengasser/planetocd/translate/gateway"
 	"github.com/gomarkdown/markdown"
 	"github.com/urfave/cli/v2"
 	translatepb "google.golang.org/genproto/googleapis/cloud/translate/v3"
 )
 
 var DEFAULT_GOOGLE_APPLICATION_CREDENTIALS string = os.Getenv("PLANETOCD_GOOGLE_APPLICATION_CREDENTIALS")
-var DEFAULT_DEEPL_TOKEN_PATH = os.Getenv("PLANETOCD_DEEPL_TOKEN_PATH")
 var DEFAULT_INPUT_MD_FILE = "./workdir/in.md"
 var DEFAULT_INPUT_HTML_FILE = "./workdir/in.html"
 var DEFAULT_OUTPUT_DIR = "./articles/articles/"
@@ -35,122 +31,80 @@ var DEFAULT_PAGE_NUMBER = 1
 func main() {
 
 	var articleId int
-	var articleOriginalTitle string
-	var articleOriginalURL string
-	var articleOriginalAuthor string
-	var articlePageNumber int
-	var articleInputFileMD string
-	var articleInputFileHTML string
-	var articleOutPath string
-
-	var fileToken string
-	var fileTargetLanguage string
-	var fileInputExtension string
+	var originalTitle string
+	var originalURL string
+	var originalAuthor string
+	var pageNumber int
+	var inputFileMD string
+	var inputFileHTML string
+	var outPath string
 
 	if os.Getenv("GOOGLE_APPLICATION_CREDENTIALS") == "" {
 		os.Setenv("GOOGLE_APPLICATION_CREDENTIALS", DEFAULT_GOOGLE_APPLICATION_CREDENTIALS)
 	}
 
 	app := &cli.App{
-		Commands: []*cli.Command{
-			{
-				Name:  "article",
-				Usage: "Translate an article",
-				Flags: []cli.Flag{
-					&cli.IntFlag{
-						Name:        "id",
-						Usage:       "Output article ID",
-						Required:    true,
-						Destination: &articleId,
-					},
-					&cli.StringFlag{
-						Name:        "title",
-						Usage:       "Original article title",
-						Required:    true,
-						Destination: &articleOriginalTitle,
-					},
-					&cli.StringFlag{
-						Name:        "url",
-						Usage:       "Original article url",
-						Required:    true,
-						Destination: &articleOriginalURL,
-					},
-					&cli.StringFlag{
-						Name:        "author",
-						Usage:       "Original article Author",
-						Destination: &articleOriginalAuthor,
-					},
-					&cli.IntFlag{
-						Name:        "page",
-						Usage:       "Page number",
-						Value:       DEFAULT_PAGE_NUMBER,
-						Destination: &articlePageNumber,
-					},
-					&cli.StringFlag{
-						Name:        "input-md",
-						Usage:       "Input Markdown file path",
-						Value:       DEFAULT_INPUT_MD_FILE,
-						Destination: &articleInputFileMD,
-					},
-					&cli.StringFlag{
-						Name:        "input-html",
-						Usage:       "Input Markdown HTML file path",
-						Value:       DEFAULT_INPUT_HTML_FILE,
-						Destination: &articleInputFileHTML,
-					},
-					&cli.StringFlag{
-						Name:        "output-path",
-						Usage:       "Output article directory",
-						Value:       DEFAULT_OUTPUT_DIR,
-						Destination: &articleOutPath,
-					},
-				},
-				Action: func(c *cli.Context) error {
-					CreateTranslatedArticle(
-						articleId,
-						articleOriginalTitle,
-						articleOriginalURL,
-						articleOriginalAuthor,
-						articlePageNumber,
-						articleInputFileMD,
-						articleInputFileHTML,
-						articleOutPath)
-					return nil
-				},
+		Usage: "Create an article",
+		Flags: []cli.Flag{
+			&cli.IntFlag{
+				Name:        "id",
+				Usage:       "Output article ID",
+				Required:    true,
+				Destination: &articleId,
 			},
-			{
-				Name:  "file",
-				Usage: "Translate a file",
-
-				Flags: []cli.Flag{
-					&cli.StringFlag{
-						Name:        "token",
-						Usage:       "Access token",
-						Destination: &fileToken,
-						Required:    false,
-					},
-					&cli.StringFlag{
-						Name:        "lang",
-						Usage:       "Target language",
-						Destination: &fileTargetLanguage,
-						Required:    true,
-					},
-					&cli.StringFlag{
-						Name:        "ext",
-						Usage:       "Input string extension (corresponding to MIME type)",
-						Destination: &fileInputExtension,
-						Required:    false,
-					},
-				},
-				Action: func(c *cli.Context) error {
-					TranslateFile(
-						c.Args().Get(0),
-						fileInputExtension,
-						fileToken,
-						fileTargetLanguage)
-					return nil
-				},
+			&cli.StringFlag{
+				Name:        "title",
+				Usage:       "Original article title",
+				Required:    true,
+				Destination: &originalTitle,
 			},
+			&cli.StringFlag{
+				Name:        "url",
+				Usage:       "Original article url",
+				Required:    true,
+				Destination: &originalURL,
+			},
+			&cli.StringFlag{
+				Name:        "author",
+				Usage:       "Original article Author",
+				Destination: &originalAuthor,
+			},
+			&cli.IntFlag{
+				Name:        "page",
+				Usage:       "Page number",
+				Value:       DEFAULT_PAGE_NUMBER,
+				Destination: &pageNumber,
+			},
+			&cli.StringFlag{
+				Name:        "input-md",
+				Usage:       "Input Markdown file path",
+				Value:       DEFAULT_INPUT_MD_FILE,
+				Destination: &inputFileMD,
+			},
+			&cli.StringFlag{
+				Name:        "input-html",
+				Usage:       "Input Markdown HTML file path",
+				Value:       DEFAULT_INPUT_HTML_FILE,
+				Destination: &inputFileHTML,
+			},
+			&cli.StringFlag{
+				Name:        "output-path",
+				Usage:       "Output article directory",
+				Value:       DEFAULT_OUTPUT_DIR,
+				Destination: &outPath,
+			},
+		},
+		Action: func(c *cli.Context) error {
+			CreateArticle(
+				articleId,
+				originalTitle,
+				originalURL,
+				originalAuthor,
+				pageNumber,
+				inputFileMD,
+				inputFileHTML,
+				outPath)
+			return nil
 		},
 	}
 
@@ -160,60 +114,8 @@ func main() {
 	}
 }
 
-func TranslateFile(inputFile string, inputExtension string, token string, targetLanguage string) {
-
-	if token == "" {
-		file, err := os.Open(DEFAULT_DEEPL_TOKEN_PATH)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer file.Close()
-		tokenB, err := io.ReadAll(file)
-		if err != nil {
-			log.Fatal(err)
-		}
-		token = string(tokenB)
-	}
-
-	inputText := ""
-
-	if inputFile == "-" {
-		reader := bufio.NewReader(os.Stdin)
-		inputB, _ := io.ReadAll(reader)
-		inputText = string(inputB)
-	} else {
-		file, err := os.Open(inputFile)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer file.Close()
-		inputB, err := io.ReadAll(file)
-		if err != nil {
-			log.Fatal(err)
-		}
-		inputText = string(inputB)
-		if inputExtension == "" {
-			inputExtension = filepath.Ext(inputFile)
-		}
-	}
-
-	text, err := gateway.Translate(
-		inputText,
-		inputExtension,
-		strings.ToUpper(targetLanguage),
-		token,
-		gateway.FORMALITY_MORE,
-	)
-
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	fmt.Print(text)
-}
-
-// CreateTranslatedArticle ....
-func CreateTranslatedArticle(
+// CreateArticle ....
+func CreateArticle(
 	id int,
 	originalTitle string,
 	originalURL string,
