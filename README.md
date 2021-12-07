@@ -12,7 +12,7 @@ About
 
 The goal of Planet OCD is to help spread quality and up-to-date information on OCD to non-English speakers for free.
 
-The articles come from external sources and are translated from their original English version. Currently, articles are available in French, Spanish and Chinese (traditional).
+The articles come from external sources and are translated from their original English version. Currently, articles are available in French, Spanish and Chinese (simplified).
 
 Contribute
 ----------
