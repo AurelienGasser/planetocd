@@ -1,6 +1,7 @@
 module github.com/aureliengasser/planetocd
 
 // +heroku goVersion go1.17
+// +heroku install github.com/aureliengasser/planetocd
 go 1.17
 
 require (
