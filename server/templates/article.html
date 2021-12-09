@@ -74,7 +74,7 @@
 <ul class="uk-thumbnav uk-display-block" uk-margin>
     {{- range $viewModel.Suggestions }}
     <li class="uk-active uk-link-reset"><a class="uk-flex uk-flex-middle" href="{{ .URL }}">
-        <img src="{{ .ImageURL }}" width="100" alt="">
+        <img src="{{ $.SmallImage .ImageURL }}" width="100" alt="">
         <span class="uk-margin-left">{{ .Title }}</span>
     </a></li>
     {{- end }}

@@ -3,8 +3,10 @@ package server
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/url"
 	"regexp"
+	"strings"
 )
 
 type ViewModel struct {
@@ -58,4 +60,13 @@ func (p *ViewModel) ReplaceURLPatternTemplate(s template.HTML, needle string, ur
 
 func (p *ViewModel) Tag(tag string) template.HTML {
 	return template.HTML(fmt.Sprintf("<span class=\"uk-label uk-label-success\">%v</span>", p.T(fmt.Sprintf("tag_%v", tag))))
+}
+
+func (p *ViewModel) SmallImage(u *url.URL) *url.URL {
+	res, err := url.Parse(strings.Replace(u.String(), "_md.", "_sm.", 1))
+	if err != nil {
+		log.Printf("Error: unable to get small image for %v\n", u)
+		return u
+	}
+	return res
 }
