@@ -189,7 +189,7 @@ func getViewModel(tmpl string, r *http.Request, canonicalURL *url.URL, title str
 		if err != nil {
 			panic(err)
 		}
-		socialImageURL.Path += "images/logo_social.png"
+		socialImageURL.Path += "images/logo_social.webp"
 	}
 	lang := getLang(r)
 
