@@ -37,17 +37,20 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.4/css/uikit.min.css" />
       <link rel="stylesheet" href="/static/css/main.css" />
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.4/js/uikit.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.4/js/uikit-icons.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.4/js/uikit.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.4/js/uikit-icons.min.js"></script>
       <script>
-      $(function() {
-        $("#petition-banner-close").click(function() {
-          $('#petition-banner').remove();
-          document.cookie = "{{ .Constants.DismissBannerCookieName }}=true; secure=true; path=/";
-        })
-      })
+        function initPetitionBanner() {
+          $(function() {
+            $("#petition-banner-close").click(function() {
+              $('#petition-banner').remove();
+              document.cookie = "{{ .Constants.DismissBannerCookieName }}=true; secure=true; path=/";
+            })
+          })
+        }
       </script>
+      <script async src="https://code.jquery.com/jquery-3.6.0.slim.min.js" onload="initPetitionBanner()"></script>
+
   </head>
   <body>
       {{template "header" .}}
