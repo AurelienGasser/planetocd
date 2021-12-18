@@ -8,6 +8,7 @@ import (
 	"mime/multipart"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 	"time"
 )
@@ -137,7 +138,7 @@ func waitForTranslation(client *http.Client, authKey string, doc *DeeplDocument)
 			if delay <= 0 {
 				delay = 1
 			}
-			fmt.Printf("Deepl document %v, Status: %v. Waiting for %v seconds\n", doc.DocumentID, status.Status, delay)
+			fmt.Fprintf(os.Stderr, "Deepl document %v, Status: %v. Waiting for %v seconds\n", doc.DocumentID, status.Status, delay)
 			time.Sleep(time.Duration(delay) * time.Second)
 		} else if status.Status == "done" {
 			return nil
