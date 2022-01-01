@@ -75,6 +75,9 @@ func getDocumentResult(client *http.Client, authKey string, doc *DeeplDocument) 
 		return "", fmt.Errorf("error while uploading the document. Status code: %v, Response: %v", resp.Status, string(content))
 	}
 
+	// remove BOM
+	content = bytes.TrimPrefix(content, []byte("\xef\xbb\xbf"))
+
 	return string(content), nil
 }
 
