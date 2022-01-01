@@ -14,8 +14,9 @@ import (
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/aureliengasser/planetocd/articles"
 	"github.com/aureliengasser/planetocd/server"
-	"github.com/aureliengasser/planetocd/translate/gateway/google"
+	"github.com/aureliengasser/planetocd/translate/service/deepl"
 	"github.com/gomarkdown/markdown"
+	"github.com/gomarkdown/markdown/html"
 	"github.com/urfave/cli/v2"
 )
 
@@ -128,7 +129,11 @@ func CreateArticle(
 		log.Fatal(err)
 	}
 
-	html := markdown.ToHTML(inputMD, nil, nil)
+	htmlFlags := html.CommonFlags | html.CompletePage
+	opts := html.RendererOptions{Flags: htmlFlags}
+	renderer := html.NewRenderer(opts)
+	html := markdown.ToHTML(inputMD, nil, renderer)
+
 	slug := server.Slugify(originalTitle)
 
 	metadata := articles.ArticleMetadata{
@@ -150,14 +155,12 @@ func CreateArticle(
 		}
 	}
 
-	config := google.NewConfig("", "", GOOGLE_MODEL_TYPE)
-
 	for _, lang := range server.SupportedLanguages {
-		fileName, err := translateAndWrite(outPath, lang, string(html), idStr, pageNumber, config)
+		fileName, err := translateAndWrite(outPath, lang, string(html), idStr, pageNumber)
 		if err != nil {
 			log.Fatal(err)
 		}
-		translatedTitle, err := google.Translate(config, "en", lang, originalTitle, "text/plain")
+		translatedTitle, err := deepl.Translate(originalTitle, ".txt", lang)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -192,8 +195,8 @@ func CreateArticle(
 	copyFile(inputFileHTML, path.Join(outPath, idStr+"__original.html"))
 }
 
-func translateAndWrite(outPath string, lang string, html string, id string, pageNumber int, config *google.GoogleConfig) (string, error) {
-	translatedHTML, err := google.Translate(config, "en", lang, html, "text/html")
+func translateAndWrite(outPath string, lang string, html string, id string, pageNumber int) (string, error) {
+	translatedHTML, err := deepl.Translate(html, ".html", lang)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -203,8 +206,9 @@ func translateAndWrite(outPath string, lang string, html string, id string, page
 	if err != nil {
 		log.Fatal(err)
 	}
+	markdown = strings.TrimLeft(markdown, "\n ")
 	fileName := id + "_" + lang + "_0" + strconv.Itoa(pageNumber) + ".md"
-	ioutil.WriteFile(path.Join(outPath, fileName), []byte(markdown), 0644)
+	os.WriteFile(path.Join(outPath, fileName), []byte(markdown), 0644)
 	return fileName, nil
 }
 
@@ -215,7 +219,7 @@ func copyFile(src string, dest string) {
 		return
 	}
 
-	err = ioutil.WriteFile(dest, input, 0644)
+	err = os.WriteFile(dest, input, 0644)
 	if err != nil {
 		fmt.Println("Error creating", dest)
 		log.Fatal(err)
