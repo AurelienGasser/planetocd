@@ -2,20 +2,15 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"os"
-	"strings"
 
-	"github.com/aureliengasser/planetocd/translate/gateway/deepl"
+	"github.com/aureliengasser/planetocd/translate/service/deepl"
 	"github.com/aureliengasser/planetocd/utils"
 	"github.com/urfave/cli/v2"
 )
 
-var DEFAULT_DEEPL_TOKEN_PATH = os.Getenv("PLANETOCD_DEEPL_TOKEN_PATH")
-
 func main() {
-	var token string
 	var targetLanguage string
 	var inputExtension string
 
@@ -30,12 +25,6 @@ func main() {
 				Required:    true,
 			},
 			&cli.StringFlag{
-				Name:        "token",
-				Usage:       "Access token",
-				Destination: &token,
-				Required:    false,
-			},
-			&cli.StringFlag{
 				Name:        "ext",
 				Usage:       "Input string extension (corresponding to MIME type)",
 				Destination: &inputExtension,
@@ -48,7 +37,6 @@ func main() {
 			translated, err := TranslateFile(
 				c.Args().Get(0),
 				inputExtension,
-				token,
 				targetLanguage)
 
 			if err != nil {
@@ -66,7 +54,7 @@ func main() {
 	}
 }
 
-func TranslateFile(inputFile string, inputExtension string, token string, targetLanguage string) (string, error) {
+func TranslateFile(inputFile string, inputExtension string, targetLanguage string) (string, error) {
 
 	inputText, err := utils.GetInputText(inputFile)
 
@@ -74,29 +62,9 @@ func TranslateFile(inputFile string, inputExtension string, token string, target
 		return "", err
 	}
 
-	return translateDeepl(inputText, inputExtension, token, targetLanguage)
-}
-
-func translateDeepl(inputText string, inputExtension string, token string, targetLanguage string) (string, error) {
-
-	if token == "" {
-		file, err := os.Open(DEFAULT_DEEPL_TOKEN_PATH)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer file.Close()
-		tokenB, err := io.ReadAll(file)
-		if err != nil {
-			log.Fatal(err)
-		}
-		token = string(tokenB)
-	}
-
 	return deepl.Translate(
 		inputText,
 		inputExtension,
-		strings.ToUpper(targetLanguage),
-		token,
-		deepl.FORMALITY_MORE,
+		targetLanguage,
 	)
 }
