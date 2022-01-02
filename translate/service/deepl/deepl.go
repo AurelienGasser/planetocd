@@ -26,8 +26,7 @@ func GetDefaultToken() (string, error) {
 
 func GetFormalityForLanguage(lang string) string {
 	switch strings.ToLower(lang) {
-	case "fr":
-	case "es":
+	case "fr", "es":
 		return deepl.FORMALITY_MORE
 	}
 	return deepl.FORMALITY_DEFAULT
