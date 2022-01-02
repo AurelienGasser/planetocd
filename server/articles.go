@@ -135,13 +135,17 @@ func newArticle(a *articles.Article) *cache.Article {
 }
 
 func getHTMLShort(HTML string) string {
-	endTag := "</p>"
+	endTags := []string{"</p>", "<br/>", "<br />", "</li>", "<br>", "</ul>", "</ol>", "</blockquote>"}
 	length := len(HTML)
-	i := 500
-	for ; i+len(endTag) < length; i++ {
-		if HTML[i:i+len(endTag)] == endTag {
-			break
+	var i int
+	for _, endTag := range endTags {
+		i = 500
+		print(endTag)
+		for ; i+len(endTag) < length; i++ {
+			if HTML[i:i+len(endTag)] == endTag {
+				return HTML[:i+len(endTag)]
+			}
 		}
 	}
-	return HTML[:i+len(endTag)]
+	return HTML
 }
