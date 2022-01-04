@@ -140,7 +140,6 @@ func getHTMLShort(HTML string) string {
 	var i int
 	for _, endTag := range endTags {
 		i = 500
-		print(endTag)
 		for ; i+len(endTag) < length; i++ {
 			if HTML[i:i+len(endTag)] == endTag {
 				return HTML[:i+len(endTag)]
