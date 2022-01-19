@@ -180,8 +180,9 @@ func CreateArticle(
 		}
 
 		metadata.Languages[lang] = articles.ArticleLanguageMetadata{
-			Title: strings.Trim(translatedTitle, "\n"),
-			Pages: pages,
+			Title:       strings.Trim(translatedTitle, "\n"),
+			Pages:       pages,
+			Translators: []string{deepl.NAME},
 		}
 	}
 

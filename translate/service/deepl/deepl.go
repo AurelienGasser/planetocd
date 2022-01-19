@@ -9,6 +9,8 @@ import (
 	"github.com/aureliengasser/planetocd/translate/gateway/deepl"
 )
 
+const NAME = "Deepl"
+
 var DEFAULT_DEEPL_TOKEN_PATH = os.Getenv("PLANETOCD_DEEPL_TOKEN_PATH")
 
 func GetDefaultToken() (string, error) {

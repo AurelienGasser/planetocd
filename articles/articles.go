@@ -12,7 +12,6 @@ import (
 
 var articles = make(map[string]map[int]*Article)
 var articlesRootPath = "articles/articles/"
-var regexTranslationFile = regexp.MustCompile(`_([a-z]{2}).md$`)
 var regexMetadataFile = regexp.MustCompile(`.*/([0-9]+)_[^/]+.json$`)
 
 // GetArticles ...
