@@ -26,9 +26,9 @@
         {{- if and .Translators .ShowTranslators}}
         <br>
         {{ $.T "Translated_by" }} </label>
-        {{- range $index, $t := .Translators }}
-            {{ if $index }},{{ end }}
-            {{ $t }}
+        {{- range $index, $t := .Translators -}}
+            {{ if $index -}},{{ end }}
+            {{ $t -}}
         {{- end }}
         {{- end }}
         <span class="uk-display-block uk-margin-small-top">
