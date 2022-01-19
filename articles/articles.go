@@ -86,16 +86,17 @@ func loadArticleInLang(id string, idN int, lang string, metadata ArticleMetadata
 		mdPages = append(mdPages, string(mdBytes))
 	}
 	return &Article{
-		ID:             idN,
-		Lang:           lang,
-		Title:          langMetadata.Title,
-		MarkdownPages:  mdPages,
-		OriginalURL:    metadata.OriginalURL,
-		OriginalTitle:  metadata.OriginalTitle,
-		OriginalAuthor: metadata.OriginalAuthor,
-		Image:          metadata.Image,
-		PublishedDate:  metadata.PublishedDate,
-		Translators:    langMetadata.Translators,
-		Tags:           metadata.Tags,
+		ID:              idN,
+		Lang:            lang,
+		Title:           langMetadata.Title,
+		MarkdownPages:   mdPages,
+		OriginalURL:     metadata.OriginalURL,
+		OriginalTitle:   metadata.OriginalTitle,
+		OriginalAuthor:  metadata.OriginalAuthor,
+		Image:           metadata.Image,
+		PublishedDate:   metadata.PublishedDate,
+		Translators:     langMetadata.Translators,
+		ShowTranslators: langMetadata.ShowTranslators,
+		Tags:            metadata.Tags,
 	}, nil
 }

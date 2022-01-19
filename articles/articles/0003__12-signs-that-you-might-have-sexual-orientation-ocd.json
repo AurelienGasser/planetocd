@@ -8,19 +8,25 @@
             "title": "12 señales de que puede tener TOC de orientación sexual",
             "pages": [
                 "0003_es_01.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate"]
         },
         "fr": {
             "title": "12 signes que vous pourriez avoir un TOC d'orientation sexuelle",
             "pages": [
                 "0003_fr_01.md"
-            ]
+            ],
+            "showTranslators": true,
+            "translators": ["Aurélien G."]
         },
         "zh": {
             "title": "您可能有性取向的12个迹象",
             "pages": [
                 "0003_zh_01.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate"]
         }
     },
     "image": "002_identity_md.webp",

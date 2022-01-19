@@ -8,7 +8,8 @@
             "pages": [
                 "0007_fr_01.md"
             ],
-            "translators": null
+            "showTranslators": true,
+            "translators": ["Aurélien G."]
         }
     },
     "image": "011_jump_gap_md.webp",

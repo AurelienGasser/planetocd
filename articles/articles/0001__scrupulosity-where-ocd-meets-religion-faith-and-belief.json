@@ -10,7 +10,9 @@
                 "0001_es_01.md",
                 "0001_es_02.md",
                 "0001_es_03.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate"]
         },
         "fr": {
             "title": "Obsession Religieuse: Quand les TOC se mêlent à la religion et à la foi",
@@ -18,7 +20,9 @@
                 "0001_fr_01.md",
                 "0001_fr_02.md",
                 "0001_fr_03.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate", "Aurélien G."]
         },
         "zh": {
             "title": "宗教迷恋：强迫症与宗教和信仰纠缠在一起",
@@ -26,7 +30,9 @@
                 "0001_zh_01.md",
                 "0001_zh_02.md",
                 "0001_zh_03.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate"]
         }
     },
     "image": "008_prayer_md.webp",

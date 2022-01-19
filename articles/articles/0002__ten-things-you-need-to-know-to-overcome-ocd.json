@@ -8,19 +8,25 @@
             "title": "Diez cosas que necesita saber para superar el TOC",
             "pages": [
                 "0002_es_01.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate"]
         },
         "fr": {
             "title": "Dix choses que vous devez savoir pour vaincre le TOC",
             "pages": [
                 "0002_fr_01.md"
-            ]
+            ],
+            "showTranslators": true,
+            "translators": ["Aurélien G."]
         },
         "zh": {
             "title": "克服强迫症需要知道的十件事",
             "pages": [
                 "0002_zh_01.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate"]
         }
     },
     "image": "007_puzzle_md.webp",

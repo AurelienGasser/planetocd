@@ -8,10 +8,13 @@
             "title": "Trastorno obsesivo-compulsivo y \"El miedo al miedo en sí mismo\"",
             "pages": [
                 "0006_es_01.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate"]
         },
         "fr": {
             "title": "Trouble obsessionnel-compulsif et « La peur de la peur elle-même »",
+            "showTranslators": true,
             "translators": [
                 "Aude Grezy"
             ],
@@ -23,7 +26,9 @@
             "title": "强迫症和“对恐惧本身的恐惧”",
             "pages": [
                 "0006_zh_01.md"
-            ]
+            ],
+            "showTranslators": false,
+            "translators": ["Google Translate"]
         }
     },
     "image": "005_anxiety_md.webp",
