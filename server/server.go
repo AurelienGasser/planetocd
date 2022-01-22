@@ -198,8 +198,8 @@ func getViewModel(tmpl string, r *http.Request, canonicalURL *url.URL, title str
 		socialURL.Host = "planetocd.org"
 	}
 
-	_, err := r.Cookie(DismissBannerCookieName)
-	hasDismissBannerCookie := err == nil
+	// _, err := r.Cookie(DismissBannerCookieName)
+	// hasDismissBannerCookie := err == nil
 
 	return &ViewModel{
 		Constants: Constants,
@@ -213,7 +213,7 @@ func getViewModel(tmpl string, r *http.Request, canonicalURL *url.URL, title str
 			RootURL:               getRootURL(lang).String(),
 			SocialImageURL:        socialImageURL.String(),
 			EnableGoogleAnalytics: !isLocalEnvironment,
-			EnablePetitionBanner:  !hasDismissBannerCookie,
+			EnablePetitionBanner:  false,
 		},
 	}
 }
