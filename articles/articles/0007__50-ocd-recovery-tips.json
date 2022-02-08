@@ -11,6 +11,14 @@
             "showTranslators": true,
             "translators": ["Aurélien G."]
         },
+        "es": {
+            "title": "50 consejos para la recuperación del TOC",
+            "pages": [
+                "0007_es_01.md"
+            ],
+            "showTranslators": true,
+            "translators": ["V. Sanchez"]
+        },
         "zh": {
             "title": "50个强迫症康复提示",
             "pages": [
