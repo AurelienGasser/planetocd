@@ -21,7 +21,7 @@ var FacebookURL = map[string]string{"fr": "https://www.facebook.com/PlanetOCDfr"
 const GithubURL = "https://github.com/momow/planetocd"
 
 // ...
-const GithubContributeURL = GithubURL + "/blob/master/README.md#contribute"
+const GithubContributeURL = GithubURL + "#contribute"
 
 // ...
 const GoogleAnalyticsID = "UA-137169000-1"
