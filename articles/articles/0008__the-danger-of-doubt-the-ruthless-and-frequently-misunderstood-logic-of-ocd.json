@@ -8,21 +8,23 @@
             "pages": [
                 "0008_es_01.md"
             ],
-            "translators": ["Sandra Canas"]
+            "translators": ["Sandra Canas"],
+            "showTranslators": true
         },
         "fr": {
             "title": "Le danger du doute : la logique impitoyable et souvent mal comprise du TOC",
             "pages": [
                 "0008_fr_01.md"
             ],
-            "translators": null
+            "translators": ["Aurélien G."],
+            "showTranslators": true
         },
         "zh": {
             "title": "怀疑的危险：强迫症的无情且经常被误解的逻辑",
             "pages": [
                 "0008_zh_01.md"
             ],
-            "translators": null
+            "translators": ["DeepL"]
         }
     },
     "image": "005_anxiety_md.webp",
