@@ -10,6 +10,7 @@ import (
 	"github.com/aureliengasser/planetocd/server/cache"
 	"github.com/aureliengasser/planetocd/server/viewModel"
 	"github.com/gorilla/mux"
+	"github.com/snabb/sitemap"
 )
 
 var router *mux.Router
@@ -34,6 +35,7 @@ func Listen(port int, isLocal bool) {
 
 	router.Path("/").HandlerFunc(handleEnglishIndex).Name("index_en")
 	router.Path("/robots.txt").HandlerFunc(handleRobots)
+	router.Path("/sitemap.xml").HandlerFunc(handleSitemap)
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static")))).Name("static")
 
 	s := router.PathPrefix("/{language}").Subrouter()
@@ -54,6 +56,28 @@ func Listen(port int, isLocal bool) {
 func handleRobots(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte("User-agent: *\nAllow: /\n"))
+}
+
+func handleSitemap(w http.ResponseWriter, r *http.Request) {
+	urls := make([]*url.URL, 0)
+	urls = append(urls, mustGetURL("index_en", ""))
+
+	for lang, articles := range allArticlesPaginated {
+		baseURL := mustGetURL("articles", lang)
+		for _, page := range articles.Pages {
+			urls = append(urls, getArticlesCanonicalURL(baseURL, page.PageNumber))
+			for _, article := range page.Articles {
+				urls = append(urls, mustGetArticleURL(lang, article.ID, article.Slug))
+			}
+		}
+		urls = append(urls, mustGetURL("about", lang))
+	}
+	s := sitemap.New()
+
+	for _, url := range urls {
+		s.Add(&sitemap.URL{Loc: url.String()})
+	}
+	s.WriteTo(w)
 }
 
 func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
