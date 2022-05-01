@@ -7,6 +7,7 @@ import (
 	"net/url"
 	"strconv"
 
+	"github.com/aureliengasser/planetocd/server/cache"
 	"github.com/aureliengasser/planetocd/server/viewModel"
 	"github.com/gorilla/mux"
 )
@@ -32,6 +33,7 @@ func Listen(port int, isLocal bool) {
 	}
 
 	router.Path("/").HandlerFunc(handleEnglishIndex).Name("index_en")
+	router.Path("/robots.txt").HandlerFunc(handleRobots)
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static")))).Name("static")
 
 	s := router.PathPrefix("/{language}").Subrouter()
@@ -47,6 +49,11 @@ func Listen(port int, isLocal bool) {
 	log.Println("Starting server")
 	log.Fatal(http.ListenAndServe(fmt.Sprint(":", port), router))
 	log.Println("Server started")
+}
+
+func handleRobots(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("User-agent: *\nAllow: /\n"))
 }
 
 func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
@@ -70,7 +77,13 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	title := SiteName + " - " + Translate(lang, "Articles_about_Obsessive_Compusive_Disorder")
 	description := ""
 
-	pages := allArticlesPaginated[lang]
+	var pages *cache.Articles = nil
+	var ok bool
+
+	if pages, ok = allArticlesPaginated[lang]; !ok {
+		http.NotFound(w, r)
+		return
+	}
 
 	pageNumber := 1
 	pageNumberStr := r.URL.Query().Get("page")
@@ -86,7 +99,6 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 
 	baseURL := mustGetURL("articles", lang)
 	p := getViewModel("articles", r, getArticlesCanonicalURL(baseURL, pageNumber), title, description, nil)
-
 	pageIndex := pageNumber - 1
 	page := pages.Pages[pageIndex]
 
