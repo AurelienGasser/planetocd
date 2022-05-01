@@ -132,7 +132,9 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 
 func getArticlesCanonicalURL(baseURL *url.URL, pageNumber int) *url.URL {
 	res := *baseURL
-	res.RawQuery = fmt.Sprintf("page=%v", pageNumber)
+	if pageNumber != 1 {
+		res.RawQuery = fmt.Sprintf("page=%v", pageNumber)
+	}
 	return &res
 }
 
