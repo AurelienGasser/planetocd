@@ -35,7 +35,7 @@ func Listen(port int, isLocal bool) {
 
 	router.Path("/").HandlerFunc(handleEnglishIndex).Name("index_en")
 	router.Path("/robots.txt").HandlerFunc(handleRobots)
-	router.Path("/sitemap.xml").HandlerFunc(handleSitemap)
+	router.Path("/sitemap.xml").HandlerFunc(handleSitemap).Name("sitemap")
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static")))).Name("static")
 
 	s := router.PathPrefix("/{language}").Subrouter()
@@ -54,8 +54,21 @@ func Listen(port int, isLocal bool) {
 }
 
 func handleRobots(w http.ResponseWriter, r *http.Request) {
+	lines := make([]string, 0)
+	lines = append(lines, "User-agent: *")
+	lines = append(lines, "Allow: /")
+	url, err := router.Get("sitemap").URL()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Println(err)
+		return
+	}
+	lines = append(lines, fmt.Sprintf("Sitemap: %v", url))
+
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("User-agent: *\nAllow: /\n"))
+	for _, line := range lines {
+		w.Write([]byte(line + "\n"))
+	}
 }
 
 func handleSitemap(w http.ResponseWriter, r *http.Request) {
