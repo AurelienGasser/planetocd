@@ -80,7 +80,11 @@ func handleSitemap(w http.ResponseWriter, r *http.Request) {
 		for _, page := range articles.Pages {
 			urls = append(urls, getArticlesCanonicalURL(baseURL, page.PageNumber))
 			for _, article := range page.Articles {
-				urls = append(urls, mustGetArticleURL(lang, article.ID, article.Slug))
+				articleBaseURL := mustGetArticleURL(lang, article.ID, article.Slug)
+				for _, articlePage := range article.Pages {
+					articleURL := getArticlesCanonicalURL(articleBaseURL, articlePage.PageNumber)
+					urls = append(urls, articleURL)
+				}
 			}
 		}
 		urls = append(urls, mustGetURL("about", lang))
