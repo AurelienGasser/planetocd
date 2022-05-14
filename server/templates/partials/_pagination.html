@@ -3,7 +3,7 @@
 {{- if ne (len $.Pages) 1 }}
 <ul class="uk-pagination uk-flex-center" uk-margin>
     <li {{ if not $.PreviousURL }} class="uk-disabled" {{ end }}>
-        <a href="{{ $.PreviousURL }}"><span uk-pagination-previous></span></a>
+        <a href="{{ or $.PreviousURL "#" }}"><span uk-pagination-previous></span></a>
     </li>
     {{- range $pn, $p := $.Pages }}
     <li {{ if eq $pn $.CurrentPageNumber }}class="uk-active"{{ end }}>
@@ -11,7 +11,7 @@
     </li>
     {{- end }}
     <li {{ if not $.NextURL }} class="uk-disabled" {{ end }}>
-        <a href="{{ $.NextURL }}"><span uk-pagination-next></span></a>
+        <a href="{{ or $.NextURL "#" }}"><span uk-pagination-next></span></a>
     </li>
 </ul>
 {{- end }}
