@@ -21,6 +21,7 @@ type ArticlesArticle struct {
 	URL       *url.URL
 	Title     string
 	HTMLShort template.HTML
+	Tags      []string
 }
 
 func (al *Articles) GetPages() []PaginationPage {

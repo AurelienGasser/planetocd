@@ -149,6 +149,7 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 			Title:     article.Title,
 			HTMLShort: article.Pages[0].HTMLShort,
 			URL:       mustGetArticleURL(article.Lang, article.ID, article.Slug),
+			Tags:      article.Tags,
 		}
 	}
 

@@ -13,8 +13,13 @@
         <article class="uk-card uk-card-default uk-margin-bottom">
             <div class="uk-card-body">
                 <a class="uk-link-heading" href="{{ .URL }}">
-                    <h3 class="uk-card-title">{{ .Title }}</h3>
+                    <h3 class="uk-card-title uk-margin-small-bottom">{{ .Title }}</h3>
                 </a>
+                <span class="uk-display-block uk-margin-none-top">
+                    {{- range .Tags }}
+                        {{ $.Tag . }}
+                    {{- end }}
+                </span>
                 {{ .HTMLShort }}
             </div>
             <div class="uk-card-footer">
