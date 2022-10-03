@@ -7,6 +7,7 @@ import (
 	"net/url"
 	"regexp"
 	"strings"
+	"time"
 )
 
 type ViewModel struct {
@@ -37,6 +38,10 @@ func (p *ViewModel) T(key string) string {
 // URL adds the language prefix to an URL path
 func (p *ViewModel) URL(path string) string {
 	return "/" + p.Meta.Lang + path
+}
+
+func (p *ViewModel) Age() string {
+	return fmt.Sprintf("%v", time.Now().Year()-1985)
 }
 
 // MustGetURL returns the URL for a name, and panics if not found
