@@ -44,6 +44,10 @@ func (p *ViewModel) MustGetURL(name string) *url.URL {
 	return mustGetURL(name, p.Meta.Lang)
 }
 
+func (p *ViewModel) Replace(s template.HTML, old, new string, n int) template.HTML {
+	return template.HTML(strings.Replace(string(s), old, new, n))
+}
+
 func (p *ViewModel) ReplaceEmail(s string) template.HTML {
 	re := regexp.MustCompile(`(.*)\[(.*)\]\(#email#\)(.*)`)
 	return template.HTML(re.ReplaceAll([]byte(s), []byte("$1<a href=\"mailto:"+template.HTMLEscapeString(Email)+"\">$2</a>$3")))
