@@ -1,12 +1,14 @@
 package server
 
 import (
+	"embed"
 	"fmt"
-	"io/ioutil"
 
 	"gopkg.in/yaml.v2"
 )
 
+//go:embed translations
+var translationsFS embed.FS
 var translations = make(map[string]map[string]string)
 
 // Translate ...
@@ -16,7 +18,7 @@ func Translate(lang string, key string) string {
 
 func loadTranslations(lang string) map[string]string {
 	var trans map[string]string
-	yamlFile, err := ioutil.ReadFile("server/translations/" + lang + ".yaml")
+	yamlFile, err := translationsFS.ReadFile("translations/" + lang + ".yaml")
 	if err != nil {
 		panic(fmt.Sprintf("Error opening translations file: %v ", err))
 	}

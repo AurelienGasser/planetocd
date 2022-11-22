@@ -1,6 +1,6 @@
-LESS_DIR = ./static/css/
+LESS_DIR = ./server/static/css/
 LESS_ENTRYPOINT = $(LESS_DIR)/application.less
-CSS_FILE = ./static/css/main.css
+CSS_FILE = ./server/static/css/main.css
 GO_FILES = $(wildcard *.go)
 LESS_SRC = $(wildcard $(LESS_DIR)/*.less)
 

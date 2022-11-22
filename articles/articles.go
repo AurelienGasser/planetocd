@@ -1,18 +1,19 @@
 package articles
 
 import (
+	"embed"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
-	"path/filepath"
 	"regexp"
 	"strconv"
 )
 
+//go:embed all:articles
+var articlesFS embed.FS
+var articlesRootPath = "articles/"
 var articles = make(map[string]map[int]*Article)
-var articlesRootPath = "articles/articles/"
-var regexMetadataFile = regexp.MustCompile(`.*/([0-9]+)_[^/]+.json$`)
+var regexMetadataFile = regexp.MustCompile(`^([0-9]+)_[^/]+.json$`)
 
 // GetArticles ...
 func GetArticles() map[string]map[int]*Article {
@@ -25,26 +26,27 @@ func ensureLoaded() {
 		return
 	}
 
-	articles, _ := filepath.Glob(articlesRootPath + "*__*.json")
-	for _, metadataFile := range articles {
-		loadArticle(metadataFile)
+	dirEntries, err := articlesFS.ReadDir("articles")
+	if err != nil {
+		panic(err)
+	}
+	for _, dirEntry := range dirEntries {
+		matches := regexMetadataFile.FindStringSubmatch(dirEntry.Name())
+		if len(matches) != 2 {
+			continue
+		}
+		id := matches[1]
+		idN, err := strconv.Atoi(id)
+		if err != nil {
+			continue
+		}
+		loadArticle(idN, dirEntry.Name())
 	}
 }
 
-func loadArticle(metadataFile string) {
-	// Get article ID
-	matches := regexMetadataFile.FindStringSubmatch(metadataFile)
-	if len(matches) != 2 {
-		log.Panic("Error parsing file name " + metadataFile)
-	}
-	id := matches[1]
-	idN, err := strconv.Atoi(id)
-	if err != nil {
-		log.Fatal(err)
-	}
-
+func loadArticle(id int, metadataFile string) {
 	// Load metadata
-	metadataJSON, err := ioutil.ReadFile(metadataFile)
+	metadataJSON, err := articlesFS.ReadFile(articlesRootPath + metadataFile)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -59,7 +61,7 @@ func loadArticle(metadataFile string) {
 		if len(lang) != 2 {
 			log.Panic("Invalid lang: " + lang)
 		}
-		article, err := loadArticleInLang(id, idN, lang, metadata)
+		article, err := loadArticleInLang(id, lang, metadata)
 		if err != nil {
 			fmt.Println(err)
 			continue
@@ -68,24 +70,24 @@ func loadArticle(metadataFile string) {
 		if !ok {
 			articles[lang] = make(map[int]*Article)
 		}
-		articles[lang][idN] = article
+		articles[lang][id] = article
 	}
 }
 
-func loadArticleInLang(id string, idN int, lang string, metadata ArticleMetadata) (*Article, error) {
+func loadArticleInLang(id int, lang string, metadata ArticleMetadata) (*Article, error) {
 	langMetadata := metadata.Languages[lang]
 	mdPages := []string{}
 
 	for _, fileName := range langMetadata.Pages {
 		filePath := articlesRootPath + fileName
-		mdBytes, err := ioutil.ReadFile(filePath)
+		mdBytes, err := articlesFS.ReadFile(filePath)
 		if err != nil {
 			return nil, fmt.Errorf("cannot read file %v: %v", filePath, err)
 		}
 		mdPages = append(mdPages, string(mdBytes))
 	}
 	return &Article{
-		ID:              idN,
+		ID:              id,
 		Lang:            lang,
 		Title:           langMetadata.Title,
 		MarkdownPages:   mdPages,

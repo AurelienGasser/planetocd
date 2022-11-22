@@ -1,10 +1,12 @@
 package server
 
 import (
+	"embed"
 	"fmt"
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 
 	"github.com/aureliengasser/planetocd/server/cache"
@@ -13,30 +15,40 @@ import (
 	"github.com/snabb/sitemap"
 )
 
+//go:embed static
+var staticFS embed.FS
 var router *mux.Router
 var isLocalEnvironment bool
 
 // Listen ...
 func Listen(port int, isLocal bool) {
 	isLocalEnvironment = isLocal
-	router = mux.NewRouter()
 
-	if isLocal {
-		router = router.
-			Schemes("http").
-			Host(fmt.Sprintf("localhost:%v", port)).
-			Subrouter()
-	} else {
-		router = router.
-			Schemes("https", "http").
-			Host(Host).
-			Subrouter()
+	router = mux.NewRouter().
+		Schemes("http", "https").
+		Host(getHost(isLocal, port)).
+		Subrouter()
+
+	registerRoutes(router, port)
+}
+
+func getHost(isLocal bool, port int) string {
+	host, ok := os.LookupEnv("PLANETOCD_HOST")
+	if ok {
+		return host
 	}
 
+	if isLocal {
+		return fmt.Sprintf("localhost:%v", port)
+	}
+	return Host
+}
+
+func registerRoutes(router *mux.Router, port int) {
 	router.Path("/").HandlerFunc(handleEnglishIndex).Name("index_en")
 	router.Path("/robots.txt").HandlerFunc(handleRobots)
 	router.Path("/sitemap.xml").HandlerFunc(handleSitemap).Name("sitemap")
-	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static")))).Name("static")
+	router.PathPrefix("/static/").Handler(http.FileServer(http.FS(staticFS))).Name("static")
 
 	s := router.PathPrefix("/{language}").Subrouter()
 	s.HandleFunc("/about", handleAbout).Name("about")
@@ -103,6 +115,7 @@ func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
 	// 	url := mustGetURL("articles", lang)
 	// 	http.Redirect(w, r, url.String(), http.StatusTemporaryRedirect)
 	// }
+	fmt.Println("Handing index")
 	canonicalURL := mustGetURL("index_en", "")
 
 	title := SiteName + " - Knowledge base about Obsessive Compulsive Disorder (OCD)"

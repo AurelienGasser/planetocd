@@ -1,12 +1,15 @@
 package server
 
 import (
+	"embed"
 	"fmt"
 	"html/template"
 	"net/http"
 	"path"
 )
 
+//go:embed all:templates
+var templateFS embed.FS
 var templates = loadTemplates()
 
 // RenderTemplate ...
@@ -29,10 +32,8 @@ func loadTemplates() map[string]*template.Template {
 }
 
 func loadTemplate(filename string) *template.Template {
-	templatesPath := "server/templates"
-	partialsPath := "server/templates/partials"
-
-	return template.Must(template.Must(
-		template.ParseGlob(partialsPath + "/*")).
-		ParseFiles(path.Join(templatesPath, "/"+filename)))
+	templatesPath := "templates/"
+	partialsPath := "templates/partials/*"
+	partials := template.Must(template.ParseFS(templateFS, partialsPath))
+	return template.Must(partials.ParseFS(templateFS, path.Join(templatesPath, filename)))
 }
