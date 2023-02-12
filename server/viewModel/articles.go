@@ -18,10 +18,11 @@ type ArticlesPage struct {
 }
 
 type ArticlesArticle struct {
-	URL       *url.URL
-	Title     string
-	HTMLShort template.HTML
-	Tags      []string
+	URL          *url.URL
+	Title        string
+	HTMLShort    template.HTML
+	Tags         []string
+	Illustration *ArticleIllustration
 }
 
 func (al *Articles) GetPages() []PaginationPage {

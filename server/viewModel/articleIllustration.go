@@ -1,4 +1,4 @@
-package cache
+package viewModel
 
 import (
 	"net/url"

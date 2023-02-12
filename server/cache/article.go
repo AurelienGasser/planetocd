@@ -12,7 +12,7 @@ type Article struct {
 	*articles.Article
 	Slug         string
 	URL          *url.URL
-	Illustration *ArticleIllustration
+	Illustration *viewModel.ArticleIllustration
 	Pages        []*ArticlePage
 	Tags         []string
 	Translators  []string

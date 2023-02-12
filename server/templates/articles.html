@@ -11,7 +11,9 @@
 <section class="articles-list">
     {{ range $articles }}
         <article class="uk-card uk-card-default uk-margin-bottom">
+
             <div class="uk-card-body">
+                <img class="uk-margin-medium-left uk-margin-medium-bottom uk-float-right" style="width: 30%" src="{{ .Illustration.Md }}"/>
                 <a class="uk-link-heading" href="{{ .URL }}">
                     <h3 class="uk-card-title uk-margin-small-bottom">{{ .Title }}</h3>
                 </a>
@@ -22,6 +24,7 @@
                 </span>
                 {{ .HTMLShort }}
             </div>
+
             <div class="uk-card-footer">
                 <a href="{{ .URL }}" class="uk-button uk-button-text">{{ $.T "Read_more" }}</a>
             </div>

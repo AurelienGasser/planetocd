@@ -8,6 +8,7 @@ import (
 
 	"github.com/aureliengasser/planetocd/articles"
 	"github.com/aureliengasser/planetocd/server/cache"
+	"github.com/aureliengasser/planetocd/server/viewModel"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
 )
@@ -129,7 +130,7 @@ func newArticle(a *articles.Article) *cache.Article {
 			panic(err)
 		}
 		staticURL.Path += fmt.Sprintf("images/illustrations/%v", a.Image)
-		res.Illustration = cache.NewArticleIllustration(staticURL)
+		res.Illustration = viewModel.NewArticleIllustration(staticURL)
 	}
 	return res
 }

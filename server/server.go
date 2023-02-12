@@ -159,10 +159,11 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 	articles := make([]*viewModel.ArticlesArticle, len(page.Articles))
 	for i, article := range page.Articles {
 		articles[i] = &viewModel.ArticlesArticle{
-			Title:     article.Title,
-			HTMLShort: article.Pages[0].HTMLShort,
-			URL:       mustGetArticleURL(article.Lang, article.ID, article.Slug),
-			Tags:      article.Tags,
+			Title:        article.Title,
+			HTMLShort:    article.Pages[0].HTMLShort,
+			URL:          mustGetArticleURL(article.Lang, article.ID, article.Slug),
+			Tags:         article.Tags,
+			Illustration: article.Illustration,
 		}
 	}
 
