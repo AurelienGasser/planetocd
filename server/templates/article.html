@@ -11,13 +11,10 @@
 
 <article class="uk-article article">
     {{ if .Illustration }}
-    <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-inline" uk-img="" data-src="{{ .Illustration.Lg }}">
-        <h1 class="uk-article-title uk-overlay uk-overlay-default uk-position-bottom uk-margin-remove-bottom">{{ .Title }}</h1>
-    </div>
-    {{ else }}
-    <h1 class="uk-article-title">{{ .Title }}</h1>
+    <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-inline" uk-img="" data-src="{{ .Illustration.Lg }}"></div>
     {{ end }}
-    <p class="uk-article-meta">
+    <h1 class="uk-article-title uk-margin uk-margin-small">{{ .Title }}</h1>
+    <div class="uk-article-meta">
         <label>{{ $.T "Original article" }} </label>
         <a href="{{ .OriginalURL }}" target="_blank" class="external">{{ .OriginalTitle }}</a>
         {{- if .OriginalAuthor }}
@@ -37,9 +34,11 @@
             {{- end }}
         </span>
         <!-- on <a href="{{ .OriginalURL }}" target="_blank">{{ .OriginalURL }}</a> -->
-    </p>
+    </div>
 
-    <section>{{ $page.HTML }}</section>
+    <section class="uk-margin-medium-top">
+        {{ $page.HTML }}
+    </section>
     <!-- <%=
     <section style="text-align: right">
         <iframe src="https://www.facebook.com/plugins/share_button.php?href={{ $.Meta.SocialURL }}&layout=button&size=large&width=112&height=28"
