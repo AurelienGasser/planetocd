@@ -72,10 +72,23 @@
 <h4 class="uk-heading-divider" style="margin-top: 20px">{{ $.T "You may also like" }}</h4>
 <ul class="uk-thumbnav uk-display-block" uk-margin>
     {{- range $viewModel.Suggestions }}
-    <li class="uk-active uk-link-reset"><a class="uk-flex uk-flex-middle" href="{{ .URL }}">
-        <img src="{{ .Illustration.Sm }}" width="100" alt="">
-        <span class="uk-margin-left">{{ .Title }}</span>
-    </a></li>
+    <li class="uk-active uk-link-reset uk-flex uk-flex-middle">
+        <a href="{{ .URL }}" style="width: 100px">
+            <img src="{{ .Illustration.Sm }}" width="100" alt="">
+        </a>
+        <div class="uk-margin-left">
+            <div>
+                <a href="{{ .URL }}" style="width: 100px">
+                    {{ .Title }}
+                </a>
+            </div>
+            <div>
+                {{- range .Tags }}
+                    {{ $.Tag . }}
+                {{- end }}
+            </div>
+        </div>
+    </li>
     {{- end }}
 </ul>
 {{- end }}
