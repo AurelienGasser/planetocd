@@ -10,8 +10,8 @@
 {{ with $article}}
 
 <article class="uk-article article">
-    {{ if .ImageURL }}
-    <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-inline" uk-img="" data-src="{{ .ImageURL }}">
+    {{ if .Illustration }}
+    <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-inline" uk-img="" data-src="{{ .Illustration.Lg }}">
         <h1 class="uk-article-title uk-overlay uk-overlay-default uk-position-bottom uk-margin-remove-bottom">{{ .Title }}</h1>
     </div>
     {{ else }}
@@ -74,7 +74,7 @@
 <ul class="uk-thumbnav uk-display-block" uk-margin>
     {{- range $viewModel.Suggestions }}
     <li class="uk-active uk-link-reset"><a class="uk-flex uk-flex-middle" href="{{ .URL }}">
-        <img src="{{ $.SmallImage .ImageURL }}" width="100" alt="">
+        <img src="{{ .Illustration.Sm }}" width="100" alt="">
         <span class="uk-margin-left">{{ .Title }}</span>
     </a></li>
     {{- end }}

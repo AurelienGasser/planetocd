@@ -5,7 +5,7 @@ perfectionism. This article focuses exclusively on
 identifying and challenging common cognitive
 distortions seen in “Moral Scrupulosity”._
 
-![Moral Scrupulosity in OCD: Cognitive Distortions](/static/images/illustrations/sign.jpeg)
+![Moral Scrupulosity in OCD: Cognitive Distortions](/static/images/illustrations/other/sign.jpeg)
 
 Those struggling with Moral Scrupulosity OCD
 can

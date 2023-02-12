@@ -1,6 +1,6 @@
 _Many people mistakenly think of Obsessive Compulsive Disorder (OCD) solely as a condition in which people wash their hands excessively or check door locks repeatedly.  There are actually many sub-types of OCD.  In this ongoing series, Kevin Foss, MFT of the OCD Center of Los Angeles discusses Scrupulosity, in which an individual’s OCD focuses on issues of religion, morals, and ethics. Part one of a four-part series._
 
-![Scrupulosity OCD](/static/images/illustrations/prayer.jpg)
+![Scrupulosity OCD](/static/images/illustrations/other/prayer.webp)
 
 Those with Scrupulosity experience profound feelings of anxiety and guilt related to religion, morals, and ethics.
 

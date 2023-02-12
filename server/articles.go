@@ -129,7 +129,7 @@ func newArticle(a *articles.Article) *cache.Article {
 			panic(err)
 		}
 		staticURL.Path += fmt.Sprintf("images/illustrations/%v", a.Image)
-		res.ImageURL = staticURL
+		res.Illustration = cache.NewArticleIllustration(staticURL)
 	}
 	return res
 }

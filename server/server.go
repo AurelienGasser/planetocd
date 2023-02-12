@@ -225,7 +225,7 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 		canonicalURL.RawQuery = fmt.Sprintf("page=%v", pageNumber)
 	}
 
-	vm := getViewModel("article", r, canonicalURL, title, description, article.ImageURL)
+	vm := getViewModel("article", r, canonicalURL, title, description, article.Illustration.Md())
 	suggestions, err := getArticleSuggestions(article)
 
 	if err != nil {
