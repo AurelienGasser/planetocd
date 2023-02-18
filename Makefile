@@ -9,8 +9,8 @@ all: build
 build: $(GO_FILES)
 	go build -o bin/planetocd .
 
-.PHONY: run-local
-run-local:
+.PHONY: dev
+dev:
 	./run-local.sh
 
 css: $(CSS_FILE)

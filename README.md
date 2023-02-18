@@ -35,7 +35,7 @@ Run locally
 You'll need go 1.15.
 
 ```bash
-make run-local
+make dev
 ```
 
 This will start the server on port 4242.
