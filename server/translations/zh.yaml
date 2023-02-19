@@ -24,7 +24,7 @@ tag_act: ACT
 tag_recovery: 复苏
 tag_cbt: 认知行为疗法
 tag_bdd: 軀體變形障礙
-tag_gay ocd: 同性恋强迫症
+tag_gay-ocd: 同性恋强迫症
 tag_tips: 提示
 tag_religion: 宗教
 tag_pure-o: 强迫症 Pure O
@@ -32,3 +32,4 @@ tag_sensorimotor: sensorimotor # TODO
 tag_testimony: 证言
 tag_close-ones: family members # TODO
 You may also like: 你可能也喜欢
+Articles with tag: 有标签的文章 # TODO

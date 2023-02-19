@@ -10,8 +10,8 @@ import (
 
 type ViewModel struct {
 	Constants map[string]interface{}
-	Body      interface{}
 	Meta      *ViewModelMeta
+	Body      interface{}
 }
 
 type ViewModelMeta struct {
@@ -28,9 +28,33 @@ type ViewModelMeta struct {
 	EnablePetitionBanner  bool
 }
 
+func NewEmptyViewModel(constants map[string]interface{}, meta *ViewModelMeta) *ViewModel {
+	return &ViewModel{
+		Constants: constants,
+		Meta:      meta,
+	}
+}
+
+func NewViewModel(constants map[string]interface{}, meta *ViewModelMeta, body interface{}) *ViewModel {
+	return &ViewModel{
+		Constants: constants,
+		Meta:      meta,
+		Body:      body,
+	}
+}
+
+func (p *ViewModel) NewViewModel(body interface{}) *ViewModel {
+	return NewViewModel(p.Constants, p.Meta, body)
+}
+
 // T translates an input key using the Page's lang code
 func (p *ViewModel) T(key string) string {
 	return Translate(p.Meta.Lang, key)
+}
+
+// T translates an input tag using the Page's lang code
+func (p *ViewModel) TranslateTag(tag string) string {
+	return TranslateTag(p.Meta.Lang, tag)
 }
 
 // URL adds the language prefix to an URL path
@@ -62,5 +86,5 @@ func (p *ViewModel) ReplaceURLPatternTemplate(s template.HTML, needle string, ur
 }
 
 func (p *ViewModel) Tag(tag string) template.HTML {
-	return template.HTML(fmt.Sprintf("<span class=\"uk-label uk-label-success\">%v</span>", p.T(fmt.Sprintf("tag_%v", tag))))
+	return template.HTML(fmt.Sprintf("<a href=\"%v\"><span class=\"uk-label uk-label-success\">%v</span></a>", mustGetTagURL(p.Meta.Lang, tag), p.TranslateTag(tag)))
 }

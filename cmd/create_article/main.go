@@ -13,7 +13,8 @@ import (
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/aureliengasser/planetocd/articles"
-	"github.com/aureliengasser/planetocd/server"
+	"github.com/aureliengasser/planetocd/server/languages"
+	"github.com/aureliengasser/planetocd/server/urls"
 	"github.com/aureliengasser/planetocd/translate/service/deepl"
 	"github.com/gomarkdown/markdown"
 	"github.com/gomarkdown/markdown/html"
@@ -134,7 +135,7 @@ func CreateArticle(
 	renderer := html.NewRenderer(opts)
 	html := markdown.ToHTML(inputMD, nil, renderer)
 
-	slug := server.Slugify(originalTitle)
+	slug := urls.Slugify(originalTitle)
 
 	metadata := articles.ArticleMetadata{
 		OriginalURL:    originalURL,
@@ -155,7 +156,7 @@ func CreateArticle(
 		}
 	}
 
-	for _, lang := range server.SupportedLanguages {
+	for _, lang := range languages.SupportedLanguages {
 		fileName, err := translateAndWrite(outPath, lang, string(html), idStr, pageNumber)
 		if err != nil {
 			log.Fatal(err)

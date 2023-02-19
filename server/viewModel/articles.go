@@ -5,6 +5,35 @@ import (
 	"net/url"
 )
 
+// var ArticlesByTag map[string]map[string]*Articles
+
+// func GetArticlesViewModelByTag(lang string, tag string) *Articles {
+// 	ensureLoaded()
+// }
+
+// func ensureLoaded() {
+// 	if ArticlesByTag != nil {
+// 		return
+// 	}
+// 	ArticlesByTag = make(map[string]map[string]*Articles, len(tags.Articles))
+// 	for lang, articlesByTag := range tags.Articles {
+// 		ArticlesByTag[lang] = make(map[string]*Articles, len(articlesByTag))
+// 		for tag, articles := range articlesByTag {
+// 			ArticlesByTag[lang][tag] = newArticle()
+// 		}
+// 	}
+// }
+
+func NewArticles(currentPageIndex int, pages []*ArticlesPage, articles []*ArticlesArticle) *Articles {
+	res := &Articles{
+		CurrentPageIndex: currentPageIndex,
+		Pages:            pages,
+		Articles:         articles,
+	}
+	res.Pagination = GetPagination(res, currentPageIndex+1)
+	return res
+}
+
 type Articles struct {
 	CurrentPageIndex int
 	Pagination       *Pagination

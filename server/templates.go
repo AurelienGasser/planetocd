@@ -24,6 +24,7 @@ func loadTemplates() map[string]*template.Template {
 	templates := make(map[string]*template.Template)
 	templates["index_en"] = loadTemplate("index_en.html")
 	templates["articles"] = loadTemplate("articles.html")
+	templates["tag"] = loadTemplate("tag.html")
 	templates["article"] = loadTemplate("article.html")
 	templates["about_fr"] = loadTemplate("about_fr.html")
 	templates["about_es"] = loadTemplate("about_es.html")
@@ -31,9 +32,12 @@ func loadTemplates() map[string]*template.Template {
 	return templates
 }
 
+var defaultfuncs = map[string]interface{}{}
+
 func loadTemplate(filename string) *template.Template {
 	templatesPath := "templates/"
 	partialsPath := "templates/partials/*"
-	partials := template.Must(template.ParseFS(templateFS, partialsPath))
-	return template.Must(partials.ParseFS(templateFS, path.Join(templatesPath, filename)))
+	tpl := template.New(filename).Funcs(defaultfuncs)
+	partialsTpl := template.Must(tpl.ParseFS(templateFS, partialsPath))
+	return template.Must(partialsTpl.ParseFS(templateFS, path.Join(templatesPath, filename)))
 }

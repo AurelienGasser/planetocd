@@ -4,6 +4,7 @@ import (
 	"embed"
 	"fmt"
 
+	"github.com/aureliengasser/planetocd/server/languages"
 	"gopkg.in/yaml.v2"
 )
 
@@ -14,6 +15,11 @@ var translations = make(map[string]map[string]string)
 // Translate ...
 func Translate(lang string, key string) string {
 	return translations[lang][key]
+}
+
+// TranslateTag ...
+func TranslateTag(lang string, tag string) string {
+	return translations[lang][fmt.Sprintf("tag_%v", tag)]
 }
 
 func loadTranslations(lang string) map[string]string {
@@ -31,7 +37,7 @@ func loadTranslations(lang string) map[string]string {
 }
 
 func init() {
-	for _, lang := range SupportedLanguages {
+	for _, lang := range languages.SupportedLanguages {
 		translations[lang] = loadTranslations(lang)
 	}
 }

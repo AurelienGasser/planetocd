@@ -1,8 +1,12 @@
 {{define "body"}}
 
+
+{{ $vm := .Body }}
+
 <!-- <% content_for :title, Constants::SITE_NAME + " - " + (t :Articles_about_Obsessive_Compusive_Disorder) %>
 <% content_for :meta_description, (t :Home_meta) %> -->
-
-{{template "article_list" .NewViewModel .Body  }}
+<h1>{{ .T "Articles with tag" }}: {{ .Tag $vm.Tag }}</h1>
+{{template "article_list" .NewViewModel $vm.Articles }}
 
 {{end}}
+

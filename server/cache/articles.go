@@ -5,7 +5,9 @@ type Articles struct {
 	Pages []*ArticlesPage
 }
 
-type ArticlesPage struct {
-	PageNumber int
-	Articles   []*Article
+func NewArticles(lang string, pages []*ArticlesPage) *Articles {
+	return &Articles{
+		Lang:  lang,
+		Pages: pages,
+	}
 }
