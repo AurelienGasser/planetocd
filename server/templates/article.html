@@ -70,7 +70,7 @@
 
 {{- if $viewModel.Suggestions }}
 <h4 class="uk-heading-divider" style="margin-top: 20px">{{ $.T "You may also like" }}</h4>
-<ul class="uk-thumbnav uk-display-block" uk-margin>
+<ul class="uk-display-block uk-padding-remove-left" uk-margin>
     {{- range $viewModel.Suggestions }}
     <li class="uk-active uk-link-reset uk-flex uk-flex-middle">
         <div style="flex-shrink: 0; width: 100px; height: 60px" class="uk-flex uk-flex-middle">
@@ -80,7 +80,7 @@
         </div>
         <div class="uk-margin-left">
             <div>
-                <a href="{{ .URL }}" style="width: 100px">
+                <a href="{{ .URL }}">
                     {{ .Title }}
                 </a>
             </div>
