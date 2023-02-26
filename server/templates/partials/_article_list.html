@@ -9,11 +9,17 @@
         <article class="uk-card uk-card-default uk-margin-bottom">
             <div class="uk-card-body uk-padding-remove-bottom">
                 <div class="uk-margin-small-bottom">
+                    <div class="uk-hidden@m uk-margin-small-bottom">
+                        <a href="{{ .URL }}" style="display: contents">
+                            <img style="width: 100%; object-fit: contain" src="{{ .Illustration.Md }}"/>
+                        </a>
+                    </div>
                     <div class="uk-flex">
-                        <a href="{{ .URL }}" style="display: contents; width: 30%">
+                        <a href="{{ .URL }}" class="uk-visible@m" style="display: contents; width: 30%">
                             <img style="width: 30%; object-fit: contain" src="{{ .Illustration.Md }}"/>
                         </a>
-                        <div class="uk-margin-left">
+                        <div class="uk-margin-right uk-visible@m"></div>
+                        <div>
                             <a href="{{ .URL }}" style="text-decoration: none">
                                 <h3 class="uk-card-title uk-margin-small-bottom">{{ .Title }}</h3>
                             </a>
