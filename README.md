@@ -32,7 +32,7 @@ Planet OCD is a non-profit website without advertisements. It hasn't received an
 Run locally
 -----------
 
-You need go 1.18.
+You need go 1.18 and `lessc` (`npm install -g less`)
 
 ```bash
 make dev
