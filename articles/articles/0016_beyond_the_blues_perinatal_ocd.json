@@ -1,0 +1,20 @@
+
+
+{
+    "originalUrl": "https://iocdf.org/expert-opinions/perinatal-ocd/",
+    "originalTitle": "Beyond the Blues: Perinatal OCD",
+    "originalAuthor": "Jonathan Abramowitz, PhD, ABPP",
+    "languages": {
+        "fr": {
+            "title": "Au-delà du baby-blues : le trouble obsessionnel et compulsif périnatal",
+            "pages": [
+                "0016_fr_01.md"
+            ],
+            "translators": ["les bénévoles de l’Association Française de de personnes souffrant de TOC (AFTOC)"],
+            "showTranslators": true
+        }
+    },
+    "image": "009_thinking.webp",
+    "published_date": "2023-07-27T22:50:21.400151678-04:00",
+    "tags": ["perinatal"]
+}
