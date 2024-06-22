@@ -12,6 +12,14 @@
             ],
             "translators": ["les bénévoles de l’Association Française de de personnes souffrant de TOC (AFTOC)"],
             "showTranslators": true
+        },
+        "es": {
+            "title": "Alguien que me importa no está lidiando con su TOC, ¿qué puedo hacer al respecto?",
+            "pages": [
+                "0014_es_01.md"
+            ],
+            "translators": ["Yann Lana Monreal"],
+            "showTranslators": true
         }
     },
     "image": "006_hands.webp",
