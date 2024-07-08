@@ -11,7 +11,7 @@
                 "0019_fr_01.md"
             ],
             "translators": ["Quentin Touloumet"],
-            "showTranslators": false
+            "showTranslators": true
         }
     },
     "image": "013_brain.webp",
