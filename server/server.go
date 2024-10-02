@@ -45,6 +45,7 @@ func registerRoutes(router *mux.Router, port int) {
 	router.Path("/").HandlerFunc(handleEnglishIndex).Name("index_en")
 	router.Path("/robots.txt").HandlerFunc(handleRobots)
 	router.Path("/sitemap.xml").HandlerFunc(handleSitemap).Name("sitemap")
+	router.Path("/articles.json").HandlerFunc(handleArticlesJson).Name("articlesJson")
 	router.PathPrefix("/static/").Handler(http.FileServer(http.FS(staticFS))).Name("static")
 
 	s := router.PathPrefix("/{language}").Subrouter()

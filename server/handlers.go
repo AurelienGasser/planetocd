@@ -1,18 +1,42 @@
 package server
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"net/url"
 	"strconv"
 
+	"github.com/aureliengasser/planetocd/articles"
 	"github.com/aureliengasser/planetocd/server/cache"
 	"github.com/aureliengasser/planetocd/server/tags"
 	"github.com/aureliengasser/planetocd/server/viewModel"
 	"github.com/gorilla/mux"
 	"github.com/snabb/sitemap"
 )
+
+func handleArticlesJson(w http.ResponseWriter, r *http.Request) {
+	res := make([]articles.ArticleMetadata, 0)
+	ids := make(map[int]bool)
+
+	for _, articles := range allArticles {
+		for id, article := range articles {
+			if !ids[id] {
+				res = append(res, article.OriginalMetadata)
+				ids[id] = true
+			}
+		}
+	}
+
+	jsonBytes, err := json.Marshal(res)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Println(err)
+		return
+	}
+	w.Write(jsonBytes)
+}
 
 func handleRobots(w http.ResponseWriter, r *http.Request) {
 	lines := make([]string, 0)
@@ -69,7 +93,7 @@ func handleEnglishIndex(w http.ResponseWriter, r *http.Request) {
 	// 	url := mustGetURL("articles", lang)
 	// 	http.Redirect(w, r, url.String(), http.StatusTemporaryRedirect)
 	// }
-	fmt.Println("Handing index")
+	fmt.Println("Handling index")
 	canonicalURL := mustGetURL("index_en", "")
 
 	title := SiteName + " - Knowledge base about Obsessive Compulsive Disorder (OCD)"
