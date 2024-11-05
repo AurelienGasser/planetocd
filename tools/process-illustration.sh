@@ -14,6 +14,6 @@ magick convert -resize 500x\> $1 -set filename:f '%t' "${TMP_DIR}/%[filename:f]_
 magick convert -resize 100x\> $1 -set filename:f '%t' "${TMP_DIR}/%[filename:f]_sm.webp"
 
 # Move to final desination
-mv $1 "${ORIGINALS_DIR}"
+mv $1 "${ORIGINALS_DIR}" || true
 mv "${TMP_DIR}"/* "${OUTPUT_DIR}"
 
