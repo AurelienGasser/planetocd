@@ -15,6 +15,7 @@
             <div class="uk-navbar-center">
                 <ul class="uk-navbar-nav uk-visible@s">
                     <li><a href="{{ .MustGetURL "articles" }}">{{ .T "Articles" }}</a></li>
+                    <li><a href="{{ .MustGetURL "tags" }}">{{ .T "Tags" }}</a></li>
                     <li><a href="{{ .MustGetURL "about" }}">{{ .T "About" }}</a></li>
                     <!-- <li class="uk-active"><a aria-current="page" href="/"><span class="translation_missing" title="translation missing: fr.Articles">Articles</span></a></li> -->
                 </ul>
@@ -32,6 +33,7 @@
                 <div uk-dropdown>
                     <ul class="uk-nav uk-dropdown-nav">
                         <li><a href="{{ .MustGetURL "articles" }}">{{ .T "Articles" }}</a></li>
+                        <li><a href="{{ .MustGetURL "tags" }}">{{ .T "Tags" }}</a></li>
                         <li><a href="{{ .MustGetURL "about" }}">{{ .T "About" }}</a></li>
                         <li class="uk-active uk-margin-top uk-child-width-expand uk-text-center" uk-grid>
                             <div><a href="{{ index .Constants.FacebookURL .Meta.Lang }}" class="uk-icon" uk-icon="facebook"></a></div>

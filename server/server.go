@@ -49,6 +49,7 @@ func registerRoutes(router *mux.Router, port int) {
 	router.PathPrefix("/static/").Handler(http.FileServer(http.FS(staticFS))).Name("static")
 
 	s := router.PathPrefix("/{language}").Subrouter()
+	s.HandleFunc("/tags", handleTags).Name("tags")
 	s.HandleFunc("/about", handleAbout).Name("about")
 	s.HandleFunc("/tag/{tag:[a-z-]+}", handleTag)
 	s.HandleFunc("/tag/{tag:[a-z-]+}/", handleTag).Name("tag")

@@ -4,9 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"maps"
 	"net/http"
 	"net/url"
+	"slices"
+	"sort"
 	"strconv"
+	"strings"
 
 	"github.com/aureliengasser/planetocd/articles"
 	"github.com/aureliengasser/planetocd/server/cache"
@@ -265,4 +269,27 @@ func handleAbout(w http.ResponseWriter, r *http.Request) {
 
 	p := getViewModel(fmt.Sprintf("about_%v", lang), r, canonicalURL, title, "", nil)
 	RenderTemplate(w, p)
+}
+
+func handleTags(w http.ResponseWriter, r *http.Request) {
+	lang := getLang(r)
+	canonicalURL := mustGetURL("tags", lang)
+	title := Translate(lang, "Tags") + " - " + SiteName
+
+	tagsMap := make(map[string]bool)
+	for _, article := range allArticles[lang] {
+		for _, tag := range article.Tags {
+			tagsMap[tag] = true
+		}
+	}
+
+	tags := slices.Collect(maps.Keys(tagsMap))
+	sort.Slice(tags, func(i, j int) bool {
+		return strings.ToLower(TranslateTag(lang, tags[i])) < strings.ToLower(TranslateTag(lang, tags[j]))
+	})
+
+	vm := getViewModel("tags", r, canonicalURL, title, "", nil)
+	vm.Body = tags
+
+	RenderTemplate(w, vm)
 }

@@ -1,0 +1,13 @@
+
+{{define "body"}}
+{{ $viewModel := .Body }}
+
+<h1>{{ .T "Tags" }}</h1>
+
+<div class="uk-margin-bottom">
+    {{- range $tag := $viewModel -}}
+        <div class="uk-margin-small-bottom">{{ $.Tag $tag }}</div>
+    {{end}}
+</div>
+
+{{end}}
