@@ -95,11 +95,11 @@
 </ul>
 {{- end }}
 
-<!-- <%=
+{{- if ne .Lang "fr" }}
 <section class="uk-background-muted uk-padding-small uk-text-center uk-margin-top">
     <div><i>{{ $.Replace ($.ReplaceEmail ($.T "Need_help_prompt")) "#email#" $.Constants.Email 1 }}</i></div>
 </section>
-%> -->
+{{- end }}
 
 {{end}}
 {{end}}
