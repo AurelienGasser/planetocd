@@ -55,8 +55,8 @@ func registerRoutes(router *mux.Router, port int) {
 	s.HandleFunc("/tag/{tag:[a-z-]+}/", handleTag).Name("tag")
 	s.HandleFunc("", handleArticles)
 	s.HandleFunc("/", handleArticles).Name("articles")
-	s.HandleFunc("/articles/{id:[0-9]+}/{slug}/like/update", handleUpdateArticleLike).Name("updateArticleLike").Methods("POST")
-	s.HandleFunc("/articles/{id:[0-9]+}/{slug}/like", handleLikeArticle).Name("likeArticle").Methods("POST")
+	s.HandleFunc("/articles/{id:[0-9]+}/{slug}/like/update", handleUpdateArticleLike).Name("updateArticleLike")
+	s.HandleFunc("/articles/{id:[0-9]+}/{slug}/like", handleLikeArticle).Name("likeArticle")
 	s.HandleFunc("/articles/{id:[0-9]+}/{slug}", handleArticle).Name("article")
 
 	// Load articles
