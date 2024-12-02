@@ -70,12 +70,12 @@
 
 </article>
 
-<!-- <p uk-margin>
+<p uk-margin>
     <a class="uk-button uk-button-default" href="#modal-group-prompt-username" uk-toggle onclick="onClickLike()">{{ $.T "This article helped me" }}</a>
 </p>
 <p>
     <span id="like-count">{{ $viewModel.LikesText $.Meta.Lang }}</span>
-</p> -->
+</p>
 
 {{- if $viewModel.Suggestions }}
 <h4 class="uk-heading-divider" style="margin-top: 20px">{{ $.T "You may also like" }}</h4>
@@ -118,7 +118,6 @@
     let randomNumber = -1;
 
     function onClickLike() {
-        var url = "{{ $viewModel.TestURL }}";
         var url = "{{ $viewModel.LikeURL }}";
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);

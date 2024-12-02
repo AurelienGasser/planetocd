@@ -17,7 +17,6 @@ type articleViewModel struct {
 	Suggestions      []*cache.Article
 	LikeURL          *url.URL
 	UpdateLikeURL    *url.URL
-	TestURL          *url.URL
 	Likes            *likes.ArticleLikes
 }
 

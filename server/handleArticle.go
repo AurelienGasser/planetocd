@@ -65,7 +65,6 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 		Suggestions:      suggestions,
 		LikeURL:          likeURL,
 		UpdateLikeURL:    updateLikeURL,
-		TestURL:          mustGetURL("articles", lang),
 		Likes:            likes,
 	}
 	vm.Body = &articleVM

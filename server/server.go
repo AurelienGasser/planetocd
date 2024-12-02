@@ -20,9 +20,13 @@ var isLocalEnvironment bool
 // Listen ...
 func Listen(port int, isLocal bool) {
 	isLocalEnvironment = isLocal
+	schemes := []string{"https", "http"}
+	if isLocal {
+		schemes = []string{"http"}
+	}
 
 	router = mux.NewRouter().
-		Schemes("http", "https").
+		Schemes(schemes...).
 		Host(getHost(isLocal, port)).
 		Subrouter()
 
