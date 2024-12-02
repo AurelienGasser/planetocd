@@ -118,6 +118,7 @@
     let randomNumber = -1;
 
     function onClickLike() {
+        var url = "{{ $viewModel.TestURL }}";
         var url = "{{ $viewModel.LikeURL }}";
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
