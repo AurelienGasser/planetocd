@@ -25,8 +25,7 @@ func mustGetArticleURL(lang string, id int, slug string) *url.URL {
 }
 
 func mustGetLikeArticleURL(lang string, id int, slug string) *url.URL {
-	// TODO: why is HTTPS required here but not in other places?
-	res, err := router.Get("likeArticle").Schemes("https").URL(
+	res, err := router.Get("likeArticle").URL(
 		"language", lang,
 		"id", strconv.Itoa(id),
 		"slug", slug)
