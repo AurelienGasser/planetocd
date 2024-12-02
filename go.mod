@@ -10,7 +10,7 @@ require (
 	github.com/mozillazg/go-unidecode v0.1.1
 	github.com/snabb/sitemap v1.0.0
 	github.com/urfave/cli/v2 v2.3.0
-	golang.org/x/text v0.3.6
+	golang.org/x/text v0.18.0
 	google.golang.org/api v0.43.0
 	google.golang.org/genproto v0.0.0-20210416161957-9910b6c460de
 	gopkg.in/yaml.v2 v2.4.0
@@ -24,13 +24,17 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-cmp v0.5.5 // indirect
 	github.com/googleapis/gax-go/v2 v2.0.5 // indirect
+	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
+	github.com/jackc/pgx/v5 v5.7.1 // indirect
 	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/snabb/diagio v1.0.0 // indirect
 	go.opencensus.io v0.23.0 // indirect
-	golang.org/x/net v0.0.0-20210316092652-d523dce5a7f4 // indirect
+	golang.org/x/crypto v0.27.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20210313182246-cd4f82c27b84 // indirect
-	golang.org/x/sys v0.0.0-20210320140829-1e4c9ba3b0c4 // indirect
+	golang.org/x/sys v0.25.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/grpc v1.36.1 // indirect
 	google.golang.org/protobuf v1.26.0 // indirect

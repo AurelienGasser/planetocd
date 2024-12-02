@@ -13,7 +13,14 @@ var translationsFS embed.FS
 var translations = make(map[string]map[string]string)
 
 // Translate ...
-func Translate(lang string, key string) string {
+func Translate(lang string, key string, amounts ...int) string {
+	if len(amounts) == 0 || amounts[0] <= 1 {
+		return translations[lang][key]
+	}
+	res := translations[lang][fmt.Sprintf("%v (plural)", key)]
+	if res != "" {
+		return res
+	}
 	return translations[lang][key]
 }
 

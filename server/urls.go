@@ -24,6 +24,29 @@ func mustGetArticleURL(lang string, id int, slug string) *url.URL {
 	return res
 }
 
+func mustGetLikeArticleURL(lang string, id int, slug string) *url.URL {
+	res, err := router.Get("likeArticle").URL(
+		"language", lang,
+		"id", strconv.Itoa(id),
+		"slug", slug)
+	if err != nil {
+		panic(err)
+	}
+	return res
+}
+
+func mustGetUpdateArticleLikeURL(lang string, articleID int, slug string, likeID int) *url.URL {
+	res, err := router.Get("updateArticleLike").URL(
+		"language", lang,
+		"id", strconv.Itoa(articleID),
+		"likeID", strconv.Itoa(likeID),
+		"slug", slug)
+	if err != nil {
+		panic(err)
+	}
+	return res
+}
+
 func mustGetTagURL(lang string, tag string) *url.URL {
 	res, err := router.Get("tag").URL(
 		"language", lang,

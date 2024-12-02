@@ -1,5 +1,6 @@
 {{define "body"}}
 
+
 {{ $viewModel := .Body }}
 {{ $pageIndex := $viewModel.CurrentPageIndex }}
 {{ $article := $viewModel.Article }}
@@ -8,6 +9,7 @@
 <a id="top" class="uk-button uk-button-text" href="{{ .MustGetURL "articles" }}">&#171; {{ .T "All_articles" }}</a>
 
 {{ with $article}}
+
 
 <article class="uk-article article">
     {{ if .Illustration }}
@@ -68,6 +70,13 @@
 
 </article>
 
+<p uk-margin>
+    <a class="uk-button uk-button-default" href="#modal-group-prompt-username" uk-toggle onclick="onClickLike()">{{ $.T "This article helped me" }}</a>
+</p>
+<p>
+    <span id="like-count">{{ $viewModel.LikesText $.Meta.Lang }}</span>
+</p>
+
 {{- if $viewModel.Suggestions }}
 <h4 class="uk-heading-divider" style="margin-top: 20px">{{ $.T "You may also like" }}</h4>
 <ul class="uk-display-block uk-padding-remove-left" uk-margin>
@@ -102,5 +111,64 @@
 {{- end }}
 
 {{end}}
+
+
+<script>
+    let likeId = -1;
+    let randomNumber = -1;
+
+    function onClickLike() {
+        var url = "{{ $viewModel.LikeURL }}";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                ({ likeId, randomNumber } = JSON.parse(xhr.responseText));
+            }
+        }
+    }
+
+    function onClickUpdateLike() {
+        var url = "{{ $viewModel.UpdateLikeURL }}";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({ likeId, randomNumber, userName: document.getElementsByName("userName")[0].value }));
+        xhr.send();
+    }
+
+</script>
+
+<div id="modal-group-prompt-username" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">{{ $.T "Thanks for your feedback" }} ❤️</h2>
+        </div>
+        <div class="uk-modal-body">
+            <p>{{ $.T "What is your first name?" }}</p>
+            <input class="uk-input" type="text" name="userName" placeholder='{{ $.T "Enter your first name or alias" }}'>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">{{ $.T "Close" }}</button>
+            <a href="#modal-group-thank-you" class="uk-button uk-button-primary" uk-toggle onClick="onClickUpdateLike()">{{ $.T "Save" }}</a>
+        </div>
+    </div>
+</div>
+
+<div id="modal-group-thank-you" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">{{ $.T "Thank you!" }} </h2>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">{{ $.T "Close" }}</button>
+        </div>
+    </div>
+</div>
+
 {{end}}
 

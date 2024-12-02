@@ -8,7 +8,7 @@ All_articles: 所有文章
 Translator_notes: 翻译笔记
 Original article: "原版文章:"
 Articles_about_OCD: 关于强迫症的文章
-Articles_about_Obsessive_Compusive_Disorder: 关于强迫症的文章 # OCD == 迫症章 ?
+Articles_about_Obsessive_Compulsive_Disorder: 关于强迫症的文章 # OCD == 迫症章 ?
 Read_more: 阅读更多
 Contribute: 投稿
 Page_Not_Found: 网页未找到
@@ -36,3 +36,17 @@ tag_perinatal: Perinatal OCD # TODO
 tag_about: About OCD # TODO
 You may also like: 你可能也喜欢
 Articles with tag: 有标签的文章 # TODO
+found this article helpful: 发现这篇文章有帮助
+found this article helpful (plural): 发现这篇文章很有帮助
+This article helped me: 这篇文章帮助了我
+Thanks for your feedback: 感谢您的反馈
+What is your first name?: 您的名字是什么？
+Enter your first name or alias: 输入您的名字或别名
+Save: 保存
+Close: 关闭
+Thank you!: 谢谢！
+and: 和
+other: 其他
+other (plural): 其他
+people: 人
+people (plural): 人们

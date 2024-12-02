@@ -32,9 +32,18 @@ Planet OCD is a non-profit website without advertisements. It hasn't received an
 Run locally
 -----------
 
-You need go 1.18 and `lessc` (`npm install -g less`)
+You need
+
+- go 1.23
+- `lessc` (`npm install -g less`)
+- A PostgreSQL database
+- `psql`
 
 ```bash
+# Configure Postgres DB
+export PLANETOCD_DATABASE_URL=postgres://postgres:postgres@localhost:5432/planetocd
+
+# Run the server
 make dev
 ```
 
