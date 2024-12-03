@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 
 	"github.com/aureliengasser/planetocd/server/likes"
 	"github.com/gorilla/mux"
@@ -23,7 +24,11 @@ func handleLikeArticle(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	likeID, randomNumber, err := likes.Save(id, r.RemoteAddr)
+	ip := strings.Join(r.Header[http.CanonicalHeaderKey("CF-Connecting-IP")], ",")
+	if ip == "" {
+		ip = r.RemoteAddr
+	}
+	likeID, randomNumber, err := likes.Save(id, ip)
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
