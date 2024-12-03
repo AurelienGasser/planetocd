@@ -1,6 +1,8 @@
 module github.com/aureliengasser/planetocd
 
-go 1.23
+go 1.23.0
+
+toolchain go1.23.2
 
 require (
 	cloud.google.com/go v0.81.0
@@ -31,6 +33,7 @@ require (
 	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/snabb/diagio v1.0.4 // indirect
+	github.com/x-way/crawlerdetect v0.2.24 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/crypto v0.29.0 // indirect
 	golang.org/x/net v0.21.0 // indirect

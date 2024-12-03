@@ -9,6 +9,7 @@ import (
 
 	"github.com/aureliengasser/planetocd/server/likes"
 	"github.com/gorilla/mux"
+	"github.com/x-way/crawlerdetect"
 )
 
 type LikeArticleResponse struct {
@@ -17,6 +18,10 @@ type LikeArticleResponse struct {
 }
 
 func handleLikeArticle(w http.ResponseWriter, r *http.Request) {
+	if crawlerdetect.IsCrawler(strings.Join(r.Header[http.CanonicalHeaderKey("User-Agent")], "")) {
+		http.NotFound(w, r)
+		return
+	}
 	vars := mux.Vars(r)
 	idStr := vars["id"]
 	id, err := strconv.Atoi(idStr)
@@ -55,6 +60,10 @@ type UpdateArticleLikeRequest struct {
 }
 
 func handleUpdateArticleLike(w http.ResponseWriter, r *http.Request) {
+	if crawlerdetect.IsCrawler(strings.Join(r.Header[http.CanonicalHeaderKey("User-Agent")], "")) {
+		http.NotFound(w, r)
+		return
+	}
 	var req UpdateArticleLikeRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
