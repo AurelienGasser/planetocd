@@ -1,48 +1,71 @@
 {{define "body"}}
 
-<h1>{{ .T "About" }}</h1>
+<style>
+    p {
+        text-align: justify;
+    }
+</style>
+
+<h1>关于Planet OCD</h1>
 
 <p>
-    OCD星球是一个关于强迫症（OCD）的知识库。
+    Planet OCD：强迫症世界中的一缕光芒
 </p>
 
-<h2>我们是谁？</h2>
+<div>
+    <img class="uk-margin-left" style="float: right; height: 160px; clip-path: circle();" src="/static/images/aurelien.jpg"/>
+
+    <h2>我们的故事</h2>
+
+    <div>
+        我叫奥雷连（Aurélien），我与强迫症（OCD）的旅程始于13岁。在康复的道路上，我深刻意识到获取信息对改善状况有多么重要。尽管英语世界拥有丰富的资源，但法语和中文环境中关于强迫症的可及性知识却极其匮乏。
+    </div>
+</div>
+
+<h2>我们的使命</h2>
 
 <p>
-    <img class="uk-margin-left" style="float: right; height: 150px" src="/static/images/aurelien.jpeg"/>
-    我叫Aurélien从13岁开始就患有强迫症。我是法国人，但我已经在美国生活了近10年。我在英语网络上看到了大量关于强迫症的在线资源，我也知道关于强迫症的法语在线信息很匮乏。对于强迫症患者或他们的亲人来说，能够获得不同的、丰富的、高质量的信息是至关重要的。这就是为什么我决定通过创建这个网站，以自己的方式为信息的传播作出贡献。
+    Planet OCD不仅仅是一个网站：它是一个充满同情心的项目。我们致力于提供高质量、经过精心翻译和筛选的信息，面向所有人：患者、家庭、医疗专业人士，以及所有希望理解强迫症的人。
 </p>
 
-<h2>为什么是强迫症星球？</h2>
+<h2>为什么您的支持如此重要</h2>
 
 <p>
-    英语网络上有很多关于强迫症的资源，但中文网络却很难跟上。不幸的是，中文的文章少之又少，强迫症患者很难获得正确的信息。OCD星球旨在帮助解决英文和中文网络之间的这种差异。
-</p>
-
-<p>
-    强迫症星球是为所有人服务的，从普通民众到专业人士。我们的目标是提供不同的、丰富的和高质量的强迫症中文信息。OCD星球上的文章是从英语翻译过来的，并根据其相关性和受欢迎程度进行选择。
-</p>
-
-
-<h2>如何帮助？</h2>
-
-<p>
-    Planet OCD在自愿的基础上将文章从英文翻译成中文和其他语言，免费放在网上。您可以通过提出翻译改进建议来帮助我们：目前这些主要是由自动翻译引擎（谷歌翻译或DeepL）完成的，因此可以通过仔细的人工校对来改进，<b>由那些掌握英语语的人完成。欢迎你的贡献！</b> 请与我联系，<a href="mailto:{{ .Constants.Email }}">{{ .Constants.Email }}</a>。
-</p>
-
-<p>
-    你也可以通过捐款来帮助我们（<a href="{{ .Constants.DonateURL }}">点击这里进行捐款</a>）。我保证，这笔捐款只为Planet OCD网站的目标服务，因为Planet OCD是一个非营利组织。特别是，捐款将用于改善使用专业人工翻译的文章翻译，以及支付托管和租用planetocd.org域名的费用。
-</p>
-
-<p>
-    如果你有编程（Go）、图形（css）或沟通（社交网络）方面的技能，并希望提供帮助，请与我联系，<a href="mailto:{{ .Constants.Email }}">{{ .Constants.Email }}</a>，或访问我们的<a href="{{ .Constants.GithubURL }}">GitHub</a>页面。欢迎任何帮助 :)
+    您的每一笔捐赠都能帮助更多的人。您的贡献使我们能够：
+    <ul>
+        <li>维护和发展这个至关重要的信息平台</li>
+        <li>借助专业人士的帮助翻译文章，确保信息准确且易于理解</li>
+        <li>为最需要帮助的人提供希望和资源</li>
+        <li>打破围绕强迫症的沉默和污名化</li>
+    </ul>
 </p>
 
 <p>
-    最后，一个很好的帮助方式是通过在社交网络上分享文章来推广该网站。
+    <strong>您的捐赠不仅仅是一笔金钱。这是对一个长期缺乏资源的群体表达同情、理解和支持的行动。</strong>
 </p>
 
-<img class="uk-margin-auto uk-display-block uk-margin-large" width="20%" src="/static/images/planet.svg" alt="planeta"/>
+<p>
+<a href="{{ .Constants.DonateURL }}" style="display: block; width: 200px; margin: 20px auto; padding: 10px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold;">
+    立即捐赠
+</a>
+</p>
+
+<h2>其他贡献方式</h2>
+
+<p>
+    您的支持不仅限于经济捐赠：
+    <ul>
+        <li>帮助改进我们的翻译：<a href="mailto:{{ .Constants.Email }}">联系我们</a></li>
+        <li>擅长技术？欢迎加入我们的 <a href="{{ .Constants.GithubURL }}">GitHub 团队</a></li>
+        <li>分享我们的文章，在社交媒体上传播我们的使命</li>
+    </ul>
+</p>
+
+<p>
+    让我们携手共进，一篇文章一篇文章地改变人们对强迫症的认知。
+</p>
+
+<img class="uk-margin-auto uk-display-block uk-margin-large" width="20%" src="/static/images/planet.svg" alt="星球"/>
 
 {{end}}
 

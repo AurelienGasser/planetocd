@@ -1,51 +1,63 @@
 {{define "body"}}
-
 <style>
     p {
         text-align: justify;
     }
 </style>
 
-<h1>Acerca de Planet OCD</h1>
+<h1>Sobre Planet OCD</h1>
 
 <p>
-    Planet OCD es una base de conocimientos sobre el Trastorno Obsesivo Compulsivo (TOC).
+    Planet OCD: Un rayo de luz en la oscuridad de los Trastornos Obsesivo-Compulsivos (TOC)
 </p>
 
-<h2>¿Quiénes somos?</h2>
+<div>
+    <img class="uk-margin-left" style="float: right; height: 160px; clip-path: circle();" src="/static/images/aurelien.jpg"/>
+    <h2>Nuestra Historia</h2>
+    <div>
+        Me llamo Aurélien, y mi recorrido con los TOC comenzó a los 13 años. Durante mi camino hacia la recuperación, comprendí cuán crucial es el acceso a la información para mejorar. Mientras el mundo angloparlante está repleto de recursos valiosos, la comunidad hispanohablante sufría una grave carencia de conocimientos accesibles sobre los TOC.
+    </div>
+</div>
 
+<h2>Nuestra Misión</h2>
 <p>
-    <img class="uk-margin-left" style="float: right; height: 150px" src="/static/images/aurelien.jpeg"/>
-    Me llamo Aurélien, soy francés, y sufro de TOC desde los 13 años. He visto la gran cantidad de recursos en línea sobre el TOC en la web de habla inglesa, y también conozco la escasez de información en línea sobre el TOC en francés. Tener acceso a una información variada, rica y de calidad es esencial para quienes padecen el TOC o para sus seres queridos. Por eso decidí contribuir a mi manera a la difusión de información creando este sitio.
+    Planet OCD es mucho más que un sitio web: es un proyecto de solidaridad. Nos comprometemos a ofrecer información de alta calidad, traducida con esmero y seleccionada por su relevancia, destinada a todos: pacientes, familias, profesionales de salud y cualquier persona interesada en comprender los TOC.
 </p>
 
-<h2>¿Por qué Planet OCD?</h2>
-
+<h2>Por Qué Tu Apoyo Es Importante</h2>
 <p>
-    La web de habla inglesa está llena de recursos sobre el TOC, pero la web de habla hispana tiene dificultades para mantenerse al día. Lamentablemente, los artículos en español son escasos y difíciles de encontrar para las personas con TOC. Planet OCD pretende ayudar a resolver esta disparidad entre la web inglesa y la hispana.
-</p>
-
-<p>
-    Planeta TOC es para todos, tanto para el público en general como para los profesionales. Nuestro objetivo es facilitar el acceso a una información variada, rica y de calidad sobre el TOC en español. Los artículos de Planet OCD están traducidos del inglés y se eligen según su relevancia y popularidad.
-</p>
-
-
-<h2>¿Cómo ayudar?</h2>
-
-<p>
-    Planeta TOC pone en línea de forma gratuita, y de forma voluntaria, artículos traducidos del inglés al español y a otros idiomas. Puede ayudar sugiriendo mejoras en la traducción: actualmente se realizan principalmente mediante motores de traducción automática (Google Translate o DeepL), por lo que pueden mejorarse mediante una revisión humana, por parte de <b>quienes dominan el inglés. ¡Su contribución es bienvenida!</b> Ponte en contacto conmigo en <a href="mailto:{{ .Constants.Email }}">{{ .Constants.Email }}</a>.
-</p>
-
-<p>
-    También puede ayudar haciendo un donativo (<a href="{{ .Constants.DonateURL }}">pulse aquí para hacer un donativo</a>). Esta donación sólo servirá, lo prometo, para los objetivos del sitio web de Planet OCD porque Planet OCD es una organización sin ánimo de lucro. En particular, las donaciones se utilizarán para mejorar la traducción de los artículos mediante traductores humanos profesionales, así como para cubrir los costes de alojamiento y alquiler del nombre de dominio planetocd.org.
+    Cada donación ayuda a personas nuevas. Tu contribución nos permite:
+    <ul>
+        <li>Mantener y desarrollar esta plataforma de información esencial</li>
+        <li>Traducir artículos con la ayuda de profesionales, garantizando precisión y accesibilidad</li>
+        <li>Ofrecer esperanza y recursos a quienes más lo necesitan</li>
+        <li>Romper el silencio y el estigma en torno a los TOC</li>
+    </ul>
 </p>
 
 <p>
-    Si tienes conocimientos de programación (Go), gráficos (css) o comunicación (redes sociales) y quieres ayudar, ponte en contacto conmigo en <a href="mailto:{{ .Constants.Email }}">{{ .Constants.Email }}</a>, o visita nuestra <a href="{{ .Constants.GithubURL }}">página de GitHub</a>. Cualquier ayuda es bienvenida :)
+    <strong>Tu donación no es sólo un gesto financiero. Es un acto de compasión, comprensión y apoyo hacia una comunidad que durante demasiado tiempo ha estado sin recursos.</strong>
 </p>
 
 <p>
-    Por último, una buena forma de ayudar es promocionar el sitio compartiendo los artículos en las redes sociales.
+    <a href="{{ .Constants.DonateURL }}" style="display: block; width: 200px; margin: 20px auto; padding: 10px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold;">
+        DONAR AHORA
+    </a>
+</p>
+
+<h2>Otras Formas de Contribuir</h2>
+
+<p>
+    Las formas de apoyo posibles son varias:
+    <ul>
+        <li>Mejora nuestras traducciones: <a href="mailto:{{ .Constants.Email }}">Contáctanos</a></li>
+        <li>¿Tienes habilidades técnicas? Únete a nuestro equipo en <a href="{{ .Constants.GithubURL }}">GitHub</a></li>
+        <li>Comparte nuestros artículos, difunde nuestra misión en redes sociales</li>
+    </ul>
+</p>
+
+<p>
+    Juntos, podemos mejorar la comprensión de los TOC, un artículo a la vez.
 </p>
 
 <img class="uk-margin-auto uk-display-block uk-margin-large" width="20%" src="/static/images/planet.svg" alt="planeta"/>
