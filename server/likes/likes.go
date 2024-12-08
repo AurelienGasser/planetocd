@@ -10,7 +10,7 @@ import (
 	"github.com/jackc/pgx/v5"
 )
 
-func Save(articleID int, ip string) (int, int32, error) {
+func Save(articleID int, lang string, ip string) (int, int32, error) {
 	conn, err := db.GetDbConnection()
 	if err != nil {
 		fmt.Printf("error while connecting to the DB: %v\n", err)
@@ -20,10 +20,11 @@ func Save(articleID int, ip string) (int, int32, error) {
 	randomNumber := rand.Int32()
 	args := pgx.NamedArgs{
 		"articleID":    articleID,
+		"lang":         lang,
 		"ip":           ip,
 		"randomNumber": randomNumber,
 	}
-	rows, err := conn.Query(context.Background(), "INSERT INTO likes (article_id, ip, random_number) values (@articleID, @ip, @randomNumber) RETURNING id", args)
+	rows, err := conn.Query(context.Background(), "INSERT INTO likes (article_id, lang, ip, random_number) values (@articleID, @lang, @ip, @randomNumber) RETURNING id", args)
 	if err != nil {
 		fmt.Printf("error while inserting like: %v\n", err)
 		return -1, -1, fmt.Errorf("error while inserting like")

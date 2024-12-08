@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS likes(\
     id SERIAL PRIMARY KEY, \
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, \
     article_id INT NOT NULL, \
+    lang VARCHAR(255), \
     ip VARCHAR(255), \
     username VARCHAR(255), \
     random_number INT NOT NULL\

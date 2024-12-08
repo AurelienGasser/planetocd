@@ -24,6 +24,7 @@ func handleLikeArticle(w http.ResponseWriter, r *http.Request) {
 	}
 	vars := mux.Vars(r)
 	idStr := vars["id"]
+	lang := getLang(r)
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.NotFound(w, r)
@@ -33,7 +34,7 @@ func handleLikeArticle(w http.ResponseWriter, r *http.Request) {
 	if ip == "" {
 		ip = r.RemoteAddr
 	}
-	likeID, randomNumber, err := likes.Save(id, ip)
+	likeID, randomNumber, err := likes.Save(id, lang, ip)
 
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
