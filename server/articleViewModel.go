@@ -37,12 +37,15 @@ func (vm *articleViewModel) LikesText(lang string) string {
 }
 
 func LikesText(lang string, userNames []string, anonymousLikes int) string {
-	usernames := strings.Join(userNames, ", ")
-	if usernames != "" {
+	if len(userNames) > 0 {
 		if anonymousLikes == 0 {
-			return usernames + " " + Translate(lang, "found this article helpful", len(userNames))
+			usernamesString := strings.Join(userNames, ", ")
+			if len(userNames) > 1 {
+				usernamesString = strings.Join(userNames[:len(userNames)-1], ", ") + " " + Translate(lang, "and") + " " + userNames[len(userNames)-1]
+			}
+			return usernamesString + " " + Translate(lang, "found this article helpful", len(userNames))
 		}
-		return usernames + " " + Translate(lang, "and") + " " + strconv.Itoa(anonymousLikes) + " " + Translate(lang, "other", anonymousLikes) + " " + Translate(lang, "found this article helpful", 2)
+		return strings.Join(userNames, ", ") + " " + Translate(lang, "and") + " " + strconv.Itoa(anonymousLikes) + " " + Translate(lang, "other", anonymousLikes) + " " + Translate(lang, "found this article helpful", 2)
 	}
 	if anonymousLikes == 0 {
 		return ""
