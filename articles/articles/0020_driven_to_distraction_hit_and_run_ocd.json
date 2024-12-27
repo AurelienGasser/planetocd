@@ -10,8 +10,8 @@
             "pages": [
                 "0020_fr_01.md"
             ],
-            "translators": ["Claude"],
-            "showTranslators": false
+            "translators": ["Aurélien G."],
+            "showTranslators": true
         }
     },
     "image": "020_hit-and-run.webp",
