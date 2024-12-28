@@ -10,12 +10,13 @@ import (
 
 type Article struct {
 	*articles.Article
-	Slug         string
-	URL          *url.URL
-	Illustration *viewModel.ArticleIllustration
-	Pages        []*ArticlePage
-	Tags         []string
-	Translators  []string
+	Slug               string
+	URL                *url.URL
+	Illustration       *viewModel.ArticleIllustration
+	Pages              []*ArticlePage
+	Tags               []string
+	Translators        []string
+	HasHumanTranslator bool
 }
 
 func (a *Article) GetPages() []viewModel.PaginationPage {

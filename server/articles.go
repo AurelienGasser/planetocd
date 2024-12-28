@@ -181,13 +181,23 @@ func newArticle(a *articles.Article) *cache.Article {
 		pages[i] = &ap
 	}
 
+	translators := make([]string, 0)
+	hasHumanTranslator := false
+	for _, translator := range a.Translators {
+		if !translator.IsBot {
+			translators = append(translators, translator.Name)
+			hasHumanTranslator = true
+		}
+	}
+
 	res := &cache.Article{
-		Article:     a,
-		Pages:       pages,
-		Translators: a.Translators,
-		Slug:        slug,
-		Tags:        a.Tags,
-		URL:         mustGetArticleURL(a.Lang, a.ID, slug),
+		Article:            a,
+		Pages:              pages,
+		Translators:        translators,
+		HasHumanTranslator: hasHumanTranslator,
+		Slug:               slug,
+		Tags:               a.Tags,
+		URL:                mustGetArticleURL(a.Lang, a.ID, slug),
 	}
 
 	if a.Image != "" {

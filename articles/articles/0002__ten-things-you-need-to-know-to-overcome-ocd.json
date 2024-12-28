@@ -1,34 +1,48 @@
 {
-    "originalUrl": "https://beyondocd.org/expert-perspectives/articles/ten-things-you-need-to-know-to-overcome-ocd",
-    "originalTitle": "Ten Things You Need To Know To Overcome OCD",
-    "originalAuthor": "Fred Penzel, Ph.D.",
-    "tags": ["recovery", "tips"],
-    "languages": {
-        "es": {
-            "title": "Diez cosas que necesita saber para superar el TOC",
-            "pages": [
-                "0002_es_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
-        },
-        "fr": {
-            "title": "Dix choses que vous devez savoir pour vaincre le TOC",
-            "pages": [
-                "0002_fr_01.md"
-            ],
-            "showTranslators": true,
-            "translators": ["Aurélien G."]
-        },
-        "zh": {
-            "title": "克服强迫症需要知道的十件事",
-            "pages": [
-                "0002_zh_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
+  "originalUrl": "https://beyondocd.org/expert-perspectives/articles/ten-things-you-need-to-know-to-overcome-ocd",
+  "originalTitle": "Ten Things You Need To Know To Overcome OCD",
+  "originalAuthor": "Fred Penzel, Ph.D.",
+  "tags": [
+    "recovery",
+    "tips"
+  ],
+  "languages": {
+    "es": {
+      "title": "Diez cosas que necesita saber para superar el TOC",
+      "pages": [
+        "0002_es_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
         }
+      ]
     },
-    "image": "007_puzzle.webp",
-    "published_date": "2021-01-01T00:00:01.000Z"
+    "fr": {
+      "title": "Dix choses que vous devez savoir pour vaincre le TOC",
+      "pages": [
+        "0002_fr_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Aurélien G."
+        }
+      ]
+    },
+    "zh": {
+      "title": "克服强迫症需要知道的十件事",
+      "pages": [
+        "0002_zh_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
+        }
+      ]
+    }
+  },
+  "image": "007_puzzle.webp",
+  "published_date": "2021-01-01T00:00:01.000Z"
 }

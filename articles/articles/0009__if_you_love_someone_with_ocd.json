@@ -1,18 +1,24 @@
 {
-    "originalUrl": "https://www.self.com/story/ocd-excessive-reassurance-seeking-support/",
-    "originalTitle": "If You Love Someone With OCD, You May Need to Stop Reassuring Them That Everything Is OK",
-    "originalAuthor": "Kavin Senapathy",
-    "languages": {
-        "fr": {
-            "title": "Si vous aimez une personne atteinte d'un trouble obsessionnel-compulsif, vous devriez peut-être cesser de lui assurer que tout va bien",
-            "pages": [
-                "0009_fr_01.md"
-            ],
-            "translators": ["Caroline"],
-            "showTranslators": true
+  "originalUrl": "https://www.self.com/story/ocd-excessive-reassurance-seeking-support/",
+  "originalTitle": "If You Love Someone With OCD, You May Need to Stop Reassuring Them That Everything Is OK",
+  "originalAuthor": "Kavin Senapathy",
+  "languages": {
+    "fr": {
+      "title": "Si vous aimez une personne atteinte d'un trouble obsessionnel-compulsif, vous devriez peut-être cesser de lui assurer que tout va bien",
+      "pages": [
+        "0009_fr_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Caroline"
         }
-    },
-    "image": "012_hold_hands.webp",
-    "published_date": "2023-01-30T22:50:21.400151678-04:00",
-    "tags": ["close-ones", "testimony"]
+      ]
+    }
+  },
+  "image": "012_hold_hands.webp",
+  "published_date": "2023-01-30T22:50:21.400151678-04:00",
+  "tags": [
+    "close-ones",
+    "testimony"
+  ]
 }

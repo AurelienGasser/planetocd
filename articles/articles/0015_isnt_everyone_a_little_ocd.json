@@ -1,20 +1,21 @@
-
-
 {
-    "originalUrl": "https://philmed.pitt.edu/philmed/article/view/19/17",
-    "originalTitle": "Isn’t Everyone a Little OCD? The Epistemic Harms of Wrongful Depathologization",
-    "originalAuthor": "Lucienne Spencer",
-    "languages": {
-        "fr": {
-            "title": "Tout le monde n'a-t-il pas un peu un TOC ?",
-            "pages": [
-                "0015_fr_01.md"
-            ],
-            "translators": ["les bénévoles de l’Association Française de de personnes souffrant de TOC (AFTOC)"],
-            "showTranslators": true
+  "originalUrl": "https://philmed.pitt.edu/philmed/article/view/19/17",
+  "originalTitle": "Isn’t Everyone a Little OCD? The Epistemic Harms of Wrongful Depathologization",
+  "originalAuthor": "Lucienne Spencer",
+  "languages": {
+    "fr": {
+      "title": "Tout le monde n'a-t-il pas un peu un TOC ?",
+      "pages": [
+        "0015_fr_01.md"
+      ],
+      "translators": [
+        {
+          "name": "les bénévoles de l’Association Française de de personnes souffrant de TOC (AFTOC)"
         }
-    },
-    "image": "017_umbrellas.webp",
-    "published_date": "2023-07-08T22:50:21.400151678-04:00",
-    "tags": []
+      ]
+    }
+  },
+  "image": "017_umbrellas.webp",
+  "published_date": "2023-07-08T22:50:21.400151678-04:00",
+  "tags": []
 }

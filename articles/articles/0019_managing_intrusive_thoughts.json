@@ -1,20 +1,24 @@
-
-
 {
-    "originalUrl": "https://www.health.harvard.edu/mind-and-mood/managing-intrusive-thoughts",
-    "originalTitle": "Managing intrusive thoughts",
-    "originalAuthor": "Kelly Bilodeau",
-    "languages": {
-        "fr": {
-            "title": "Gérer les pensées intrusives",
-            "pages": [
-                "0019_fr_01.md"
-            ],
-            "translators": ["Quentin Touloumet"],
-            "showTranslators": true
+  "originalUrl": "https://www.health.harvard.edu/mind-and-mood/managing-intrusive-thoughts",
+  "originalTitle": "Managing intrusive thoughts",
+  "originalAuthor": "Kelly Bilodeau",
+  "languages": {
+    "fr": {
+      "title": "Gérer les pensées intrusives",
+      "pages": [
+        "0019_fr_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Quentin Touloumet"
         }
-    },
-    "image": "013_brain.webp",
-    "published_date": "2024-07-06T22:50:21.400151678-04:00",
-    "tags": ["recovery", "tips"]
+      ]
+    }
+  },
+  "image": "013_brain.webp",
+  "published_date": "2024-07-06T22:50:21.400151678-04:00",
+  "tags": [
+    "recovery",
+    "tips"
+  ]
 }

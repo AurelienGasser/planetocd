@@ -22,7 +22,7 @@
         {{- if .OriginalAuthor }}
         by <em>{{ .OriginalAuthor }}</em>
         {{- end }}
-        {{- if and .Translators .ShowTranslators}}
+        {{- if .HasHumanTranslator }}
         <br>
         {{ $.T "Translated_by" }} </label>
         {{- range $index, $t := .Translators -}}

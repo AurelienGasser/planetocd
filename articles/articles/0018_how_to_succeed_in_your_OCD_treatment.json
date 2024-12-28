@@ -1,36 +1,49 @@
-
-
 {
-    "originalUrl": "https://iocdf.org/",
-    "originalTitle": "How to Succeed in Your OCD Treatment",
-    "originalAuthor": "International OCD Foundation",
-    "languages": {
-        "fr": {
-            "title": "Comment Réussir Votre Traitement Contre le TOC",
-            "pages": [
-                "0018_fr_01.md"
-            ],
-            "translators": ["DeepL"],
-            "showTranslators": false
-        },
-        "es": {
-            "title": "Cómo Tener Éxito en tu Tratamiento para el TOC",
-            "pages": [
-                "0018_es_01.md"
-            ],
-            "translators": ["DeepL"],
-            "showTranslators": false
-        },
-        "zh": {
-            "title": "如何成功治疗强迫症",
-            "pages": [
-                "0018_zh_01.md"
-            ],
-            "translators": ["DeepL"],
-            "showTranslators": false
+  "originalUrl": "https://iocdf.org/",
+  "originalTitle": "How to Succeed in Your OCD Treatment",
+  "originalAuthor": "International OCD Foundation",
+  "languages": {
+    "fr": {
+      "title": "Comment Réussir Votre Traitement Contre le TOC",
+      "pages": [
+        "0018_fr_01.md"
+      ],
+      "translators": [
+        {
+          "name": "DeepL",
+          "isBot": true
         }
+      ]
     },
-    "image": "007_puzzle.webp",
-    "published_date": "2024-03-26T22:50:21.400151678-04:00",
-    "tags": ["recovery", "tips"]
+    "es": {
+      "title": "Cómo Tener Éxito en tu Tratamiento para el TOC",
+      "pages": [
+        "0018_es_01.md"
+      ],
+      "translators": [
+        {
+          "name": "DeepL",
+          "isBot": true
+        }
+      ]
+    },
+    "zh": {
+      "title": "如何成功治疗强迫症",
+      "pages": [
+        "0018_zh_01.md"
+      ],
+      "translators": [
+        {
+          "name": "DeepL",
+          "isBot": true
+        }
+      ]
+    }
+  },
+  "image": "007_puzzle.webp",
+  "published_date": "2024-03-26T22:50:21.400151678-04:00",
+  "tags": [
+    "recovery",
+    "tips"
+  ]
 }

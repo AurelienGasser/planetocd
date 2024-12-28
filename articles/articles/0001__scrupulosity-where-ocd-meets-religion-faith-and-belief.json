@@ -1,40 +1,53 @@
 {
-    "originalUrl": "https://ocdla.com/scrupulosity-ocd-religion-faith-belief-2107",
-    "originalTitle": "Scrupulosity: Where OCD Meets Religion, Faith, and Belief",
-    "originalAuthor": "Kevin Foss; Tom Corboy",
-    "tags": ["religion"],
-    "languages": {
-        "es": {
-            "title": "Obsesión religiosa: cuando el TOC se mezcla con la religión y la fe",
-            "pages": [
-                "0001_es_01.md",
-                "0001_es_02.md",
-                "0001_es_03.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
-        },
-        "fr": {
-            "title": "Obsession Religieuse: Quand les TOC se mêlent à la religion et à la foi",
-            "pages": [
-                "0001_fr_01.md",
-                "0001_fr_02.md",
-                "0001_fr_03.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate", "Aurélien G."]
-        },
-        "zh": {
-            "title": "宗教迷恋：强迫症与宗教和信仰纠缠在一起",
-            "pages": [
-                "0001_zh_01.md",
-                "0001_zh_02.md",
-                "0001_zh_03.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
+  "originalUrl": "https://ocdla.com/scrupulosity-ocd-religion-faith-belief-2107",
+  "originalTitle": "Scrupulosity: Where OCD Meets Religion, Faith, and Belief",
+  "originalAuthor": "Kevin Foss; Tom Corboy",
+  "tags": [
+    "religion"
+  ],
+  "languages": {
+    "es": {
+      "title": "Obsesión religiosa: cuando el TOC se mezcla con la religión y la fe",
+      "pages": [
+        "0001_es_01.md",
+        "0001_es_02.md",
+        "0001_es_03.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
         }
+      ]
     },
-    "image": "008_prayer.webp",
-    "published_date": "2021-10-03T00:00:00.000Z"
+    "fr": {
+      "title": "Obsession Religieuse: Quand les TOC se mêlent à la religion et à la foi",
+      "pages": [
+        "0001_fr_01.md",
+        "0001_fr_02.md",
+        "0001_fr_03.md"
+      ],
+      "translators": [
+        {
+          "name": "Aurélien G."
+        }
+      ]
+    },
+    "zh": {
+      "title": "宗教迷恋：强迫症与宗教和信仰纠缠在一起",
+      "pages": [
+        "0001_zh_01.md",
+        "0001_zh_02.md",
+        "0001_zh_03.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
+        }
+      ]
+    }
+  },
+  "image": "008_prayer.webp",
+  "published_date": "2021-10-03T00:00:00.000Z"
 }

@@ -1,34 +1,47 @@
 {
-    "originalUrl": "https://www.madeofmillions.com/articles/12-signs-that-you-might-have-sexual-orientation-ocd",
-    "originalTitle": "12 Signs That You Might Have Sexual Orientation OCD",
-    "originalAuthor": "Dr. Jan Weiner",
-    "tags": ["gay-ocd"],
-    "languages": {
-        "es": {
-            "title": "12 señales de que puede tener TOC de orientación sexual",
-            "pages": [
-                "0003_es_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
-        },
-        "fr": {
-            "title": "12 signes que vous pourriez avoir un TOC d'orientation sexuelle",
-            "pages": [
-                "0003_fr_01.md"
-            ],
-            "showTranslators": true,
-            "translators": ["Aurélien G."]
-        },
-        "zh": {
-            "title": "您可能有性取向的12个迹象",
-            "pages": [
-                "0003_zh_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
+  "originalUrl": "https://www.madeofmillions.com/articles/12-signs-that-you-might-have-sexual-orientation-ocd",
+  "originalTitle": "12 Signs That You Might Have Sexual Orientation OCD",
+  "originalAuthor": "Dr. Jan Weiner",
+  "tags": [
+    "gay-ocd"
+  ],
+  "languages": {
+    "es": {
+      "title": "12 señales de que puede tener TOC de orientación sexual",
+      "pages": [
+        "0003_es_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
         }
+      ]
     },
-    "image": "002_identity.webp",
-    "published_date": "2021-01-01T00:00:00.000Z"
+    "fr": {
+      "title": "12 signes que vous pourriez avoir un TOC d'orientation sexuelle",
+      "pages": [
+        "0003_fr_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Aurélien G."
+        }
+      ]
+    },
+    "zh": {
+      "title": "您可能有性取向的12个迹象",
+      "pages": [
+        "0003_zh_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
+        }
+      ]
+    }
+  },
+  "image": "002_identity.webp",
+  "published_date": "2021-01-01T00:00:00.000Z"
 }

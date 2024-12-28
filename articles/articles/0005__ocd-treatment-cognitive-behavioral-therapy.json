@@ -1,34 +1,48 @@
 {
-    "originalUrl": "http://ocdla.com/cognitivebehavioraltherapy",
-    "originalTitle": "OCD Treatment: Cognitive-Behavioral Therapy",
-    "originalAuthor": "",
-    "tags": ["recovery", "cbt"],
-    "languages": {
-        "es": {
-            "title": "Tratamiento del TOC: terapia cognitivo-conductual",
-            "pages": [
-                "0005_es_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
-        },
-        "fr": {
-            "title": "Traitement des TOC: thérapie cognitivo-comportementale",
-            "pages": [
-                "0005_fr_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Aurélien G.", "Google Translate"]
-        },
-        "zh": {
-            "title": "强迫症治疗：认知行为疗法",
-            "pages": [
-                "0005_zh_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
+  "originalUrl": "http://ocdla.com/cognitivebehavioraltherapy",
+  "originalTitle": "OCD Treatment: Cognitive-Behavioral Therapy",
+  "originalAuthor": "",
+  "tags": [
+    "recovery",
+    "cbt"
+  ],
+  "languages": {
+    "es": {
+      "title": "Tratamiento del TOC: terapia cognitivo-conductual",
+      "pages": [
+        "0005_es_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
         }
+      ]
     },
-    "image": "003_sunset.webp",
-    "published_date": "0001-01-01T00:00:00Z"
+    "fr": {
+      "title": "Traitement des TOC: thérapie cognitivo-comportementale",
+      "pages": [
+        "0005_fr_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Aurélien G."
+        }
+      ]
+    },
+    "zh": {
+      "title": "强迫症治疗：认知行为疗法",
+      "pages": [
+        "0005_zh_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
+        }
+      ]
+    }
+  },
+  "image": "003_sunset.webp",
+  "published_date": "0001-01-01T00:00:00Z"
 }

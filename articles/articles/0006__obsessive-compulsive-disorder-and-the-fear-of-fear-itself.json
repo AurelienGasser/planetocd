@@ -1,36 +1,48 @@
 {
-    "originalUrl": "http://www.psychedinsanfrancisco.com/obsessive-compulsive-disorder-and-the-fear-of-fear-itself/",
-    "originalTitle": "Obsessive-Compulsive Disorder and “The Fear of Fear Itself.”",
-    "originalAuthor": "Ursula Steck",
-    "tags": ["recovery", "act"],
-    "languages": {
-        "es": {
-            "title": "Trastorno obsesivo-compulsivo y \"El miedo al miedo en sí mismo\"",
-            "pages": [
-                "0006_es_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
-        },
-        "fr": {
-            "title": "Trouble obsessionnel-compulsif et « La peur de la peur elle-même »",
-            "showTranslators": true,
-            "translators": [
-                "Aude Grezy"
-            ],
-            "pages": [
-                "0006_fr_01.md"
-            ]
-        },
-        "zh": {
-            "title": "强迫症和“对恐惧本身的恐惧”",
-            "pages": [
-                "0006_zh_01.md"
-            ],
-            "showTranslators": false,
-            "translators": ["Google Translate"]
+  "originalUrl": "http://www.psychedinsanfrancisco.com/obsessive-compulsive-disorder-and-the-fear-of-fear-itself/",
+  "originalTitle": "Obsessive-Compulsive Disorder and “The Fear of Fear Itself.”",
+  "originalAuthor": "Ursula Steck",
+  "tags": [
+    "recovery",
+    "act"
+  ],
+  "languages": {
+    "es": {
+      "title": "Trastorno obsesivo-compulsivo y \"El miedo al miedo en sí mismo\"",
+      "pages": [
+        "0006_es_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
         }
+      ]
     },
-    "image": "005_anxiety.webp",
-    "published_date": "2021-10-24T09:44:20.818863818-04:00"
+    "fr": {
+      "title": "Trouble obsessionnel-compulsif et « La peur de la peur elle-même »",
+      "translators": [
+        {
+          "name": "Aude Grezy"
+        }
+      ],
+      "pages": [
+        "0006_fr_01.md"
+      ]
+    },
+    "zh": {
+      "title": "强迫症和“对恐惧本身的恐惧”",
+      "pages": [
+        "0006_zh_01.md"
+      ],
+      "translators": [
+        {
+          "name": "Google Translate",
+          "isBot": true
+        }
+      ]
+    }
+  },
+  "image": "005_anxiety.webp",
+  "published_date": "2021-10-24T09:44:20.818863818-04:00"
 }
