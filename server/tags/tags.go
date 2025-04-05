@@ -1,7 +1,11 @@
 package tags
 
 import (
+	"maps"
+	"slices"
+
 	"github.com/aureliengasser/planetocd/articles"
+	"github.com/aureliengasser/planetocd/server/cache"
 	"github.com/aureliengasser/planetocd/server/languages"
 )
 
@@ -38,4 +42,14 @@ func init() {
 			i++
 		}
 	}
+}
+
+func GetAllTags(lang string, allArticles map[string]map[int]*cache.Article) []string {
+	tagsMap := make(map[string]bool)
+	for _, article := range allArticles[lang] {
+		for _, tag := range article.Tags {
+			tagsMap[tag] = true
+		}
+	}
+	return slices.Collect(maps.Keys(tagsMap))
 }

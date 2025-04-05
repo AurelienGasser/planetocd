@@ -4,13 +4,22 @@ import (
 	"html/template"
 	"net/http"
 	"net/url"
+	"sort"
+	"strings"
 
 	"github.com/aureliengasser/planetocd/server/cache"
+	"github.com/aureliengasser/planetocd/server/tags"
 	"github.com/aureliengasser/planetocd/server/viewModel"
 )
 
-func NewArticles(currentPageIndex int, pages []*ArticlesPage, articles []*ArticlesArticle) *Articles {
+func NewArticles(lang string, currentPageIndex int, pages []*ArticlesPage, articles []*ArticlesArticle) *Articles {
+	tags := tags.GetAllTags(lang, allArticles)
+	sort.Slice(tags, func(i, j int) bool {
+		return strings.ToLower(TranslateTag(lang, tags[i])) < strings.ToLower(TranslateTag(lang, tags[j]))
+	})
+
 	res := &Articles{
+		Tags:             tags,
 		CurrentPageIndex: currentPageIndex,
 		Pages:            pages,
 		Articles:         articles,
@@ -20,6 +29,7 @@ func NewArticles(currentPageIndex int, pages []*ArticlesPage, articles []*Articl
 }
 
 type Articles struct {
+	Tags             []string
 	CurrentPageIndex int
 	Pagination       *viewModel.Pagination
 	Pages            []*ArticlesPage
@@ -99,6 +109,6 @@ func handleArticles(w http.ResponseWriter, r *http.Request) {
 			URL:        getArticlesCanonicalURL(baseURL, i+1),
 		}
 	}
-	p.Body = NewArticles(pageIndex, pageVms, articles)
+	p.Body = NewArticles(lang, pageIndex, pageVms, articles)
 	RenderTemplate(w, p)
 }

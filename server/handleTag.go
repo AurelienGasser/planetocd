@@ -61,6 +61,6 @@ func handleTag(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	p.Body = NewTag(tag, NewArticles(pageIndex, pageVms, articles))
+	p.Body = NewTag(tag, NewArticles(lang, pageIndex, pageVms, articles))
 	RenderTemplate(w, p)
 }

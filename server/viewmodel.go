@@ -86,5 +86,16 @@ func (p *ViewModel) ReplaceURLPatternTemplate(s template.HTML, needle string, ur
 }
 
 func (p *ViewModel) Tag(tag string) template.HTML {
-	return template.HTML(fmt.Sprintf("<a href=\"%v\"><span class=\"uk-label uk-label-success\">%v</span></a>", mustGetTagURL(p.Meta.Lang, tag), p.TranslateTag(tag)))
+	return template.HTML(fmt.Sprintf("<a href=\"%v\"><span class=\"uk-label uk-label-success\">%v</span></a>", p.TagURL(tag), p.TranslateTag(tag)))
+}
+
+func (p *ViewModel) TagURL(tag string) *url.URL {
+	return mustGetTagURL(p.Meta.Lang, tag)
+}
+
+func (p *ViewModel) UpperFirst(s string) string {
+	if len(s) == 0 {
+		return ""
+	}
+	return strings.ToUpper(s[0:1]) + s[1:]
 }

@@ -3,6 +3,21 @@
 <!-- <% content_for :title, Constants::SITE_NAME + " - " + (t :Articles_about_Obsessive_Compulsive_Disorder) %>
 <% content_for :meta_description, (t :Home_meta) %> -->
 
+<div class="uk-margin">
+    <div uk-form-custom="target: > * > span:first-child">
+        <select onchange="window.location.href=this.value">
+            <option value="">{{ $.T "Tags" }}...</option>
+            {{- range $tag := .Body.Tags -}}
+                <option value={{ $.TagURL $tag }}>{{ $.UpperFirst ($.TranslateTag $tag) }}</option>
+            {{ end }}
+        </select>
+        <button class="uk-button uk-button-default" type="button" tabindex="-1">
+            <span></span>
+            <span uk-icon="icon: chevron-down"></span>
+        </button>
+    </div>
+</div>
+
 {{template "article_list" .  }}
 
 {{end}}

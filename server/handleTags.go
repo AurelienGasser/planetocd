@@ -1,11 +1,11 @@
 package server
 
 import (
-	"maps"
 	"net/http"
-	"slices"
 	"sort"
 	"strings"
+
+	"github.com/aureliengasser/planetocd/server/tags"
 )
 
 func NewTag(tag_ string, articles *Articles) *tag {
@@ -25,14 +25,7 @@ func handleTags(w http.ResponseWriter, r *http.Request) {
 	canonicalURL := mustGetURL("tags", lang)
 	title := Translate(lang, "Tags") + " - " + SiteName
 
-	tagsMap := make(map[string]bool)
-	for _, article := range allArticles[lang] {
-		for _, tag := range article.Tags {
-			tagsMap[tag] = true
-		}
-	}
-
-	tags := slices.Collect(maps.Keys(tagsMap))
+	tags := tags.GetAllTags(lang, allArticles)
 	sort.Slice(tags, func(i, j int) bool {
 		return strings.ToLower(TranslateTag(lang, tags[i])) < strings.ToLower(TranslateTag(lang, tags[j]))
 	})

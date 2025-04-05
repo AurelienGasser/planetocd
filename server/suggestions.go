@@ -3,7 +3,6 @@ package server
 import (
 	"math/rand"
 	"sort"
-	"time"
 
 	"github.com/aureliengasser/planetocd/server/cache"
 )
@@ -25,7 +24,6 @@ func getArticleSuggestions(cur *cache.Article) ([]*cache.Article, error) {
 	}
 
 	// shuffle list
-	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle(len(list), func(i, j int) { list[i], list[j] = list[j], list[i] })
 
 	// sort list by number of common tags
