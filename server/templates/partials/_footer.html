@@ -3,7 +3,7 @@
 <footer class="uk-background-muted site-footer">
     <div class="site-footer-content uk-flex uk-flex-center">
         <a href="{{ index .Constants.FacebookURL .Meta.Lang }}" class="uk-hidden@s uk-icon uk-margin-small-right" uk-icon="facebook"></a>
-        <a href="{{ .Constants.TwitterHost }}{{ index .Constants.TwitterHandle .Meta.Lang }}" class="uk-hidden@s uk-icon uk-margin-small-right" uk-icon="twitter"></a>
+        {{ if not (eq (index .Constants.BlueskyURL .Meta.Lang) "") }}<a href="{{ index .Constants.BlueskyURL .Meta.Lang }}" class="uk-hidden@s uk-icon uk-margin-small-right" uk-icon="bluesky"></a>{{ end }}
         <span class="uk-hidden@s">&#xb7;&nbsp;</span>
         <a href="{{ .MustGetURL "articles" }}">{{ .T "Articles" }}</a>
         &nbsp;&#xb7;&nbsp;

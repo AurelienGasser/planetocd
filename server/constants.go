@@ -30,12 +30,8 @@ const GoogleAnalyticsID = "UA-137169000-1"
 const SiteName = "Planet OCD"
 
 // ...
-var TwitterHandle = map[string]string{"fr": "PlanetOCD_fr",
-	"es": "PlanetOCD_es",
-	"zh": "PlanetOCD_zh"}
-
-// ...
-var TwitterHost = "https://twitter.com/"
+var BlueskyURL = map[string]string{"fr": "https://bsky.app/profile/planetocd-fr.bsky.social",
+	"es": "https://bsky.app/profile/planetocd-es.bsky.social"}
 
 // ...
 var PetitionURL = "https://www.change.org/p/1er-ministre-jean-castex-et-ministre-de-la-sant%C3%A9-olivier-v%C3%A9ran-toc-am%C3%A9liorer-la-prise-en-charge-par-les-services-de-sant%C3%A9"
@@ -54,8 +50,7 @@ var Constants = map[string]interface{}{
 	"GithubContributeURL":     GithubContributeURL,
 	"GoogleAnalyticsID":       GoogleAnalyticsID,
 	"SiteName":                SiteName,
-	"TwitterHandle":           TwitterHandle,
-	"TwitterHost":             TwitterHost,
+	"BlueskyURL":              BlueskyURL,
 	"PetitionURL":             PetitionURL,
 	"DismissBannerCookieName": DismissBannerCookieName,
 }
