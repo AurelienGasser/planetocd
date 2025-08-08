@@ -15,7 +15,8 @@ const Email = "aurelien.ocd@gmail.com"
 // ...
 var FacebookURL = map[string]string{"fr": "https://www.facebook.com/PlanetOCDfr",
 	"es": "https://www.facebook.com/Planet-OCD-Trastorno-Obsesivo-Compulsivo-TOC-106315328115819",
-	"zh": "https://www.facebook.com/Planet-OCD-%E5%85%B3%E4%BA%8E%E5%BC%BA%E8%BF%AB%E7%97%87%E7%9A%84%E6%96%87%E7%AB%A0-103706645049739"}
+	// "zh": "https://www.facebook.com/Planet-OCD-%E5%85%B3%E4%BA%8E%E5%BC%BA%E8%BF%AB%E7%97%87%E7%9A%84%E6%96%87%E7%AB%A0-103706645049739"
+}
 
 // ...
 const GithubURL = "https://github.com/momow/planetocd"

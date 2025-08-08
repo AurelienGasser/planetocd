@@ -58,6 +58,9 @@ func loadArticle(id int, metadataFile string) {
 
 	// Load each language
 	for lang := range metadata.Languages {
+		if lang == "zh" {
+			return
+		}
 		if len(lang) != 2 {
 			log.Panic("Invalid lang: " + lang)
 		}

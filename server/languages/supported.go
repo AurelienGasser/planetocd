@@ -9,25 +9,25 @@ var LanguageMatcher language.Matcher
 func init() {
 	frBase, _ := language.French.Base()
 	esBase, _ := language.Spanish.Base()
-	zhBase, _ := language.Chinese.Base()
+	// zhBase, _ := language.Chinese.Base()
 
 	SupportedLanguages = []string{
 		"fr",
 		"es",
-		"zh",
+		// "zh",
 	}
 
 	LangBaseToLang = map[language.Base]string{
 		frBase: "fr",
 		esBase: "es",
-		zhBase: "zh",
+		// zhBase: "zh",
 	}
 
 	matcherLanguages := [...]language.Tag{
 		language.English,
 		language.French,
 		language.Spanish,
-		language.Chinese,
+		// language.Chinese,
 	}
 
 	LanguageMatcher = language.NewMatcher(matcherLanguages[:])
